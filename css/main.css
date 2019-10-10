@@ -1,0 +1,59 @@
+/* ==========================================================================
+  Main StyleSheet
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   Color Pallete
+   --------------
+
+   rgb(170, 200, 206): Very light blue, Used with: Horizontal rule
+   ------------------------------------------------------------------------- */
+   
+
+
+   /* -------------------------------------------------------------------------
+   Global Styles
+   ------------------------------------------------------------------------- */
+
+
+  html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  ::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+  
+  ::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgb(170, 200, 206);
+    margin: 1em 0;
+    padding: 0;
+  }
+
+audio, iframe, img, video {
+  vertical-align: middle;
+}

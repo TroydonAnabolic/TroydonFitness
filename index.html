@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <title></title>
   <meta name="title" content="Troydon Fitness" />
-  <meta name="description" content="Troydon Fitness is a personal training website. The website consists of selling personal training sessions, training routines and diets.">
+  <meta name="description"
+    content="Troydon Fitness is a personal training website. The website consists of selling personal training sessions, training routines and diets.">
   <meta name="keywords" content="Personal Training" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -14,85 +15,60 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  
+  <script src="https://use.fontawesome.com/ed77362d70.js"></script>
+
 </head>
 
 <body>
 
   <header>
-      <!-- navbar navbar-dark navbar-2 bg-primary mb-4 
-      
-      <div class="animated-icon3"><span></span><span></span><span></span></div>
+    <!-- navbar navbar-dark navbar-2 bg-primary mb-4 
+      navbar navbar-dark  indigo darken-2
       -->
- <!--Navbar-->
-<nav class="navbar navbar-light amber lighten-4 mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark indigo darken-2">
+      <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Troydon Fitness</a>
+        <!-- Collapse button -->
+        <button class="navbar-toggler third-button myFakeClass" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent22" aria-controls="navbarSupportedContent22" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <div class="animated-icon3"><span></span><span></span><span></span></div>
+        </button>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent22">
 
-    <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">Navbar</a>
-  
-    <!-- Collapse button -->
-    <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
-      aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon1"><span></span><span></span><span></span></div>
-    </button>
-  
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent20">
-  
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">//to change
-        <li class="nav-item active"> // to change
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-      </ul>
-      <!-- Links -->
-  
-    </div>
-    <!-- Collapsible content -->
-  
-  </nav>
-  <!--/.Navbar-->
-  
-  <!--Navbar-->
-  <nav class="navbar navbar-dark red lighten-1 mb-4">
-  
-    <!-- Navbar brand -->
-    <a class="navbar-brand" href="#">Navbar</a>
-  
-    <!-- Collapse button -->
-    <button class="navbar-toggler second-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent23"
-      aria-controls="navbarSupportedContent23" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon2"><span></span><span></span><span></span><span></span></div>
-    </button>
-  
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent23">
-  
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-      </ul>
-      <!-- Links -->
-  
-    </div>
-    <!-- Collapsible content -->
-  
-  </nav>
-  <!--/.Navbar-->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="font-size: 1.5rem;">
+                ☰
+              </a>
+              <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+              <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Home<span class="sr-only">(current)</span></a>
+                <a class="dropdown-item" href="#">Products</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Gallery</a>
+                <a class="dropdown-item" href="#">About</a>
+                <a class="dropdown-item" href="#">Contact</a>
+
+                <div class="dropdown-right  mr-auto">
+                    <div class="search-container">
+                        <form action="/Search.cshtml">
+                            <input type="search" placeholder="Search.." name="search" class="hidden search-input">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                            <button><i class="fa fa-shopping-cart"></i></button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- <div style="flex-direction: row">
     <h3>Troydon Fitness</h3>
@@ -104,33 +80,58 @@
         </div>
     </div> -->
 
-    
-        
+
+
   </header>
 
   <main>
 
-      <section> <p>My Mission</p>
-        
-        <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
-     </section>
+    <section>
+      <p>My Mission</p>
 
-    <section> <p>Subscribe to the newsletter</p>
-      <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
-   </section>
+      <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce
+        vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
+    </section>
 
-    <section><p>From the Blog</p>
+    <section>
+      <p>Subscribe to the newsletter</p>
+      <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce
+        vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
+    </section>
+
+    <section>
+      <p>From the Blog</p>
       <p>
-          Aliquam maximus libero vel dui mollis aliquam. Ut ac condimentum nunc, eu semper libero. Maecenas ac viverra purus. Fusce consequat maximus justo eget pulvinar. Mauris sed vulputate quam. Sed a augue arcu. Aenean ultricies pulvinar risus, sed sollicitudin ante eleifend eget. Suspendisse potenti. Suspendisse risus ante, porta vitae pulvinar vitae, aliquet id nunc. Nullam a auctor erat. Quisque id rutrum orci, eget rhoncus nibh. Aenean aliquet lorem dui, quis lobortis ipsum vestibulum et. Nam pretium dolor eu accumsan placerat. Ut id lectus et orci feugiat ullamcorper. Phasellus sit amet tellus magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Aliquam maximus libero vel dui mollis aliquam. Ut ac condimentum nunc, eu semper libero. Maecenas ac viverra
+        purus. Fusce consequat maximus justo eget pulvinar. Mauris sed vulputate quam. Sed a augue arcu. Aenean
+        ultricies pulvinar risus, sed sollicitudin ante eleifend eget. Suspendisse potenti. Suspendisse risus ante,
+        porta vitae pulvinar vitae, aliquet id nunc. Nullam a auctor erat. Quisque id rutrum orci, eget rhoncus nibh.
+        Aenean aliquet lorem dui, quis lobortis ipsum vestibulum et. Nam pretium dolor eu accumsan placerat. Ut id
+        lectus et orci feugiat ullamcorper. Phasellus sit amet tellus magna. Orci varius natoque penatibus et magnis dis
+        parturient montes, nascetur ridiculus mus.
 
-          Nulla facilisi. Nulla at massa velit. Mauris quis faucibus magna. Fusce enim lorem, feugiat dignissim sem id, aliquam ullamcorper nunc. Cras scelerisque dolor sed pretium placerat. Sed ac ultricies tortor. Nulla pellentesque sem vitae convallis dapibus. Mauris ac est id ipsum molestie euismod. Nulla semper enim ut quam pretium, eget pulvinar mi vulputate. Vestibulum scelerisque orci justo, accumsan porta libero lacinia nec. Mauris accumsan efficitur lacus, ac ullamcorper ipsum. Quisque ipsum ante, vestibulum in ornare vitae, lacinia vitae nisi. Nam tempor laoreet iaculis. Nullam a augue tempor, consequat est ut, gravida urna.
-          
-          Donec porttitor at purus commodo imperdiet. Duis lacus risus, luctus in lobortis et, bibendum vitae ex. Etiam efficitur blandit eros, vel luctus dui posuere et. Aenean ut enim a ipsum consequat euismod at ut tellus. Mauris imperdiet massa ut metus laoreet, eu dignissim magna molestie. Morbi suscipit turpis ex, consequat scelerisque ipsum tristique sed. Ut nec tristique sem, luctus efficitur massa. Aliquam fermentum nibh sit amet sapien porttitor, ut semper tellus pharetra. Pellentesque eget mauris laoreet, feugiat eros consequat, ornare est. Curabitur tempus sollicitudin felis nec efficitur. Nullam nec nibh rhoncus, malesuada velit et, tempus mauris. Morbi vel vehicula orci. Cras ornare molestie lectus. Maecenas id justo a sapien porttitor egestas non luctus nunc. 
+        Nulla facilisi. Nulla at massa velit. Mauris quis faucibus magna. Fusce enim lorem, feugiat dignissim sem id,
+        aliquam ullamcorper nunc. Cras scelerisque dolor sed pretium placerat. Sed ac ultricies tortor. Nulla
+        pellentesque sem vitae convallis dapibus. Mauris ac est id ipsum molestie euismod. Nulla semper enim ut quam
+        pretium, eget pulvinar mi vulputate. Vestibulum scelerisque orci justo, accumsan porta libero lacinia nec.
+        Mauris accumsan efficitur lacus, ac ullamcorper ipsum. Quisque ipsum ante, vestibulum in ornare vitae, lacinia
+        vitae nisi. Nam tempor laoreet iaculis. Nullam a augue tempor, consequat est ut, gravida urna.
+
+        Donec porttitor at purus commodo imperdiet. Duis lacus risus, luctus in lobortis et, bibendum vitae ex. Etiam
+        efficitur blandit eros, vel luctus dui posuere et. Aenean ut enim a ipsum consequat euismod at ut tellus. Mauris
+        imperdiet massa ut metus laoreet, eu dignissim magna molestie. Morbi suscipit turpis ex, consequat scelerisque
+        ipsum tristique sed. Ut nec tristique sem, luctus efficitur massa. Aliquam fermentum nibh sit amet sapien
+        porttitor, ut semper tellus pharetra. Pellentesque eget mauris laoreet, feugiat eros consequat, ornare est.
+        Curabitur tempus sollicitudin felis nec efficitur. Nullam nec nibh rhoncus, malesuada velit et, tempus mauris.
+        Morbi vel vehicula orci. Cras ornare molestie lectus. Maecenas id justo a sapien porttitor egestas non luctus
+        nunc.
       </p>
     </section>
 
-    <section> <p>From the Blog</p>
-       <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
+    <section>
+      <p>From the Blog</p>
+      <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce
+        vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
     </section>
 
   </main>
@@ -139,26 +140,33 @@
 
   <footer class="page-footer font-small blue">
 
-  <p> Connect with me </p>
+    <p> Connect with me </p>
 
-  accumsan, felis at accumsan bibendum, leo arcu cursus purus, vel porta massa diam in justo. Proin finibus lacus eget nibh placerat ultrices. Donec mattis blandit felis, sed interdum enim sagittis nec. Duis tempor purus id dui euismod consectetur. Vivamus tempus nisl ut lacus posuere, sed fermentum metus lobortis. Praesent suscipit tempus turpis, eget congue odio lobortis ut. Etiam eu ex condimentum, pulvinar nisl eg
+    accumsan, felis at accumsan bibendum, leo arcu cursus purus, vel porta massa diam in justo. Proin finibus lacus eget
+    nibh placerat ultrices. Donec mattis blandit felis, sed interdum enim sagittis nec. Duis tempor purus id dui euismod
+    consectetur. Vivamus tempus nisl ut lacus posuere, sed fermentum metus lobortis. Praesent suscipit tempus turpis,
+    eget congue odio lobortis ut. Etiam eu ex condimentum, pulvinar nisl eg
   </footer>
-    
-    <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-  
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-      ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
-  </body>
-  
-  </html>
-  
+
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>

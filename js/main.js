@@ -1,17 +1,27 @@
+// Toggle search bar
+$(document).ready(function () {
+    $(".fa-search").hover(function () {
+        $("input").toggleClass("hidden");
+    });
+});
+
 // Functions for open nav bar click effect, top open new sub menu below
 
-function openNav() {
-    $(document).ready(function(){
-        $(".openbtn").click(function(){
-            // Reveal menu when clicked the menu bar
-          $("#reveal-menu").toggleClass("hidden");
-          // hide menu when nav away
-          $("#reveal-menu").mouseleave(function(){
-            $("#reveal-menu").toggleClass("hidden");
-        });
-        });
-      });
-}
+
+    // $(document).ready(function(){
+    //       $(".dropdown-menu").mouseleave(function(){
+    //         $(".dropdown-menu").toggle();
+    //     });
+    //     $("button").mouseenter(function(){
+    //         $(".dropdown-menu").toggle();
+    //     });
+      
+    //   });
+
+     
+        
+
+
 
 // function closeNav() {
 //     document.getElementById("mySidebar").style.width = "0";
@@ -20,10 +30,3 @@ function openNav() {
 
 // Animated Hamburger Bar
 
-$(document).ready(function () {
-
-    $('.first-button').on('click', function () {
-  
-      $('.animated-icon1').toggleClass('open');
-    });
-  });

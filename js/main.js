@@ -1,6 +1,9 @@
 // Toggle search bar
 $(document).ready(function () {
-    $(".fa-search").hover(function () {
+    $(".fa-search").mouseenter(function () {
+        $("input").toggleClass("hidden");
+    });
+    $("input").mouseleave(function () {
         $("input").toggleClass("hidden");
     });
 });

@@ -7,6 +7,12 @@
    --------------
 
    rgb(170, 200, 206): Very light blue, Used with: Horizontal rule
+   #5ba3fa: Used for highlighting text
+
+   Fonts
+   -----
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Anton', sans-serif;
    ------------------------------------------------------------------------- */
    
 
@@ -15,6 +21,7 @@
    Global Styles
    ------------------------------------------------------------------------- */
 
+   @import url('https://fonts.googleapis.com/css?family=Anton|Roboto+Mono&display=swap');
 
   html, body {
     height: 100%;
@@ -22,13 +29,10 @@
   body {
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto Mono', monospace;
   }
   main {
     flex: 1 0 auto;
-  }
-
-  footer {
-    flex-shrink: 0;
   }
 
   .hidden {
@@ -36,13 +40,15 @@
   }
 
   ::-moz-selection {
-    background: #b3d4fc;
+    background: #5ba3fa;
     text-shadow: none;
+    color: white;
   }
   
   ::selection {
-    background: #b3d4fc;
+    background: #5ba3fa;
     text-shadow: none;
+    color: white;
   }
 
   hr {
@@ -57,3 +63,55 @@
 audio, iframe, img, video {
   vertical-align: middle;
 }
+
+/*
+ * Remove default fieldset styles.
+ */
+
+ fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+   /* -------------------------------------------------------------------------
+   Header and footer
+   ------------------------------------------------------------------------- */
+/* 
+You could even add a header above that or more stuff below. The trick with flexbox is either:
+flex: 1 on the child you want to grow to fill the space (the content, in our case).
+or, margin-top: auto to push the child away as far as it will go from the neighbor 
+(or whichever direction margin is needed).
+ */
+
+ header, footer {
+     background-color: rgb(46, 99, 214);
+ }
+
+ header {
+     opacity: 0.7;
+     flex-direction: row;
+ }
+
+ header:hover {
+    opacity: 0.9;
+}
+
+ header h3 {
+    font-family: 'Anton', sans-serif;
+     padding: 15px 0px;
+ }
+
+ header .container {
+    flex-direction: row;
+ }
+
+#mainNav {
+    top: 50%;
+    float: right;
+}
+
+   footer {
+    flex-shrink: 0;
+  }
+

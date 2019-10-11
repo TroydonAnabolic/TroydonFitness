@@ -128,11 +128,10 @@
     </section>
 
     <section>
+      <div class="register-left">
         <h3>What are you waiting for?</h3>
         <p> Join now and begin the ascension!</p>
         <form action="/Register.cshtml">
-          <!-- <input type="submit" value="START JOURNEY" name="register" class="register glow-on-hover"> -->
-
           <div class="centerz">
               <button class="btnz">
                 <svg width="400px" height="200px" viewBox="0 0 400 200" class="borderz">
@@ -143,6 +142,11 @@
               </button>
             </div>
       </form>
+      </div>
+
+      <aside id="register-pic">
+        Picture goes here
+      </aside>
       </section>
 
  
@@ -153,11 +157,20 @@
   <footer class="page-footer font-small blue">
 
     <p> Connect with me </p>
+    <div id="connect">
+        <a href=""><i class="fa fa-facebook size msg-icon"></i></a>
+        <a href=""><i class="fa fa-instagram msg-icon"></i></a>
+        <a href=""><i class="fa fa-linkedin msg-icon"></i></a>
+        <a href=""><i class="fa fa-github-alt msg-icon"></i></a>
+    </div>
+    
+    <p> &copy; Troydon Luicien 2019, All Rights Reserved.</p>
+    <form action="/FooterNav">
+        <span><a asp-controller="" asp-action="" href="#">Legals</a></span>
+        <span><a asp-controller="" asp-action="" href="#">Policies</a></span>
+        <span><a asp-controller="" asp-action="" href="#">Sitemap</a></span>
+    </form>
 
-    accumsan, felis at accumsan bibendum, leo arcu cursus purus, vel porta massa diam in justo. Proin finibus lacus eget
-    nibh placerat ultrices. Donec mattis blandit felis, sed interdum enim sagittis nec. Duis tempor purus id dui euismod
-    consectetur. Vivamus tempus nisl ut lacus posuere, sed fermentum metus lobortis. Praesent suscipit tempus turpis,
-    eget congue odio lobortis ut. Etiam eu ex condimentum, pulvinar nisl eg
   </footer>
 
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>

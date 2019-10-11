@@ -332,9 +332,45 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
   color: black;
 }
 
+/* footer style starts here */
+
    footer {
     flex-shrink: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
   }
+
+  footer p:first-child {
+    padding-top: 5%;
+    font-size: 1.5rem;
+  }
+
+  .msg-icon { 
+    padding: 5px 25px;
+  color: inherit;
+ }
+
+  footer p:nth-child(2) {
+    padding-top: 15%;
+  }
+
+ footer p:nth-child(3) {
+   padding-top: 5%;
+   margin-bottom: none;
+ }
+
+ footer form {
+  font-size: 1.2rem;
+  padding-bottom: 2rem;
+}
+
+footer form span a, footer a {
+  color: inherit;
+  padding: 0 15px;
+}
+
+
 
 
  /* -------------------------------------------------------------------------
@@ -399,19 +435,21 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
   }
 
   section:nth-of-type(5) {
+    display: flex;
+    flex-direction: row;
     background-color: #000;
     opacity: 0.9%;
     padding-top: 5%;
-    padding-bottom: 15%;
+    padding-bottom: 5%;
     padding-left: 5%;
     margin: 5% 10%;
     width: 80%;
   }
 
-  /* section:nth-of-type(5) button {
-    padding: 40px 10px;
-   
-  } */
+  .register-left {
+    display: flex;
+    flex-direction: column;
+  }
 
   section:nth-of-type(5) form {
     padding: 5% 10px;
@@ -471,4 +509,15 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
     color: white;
     font-size: 18px;
     font-weight: 100;
+  }
+
+#register-pic {
+    height: 300px;
+    width: 30%;
+    background-color: white;
+    z-index: 10;
+    padding: 20px;
+    float: right;
+    margin: 10%;
+    color: black;
   }

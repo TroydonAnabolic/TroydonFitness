@@ -10,17 +10,14 @@
   <meta name="keywords" content="Personal Training" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="https://use.fontawesome.com/ed77362d70.js"></script>
-
 </head>
 
 <body>
-
     
   <header>
     <!-- navbar navbar-dark navbar-2 bg-primary mb-4 
@@ -38,10 +35,8 @@
         </button>
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent22">
-
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 ☰
@@ -72,11 +67,8 @@
         </div>
       </div>
     </nav>
-
-    
 <!-- login modal -->
 <div id="myModal" class="modal">
-
     <!-- Modal content -->
     <div id="modal-content">
       <div id="modal-header">
@@ -86,79 +78,77 @@
 
       <form action="/Login.cshtml">
       <div class="modal-body">
-      <input type="text" placeholder="@UserName" name="search" class="login">
+      <input type="text" placeholder="@UserName" name="login" class="login">
       <input type="password" placeholder="@Password" name="search" class="password">
       </div>
       
-      
       <div id="modal-footer">
           <div class="credentials">
+            <!-- TO DO: Make these buttons into forms to subscribe with asp tag helpers -->
         <h4>Login</h4>
         <h4>SignUp</h4>
       </div>
       <p>Forgotten Password? Click <a href="#">here</a> to reset password.</p>
       </div>
-      
     </form>
 
     </div>
   </div>
-
   </header>
   
+  <div class="parallax">
+  
   <main>
-      <div class="parallax">
     <section>
-      <p>My Mission</p>
-
-      <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce
-        vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
+      <hr>
+      <p>My Mission is to help others ascend to a super saiyan.</p>
+      <hr>
     </section>
 
     <section>
-      <p>Subscribe to the newsletter</p>
-      <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce
-        vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
+      <h3>Featured Products</h3>
+      <p>{Gallery of products to be shown here using an automatic slideshow effect
+        <br> Use a partial view or a view component/media component with VS}
     </section>
 
     <section>
-      <p>From the Blog</p>
+      <h3>Keep updated</h3>
       <p>
-        Aliquam maximus libero vel dui mollis aliquam. Ut ac condimentum nunc, eu semper libero. Maecenas ac viverra
-        purus. Fusce consequat maximus justo eget pulvinar. Mauris sed vulputate quam. Sed a augue arcu. Aenean
-        ultricies pulvinar risus, sed sollicitudin ante eleifend eget. Suspendisse potenti. Suspendisse risus ante,
-        porta vitae pulvinar vitae, aliquet id nunc. Nullam a auctor erat. Quisque id rutrum orci, eget rhoncus nibh.
-        Aenean aliquet lorem dui, quis lobortis ipsum vestibulum et. Nam pretium dolor eu accumsan placerat. Ut id
-        lectus et orci feugiat ullamcorper. Phasellus sit amet tellus magna. Orci varius natoque penatibus et magnis dis
-        parturient montes, nascetur ridiculus mus.
-
-        Nulla facilisi. Nulla at massa velit. Mauris quis faucibus magna. Fusce enim lorem, feugiat dignissim sem id,
-        aliquam ullamcorper nunc. Cras scelerisque dolor sed pretium placerat. Sed ac ultricies tortor. Nulla
-        pellentesque sem vitae convallis dapibus. Mauris ac est id ipsum molestie euismod. Nulla semper enim ut quam
-        pretium, eget pulvinar mi vulputate. Vestibulum scelerisque orci justo, accumsan porta libero lacinia nec.
-        Mauris accumsan efficitur lacus, ac ullamcorper ipsum. Quisque ipsum ante, vestibulum in ornare vitae, lacinia
-        vitae nisi. Nam tempor laoreet iaculis. Nullam a augue tempor, consequat est ut, gravida urna.
-
-        Donec porttitor at purus commodo imperdiet. Duis lacus risus, luctus in lobortis et, bibendum vitae ex. Etiam
-        efficitur blandit eros, vel luctus dui posuere et. Aenean ut enim a ipsum consequat euismod at ut tellus. Mauris
-        imperdiet massa ut metus laoreet, eu dignissim magna molestie. Morbi suscipit turpis ex, consequat scelerisque
-        ipsum tristique sed. Ut nec tristique sem, luctus efficitur massa. Aliquam fermentum nibh sit amet sapien
-        porttitor, ut semper tellus pharetra. Pellentesque eget mauris laoreet, feugiat eros consequat, ornare est.
-        Curabitur tempus sollicitudin felis nec efficitur. Nullam nec nibh rhoncus, malesuada velit et, tempus mauris.
-        Morbi vel vehicula orci. Cras ornare molestie lectus. Maecenas id justo a sapien porttitor egestas non luctus
-        nunc.
+        Get up to date with all of the newest training tips, and get notified when a new deal is available.
       </p>
+      <form action="/Subscribe.cshtml">
+          <input type="email" placeholder="Enter your email here" name="subscribe" class="login">
+      </form>
     </section>
 
     <section>
-      <p>From the Blog</p>
-      <p>leo eu metus auctor dapibus. Morbi nisi lorem, vestibulum id sapien interdum, rutrum sagittis est. Fusce
-        vulputate pellentesque condimentum. Suspendisse et massa et nunc bibe
+      <h3>Transformations</h3>
+      <p>{Gallery of products to be shown here using an automatic slideshow effect
+          <br> Use a partial view or a view component/media component with VS}
     </section>
-  </div>
+
+    <section>
+        <h3>What are you waiting for?</h3>
+        <p> Join now and begin the ascension!</p>
+        <form action="/Register.cshtml">
+          <!-- <input type="submit" value="START JOURNEY" name="register" class="register glow-on-hover"> -->
+
+          <div class="centerz">
+              <button class="btnz">
+                <svg width="400px" height="200px" viewBox="0 0 400 200" class="borderz">
+                  <polyline points="399,1 399,199 1,199 1,1 399,1" class="bg-line" />
+                  <polyline points="399,1 399,199 1,199 1,1 399,1" class="hl-line" />
+                </svg>
+                <span>START THE JOURNEY</span>
+              </button>
+            </div>
+      </form>
+      </section>
+
+ 
   </main>
 
-
+</div>
 
   <footer class="page-footer font-small blue">
 

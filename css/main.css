@@ -110,7 +110,7 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
  }
 
  header {
-     opacity: 0.5;
+     opacity: 0.7;
      border: 1px solid white;
      background: #8494a7;
      background: linear-gradient(to right, #0062E6, #33AEFF);
@@ -182,7 +182,7 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
   {
     background: #8494a7;
     background: linear-gradient(to right, #0062E6, #33AEFF);
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 #navbarDropdown {
@@ -290,11 +290,20 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
   text-align: center;
 }
 
+#modal-header h2 {
+  padding: 10px 0;
+}
+
 .modal-body {
   display: flex;
   flex-direction: column;
   padding: 2px 16px;
   text-align: center;
+}
+
+.modal-body input {
+  padding: 15px 20px;
+  margin: 15px 40px;
 }
 
 #modal-footer {
@@ -305,19 +314,23 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
   text-align: center;
 }
 
-.modal-body input {
-  padding: 15px 20px;
-  margin: 15px 40px;
-}
-
 .credentials {
   display: flex;
   justify-content: center;
   margin: 10px 25px;
 }
 
-.credentials h3 {
+.credentials h4 {
   padding: 0 15px;
+}
+
+#modal-footer p a {
+  color: white;
+  text-decoration: underline;
+}
+
+#modal-footer a:hover {
+  color: black;
 }
 
    footer {

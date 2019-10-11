@@ -25,16 +25,35 @@
 
   html, body {
     height: 100%;
-    background-color: #444;
+ 
   }
   body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto Mono', monospace;
+      
+  }
+
+  .parallax {
+    /* The image used */
+    background-image: url('../images/troy-background-img.jpg');
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    flex: 3;
   
   }
+
   main {
     flex: 1 0 auto;
+    color: white;  
   }
 
   .hidden {

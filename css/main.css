@@ -110,7 +110,7 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
  }
 
  header {
-     opacity: 0.7;
+     opacity: 0.5;
      border: 1px solid white;
      background: #8494a7;
      background: linear-gradient(to right, #0062E6, #33AEFF);
@@ -136,15 +136,13 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
     }
   }
 
-
 .dropdown-menu {
     min-width: 20rem;
-    width: 84rem;
+    width: 85rem;
     border-radius: .45;
     font-size: 1.5rem;
 }
 
-  
   @keyframes slideIn {
     0% {
       transform: translateY(1rem);
@@ -182,21 +180,17 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
   
   .dropdown-menu.show, .dropdown-menu, .dropdown-menu-right
   {
+    background: #8494a7;
     background: linear-gradient(to right, #0062E6, #33AEFF);
-      opacity: 0.7;
+    opacity: 0.7;
 }
 
 #navbarDropdown {
     font-size: 1.5rem;
 }
 
-.dropdown-item {
-    width: 2px;
-}
-
-.dropdown-item:hover {
-    width: 2px;
-    background-color: inherit;
+#dropdown-left {
+  display: inherit;
 }
 
 .dropdown-right {
@@ -227,12 +221,110 @@ or, margin-top: auto to push the child away as far as it will go from the neighb
         margin: 0;
         padding: 0;
         border: 3px solid #34d7cc;
- 
     }
 
+    /* User Login Modal */
+
+/* The Modal (background) */
+#myModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0%;
+  top: 0%;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+#modal-content {
+  position: relative;
+  background: white;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-header {
+  padding: 2px 16px;
+  background: #8494a7;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+  color: white;
+  text-align: center;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 16px;
+  text-align: center;
+}
+
+#modal-footer {
+  padding: 2px 16px;
+  background: #8494a7;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+  color: white;
+  text-align: center;
+}
+
+.modal-body input {
+  padding: 15px 20px;
+  margin: 15px 40px;
+}
+
+.credentials {
+  display: flex;
+  justify-content: center;
+  margin: 10px 25px;
+}
+
+.credentials h3 {
+  padding: 0 15px;
+}
 
    footer {
     flex-shrink: 0;
   }
 
 
+ /* -------------------------------------------------------------------------
+   Main
+   ------------------------------------------------------------------------- */

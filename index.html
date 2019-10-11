@@ -26,7 +26,7 @@
     <!-- navbar navbar-dark navbar-2 bg-primary mb-4 
       navbar navbar-dark  indigo darken-2
       -->
-    <nav class="navbar navbar-expand-lg navbar-dark indigo darken-2">
+    <nav class="navbar navbar-expand-lg navbar-dark indigo darken-2" id="mainNav">
       <div class="container">
         <!-- Navbar brand -->
         <a class="navbar-brand" href="#">Troydon Fitness</a>
@@ -48,18 +48,20 @@
               </a>
               <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
               <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                <div id="dropdown-left">
                 <a class="dropdown-item" href="#">Home<span class="sr-only">(current)</span></a>
                 <a class="dropdown-item" href="#">Products</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Gallery</a>
                 <a class="dropdown-item" href="#">About</a>
                 <a class="dropdown-item" href="#">Contact</a>
-
+                </div>
                 <div class="dropdown-right  mr-auto">
                     <div class="search-container">
                         <form action="/Search.cshtml">
                             <input type="search" placeholder="Search.." name="search" class="hidden search-input">
                             <button type="submit"><i class="fa fa-search"></i></button>
+                            <button type="submit" id="myBtn">User Login <i class="fa fa-user"></i></button>
                             <button><i class="fa fa-shopping-cart"></i></button>
                         </form>
                     </div>
@@ -70,6 +72,36 @@
         </div>
       </div>
     </nav>
+
+    
+<!-- login modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="modal-content">
+      <div id="modal-header">
+        <span class="close">&times;</span>
+        <h2>Login to user</h2>
+      </div>
+
+      <form action="/Login.cshtml">
+      <div class="modal-body">
+      <input type="text" placeholder="@UserName" name="search" class="login">
+      <input type="password" placeholder="@Password" name="search" class="password">
+      </div>
+      
+      
+      <div id="modal-footer">
+          <div class="credentials">
+        <h3>Login</h3>
+        <h3>SignUp</h3>
+      </div>
+      </div>
+    </form>
+    
+    </div>
+  </div>
+
   </header>
   
   <main>

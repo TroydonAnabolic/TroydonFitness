@@ -1,18 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TroydonFitness.Models.Products
 {
-    public class PersonalTraining
+    public class PersonalTraining : Products
     {
-        public string Key { get; internal set; }
-        public int PersonalTrainingID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
         public string ExperienceLevel { get; set; }
         public TimeSpan WorkoutLength { get; set; }
 
-        public int ProductId { get; set; }
-        public Products Produt { get; set; }
+        IEnumerable<Products> Products { get; set; }
+
+        //public Products Product { get; set; }
 
     }
 }

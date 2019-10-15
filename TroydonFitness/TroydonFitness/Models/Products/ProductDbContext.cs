@@ -101,5 +101,40 @@ namespace TroydonFitness.Models.Products
         }
 
         public DbSet<Products> Product { get; set; }
+
+        public ProductDbContext(DbContextOptions<ProductDbContext> options)
+                : base(options)
+        {
+            //Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // Define composite key.
+            builder.Entity<Products>()
+                .HasKey(p => new { p.ProductId});
+
+            //builder.Entity<Products>()
+            //    .HasOne(p => p.Product)
+            //    .WithMany(c => c.PersonalTrainingSessions)
+            //    .HasForeignKey(p => p.Product);
+
+            //builder.Entity<Products>()
+            //    .HasOne(p => p.Product)
+            //    .WithMany(c => c.Diets)
+            //    .HasForeignKey(p => p.Product);
+
+            //builder.Entity<Products>()
+            //    .HasOne(p => p.Product)
+            //    .WithMany(c => c.CustomizedRoutines)
+            //    .HasForeignKey(p => p.Product);
+
+            //builder.Entity<Products>()
+            //    .HasOne(p => p.Product)
+            //    .WithMany(c => c.TrainingEquipments)
+            //    .HasForeignKey(p => p.Product);
+        }
     }
 }

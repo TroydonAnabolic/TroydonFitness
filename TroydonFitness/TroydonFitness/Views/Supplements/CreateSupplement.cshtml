@@ -4,61 +4,75 @@
     ViewData["Title"] = "Create Supplement";
 }
 
-<h3>Post your Feedback</h3>
+    <link href="~/css/ProductsStyleSheet.css" rel="stylesheet" />
 
-<div class="container text-dark">
+    <div class="post-wrap text-dark">
 
-    <form asp-action="CreateSupplement" asp-controller="Product">
+        <h3 class="text-center">Post your Feedback</h3>
 
-        <p>
-            <label asp-for="ProductId"></label>
-            <div asp-validation-summary="ModelOnly" class="input-validation-error"></div>
+        <div class="container">
 
-        <p>
-            <label asp-for="Title"></label>
-            <input asp-for="Title" class="form-control" placeholder="Add Supplement Name" />
-            <span asp-validation-for="Title"></span>
-        </p>
+            <form asp-action="CreateSupplement" asp-controller="Supplements">
 
-        <p>
-            <label asp-for="Description"></label>
-            <textarea asp-for="Description" class="form-control" placeholder="Add supplement description"></textarea>
-            @Html.ValidationMessageFor(x => x.Description)
-            <span asp-validation-for="Description"></span>
-        </p>
 
-        <p>
-            @Html.LabelFor(x => x.SupplementType) :
-            @Html.RadioButtonFor(x => x.SupplementType, "MassGainer") MassGainer
-            @Html.RadioButtonFor(x => x.SupplementType, "MuscleBuilder") MuscleBuilder
-            @Html.RadioButtonFor(x => x.SupplementType, "FatLoss") FatLoss
-        </p>
 
-        <p>
-            <label asp-for="Price"></label>
-            <textarea asp-for="Price" class="form-control" placeholder="Add price "></textarea>
-            @Html.ValidationMessageFor(x => x.Price)
-            <span asp-validation-for="Price"></span>
-        </p>
+                <p>
+                    <label asp-for="ProductId"></label>
+                    <div asp-validation-summary="ModelOnly" class="input-validation-error"></div>
 
-        <p>
-            <label asp-for="Quantity"></label>
-            <textarea asp-for="Quantity" class="form-control" placeholder="Add quantity"></textarea>
-            @Html.ValidationMessageFor(x => x.Quantity)
-            <span asp-validation-for="Quantity"></span>
-        </p>
+                <p>
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" placeholder="Add Supplement Name" />
+                    <span asp-validation-for="Title"></span>
+                </p>
 
-        @*<label asp-for="image"></label>
+                <p>
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Add supplement description"></textarea>
+                    @Html.ValidationMessageFor(x => x.Description)
+                    <span asp-validation-for="Description"></span>
+                </p>
+
+                <p>
+                    @Html.LabelFor(x => x.SupplementType) :
+                    @Html.RadioButtonFor(x => x.SupplementType, "MassGainer") MassGainer
+                    @Html.RadioButtonFor(x => x.SupplementType, "MuscleBuilder") MuscleBuilder
+                    @Html.RadioButtonFor(x => x.SupplementType, "FatLoss") FatLoss
+                </p>
+
+                <p>
+                    <label asp-for="Price"></label>
+                    <textarea asp-for="Price" class="form-control" placeholder="Add price "></textarea>
+                    @Html.ValidationMessageFor(x => x.Price)
+                    <span asp-validation-for="Price"></span>
+                </p>
+
+                <p>
+                    <label asp-for="Quantity"></label>
+                    <textarea asp-for="Quantity" class="form-control" placeholder="Add quantity"></textarea>
+                    @Html.ValidationMessageFor(x => x.Quantity)
+                    <span asp-validation-for="Quantity"></span>
+                </p>
+
+                <p>
+                    @Html.DropDownListFor(s => s.SupplementAvailability,
+                         new SelectList(Enum.GetValues(typeof(Supplement.Availability))),
+                         "Select Stock Availability");
+                </p>
+
+
+                @*<label asp-for="image"></label>
         <input type="image" />*@
 
-        @*<select asp-for="HasStock" asp-items="Model.trueOrFalse"></select>*@
+                @*<select asp-for="HasStock" asp-items="Model.trueOrFalse"></select>*@
 
-        <p>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Upload Supplement</button>
-        </p>
+                <p>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Upload Supplement</button>
+                </p>
 
-        
-    </form>
 
-</div>
+            </form>
 
+        </div>
+
+    </div>

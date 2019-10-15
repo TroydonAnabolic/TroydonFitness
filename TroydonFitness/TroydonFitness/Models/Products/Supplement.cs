@@ -23,13 +23,14 @@ namespace TroydonFitness.Models.Products
         public DateTime SupplementAdded { get; internal set; }
 
         public string SupplementType { get; set; }
+        public Availability SupplementAvailability { get; set; }
 
-        //public List<SelectListItem> trueOrFalse { get; set; }
-        //    = new List<SelectListItem>
-        //{
-        //    new SelectListItem("Available", "Available"),
-        //    new SelectListItem("Unavailable", "Unavailable"),
-        //}; // used to populate the list of options
+        public enum Availability
+        {
+            Available,
+            Unavailable,
+            ComingSoon
+        }
 
         //public Products Product { get; set; }
     }

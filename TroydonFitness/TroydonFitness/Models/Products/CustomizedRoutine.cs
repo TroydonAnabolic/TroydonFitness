@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TroydonFitness.Models.Products
 {
-    public class CustomizedRoutine : Products
-    {
+    public class CustomizedRoutine 
+    {// may need to inherit to retrieve properties from product class
         public int ProductForeignKey { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

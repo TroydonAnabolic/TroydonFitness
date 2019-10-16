@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TroydonFitness.Models.Products
@@ -9,6 +10,19 @@ namespace TroydonFitness.Models.Products
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CustomizedRoutineID { get; set; }
+        public int SupplementID { get; set; }
+        public int ProductID { get; set; }
+        public string RoutineType { get; set; }
+        public Difficulty DifficultyLevel { get; set; }
+        public DateTime RoutineAdded { get; set; }
+
+        public enum Difficulty
+        {
+            Beginner,
+            Intermediate,
+            Advanced
+        }
+
 
         public ICollection<Supplement> Supplements { get; set; }
     }

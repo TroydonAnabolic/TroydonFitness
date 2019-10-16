@@ -2,14 +2,21 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Threading.Tasks;
+using TroydonFitness.Models.Products;
 
-
-namespace TroydonFitness.Models.Products
+namespace TroydonFitness.DAL
 {
     public class ProductDbContext : DbContext
     {
+        public ProductDbContext(DbContextOptions<ProductDbContext> options)
+        : base(options)
+        {
+            //Database.EnsureCreated();
+        }
+
         public DbSet<PersonalTraining> OnlinePersonalTrainingSessions { get; set; }
         public DbSet<CustomizedRoutine> CustomizedRoutines { get; set; }
         public DbSet<Diet> Diets { get; set; }
@@ -100,13 +107,7 @@ namespace TroydonFitness.Models.Products
             }
         }
 
-        public DbSet<Products> Product { get; set; }
-
-        public ProductDbContext(DbContextOptions<ProductDbContext> options)
-                : base(options)
-        {
-            //Database.EnsureCreated();
-        }
+        public DbSet<Products> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

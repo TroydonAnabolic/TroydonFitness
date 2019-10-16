@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TroydonFitness.DAL;
 using TroydonFitness.Models.Products;
 
 namespace TroydonFitness.Controllers
@@ -43,7 +44,7 @@ namespace TroydonFitness.Controllers
         public IActionResult Index(int page = 0)
         {
             var pageSize = 2;
-            var totalPosts = _db.Product.Count();
+            var totalPosts = _db.Products.Count();
             var totalPages = totalPosts / pageSize;
             var previousPage = page - 1;
             var nextPage = page + 1;
@@ -54,7 +55,7 @@ namespace TroydonFitness.Controllers
             ViewBag.HasNextPage = nextPage < totalPages;
 
             var products =
-                _db.Product
+                _db.Products
                 // TODO: Create variable that so the user can select the order by options by selecting a button on the main view
                     .OrderByDescending(x => x.Price)
                     .Skip(pageSize * page)

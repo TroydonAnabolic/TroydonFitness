@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,8 @@ namespace TroydonFitness.Controllers
         //    _protector = provider.CreateProtector("TroydonFitness.Controllers.ProductController"
         //                , new string[] { "Profile1" });
         //}
+
+
 
         //GET: /<controllers>/Products(view all types of products)
         [AllowAnonymous]

@@ -114,7 +114,7 @@ namespace TroydonFitness.Models.Products
 
             // Define composite key.
             builder.Entity<Products>()
-                .HasKey(p => new { p.ProductId});
+                .HasKey(p => new { p.ProductID});
 
             //builder.Entity<Products>()
             //    .HasOne(p => p.Product)

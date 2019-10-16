@@ -23,9 +23,15 @@ namespace TroydonFitness.Models.Products
             set { _key = value; }
         }
 
+
+        public int ProductID { get; set; }
+        public int SupplementID { get; set; }
+        public int CustomizedRoutineID { get; set; }
+
         [ForeignKey(nameof(Product))]
-        public int ProductId { get; set; }
         public Products Product { get; set; }
+        public Supplement Supplement { get; set; }
+        public CustomizedRoutine customizedRoutine { get; set; }
         public string Url { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -34,12 +40,9 @@ namespace TroydonFitness.Models.Products
         public bool HasStock { get; set; }
         public string Person { get; set; }
         public string Administrator { get; set; }
-        //public List<PersonalTraining> OnlinePersonalTrainingSessions { get; set; }
-        //public List<PersonalTraining> PersonalTrainingSessions { get; set; }
-        //public List<CustomizedRoutine> CustomizedRoutines { get; set; }
-        //public List<Diet> Diets { get; set; }
-        //public List<Supplement> Supplements { get; set; }
-        //public List<TrainingEquipment> TrainingEquipments { get; set; }
+
+        public ICollection<Supplement> Supplements { get; set; }
+
 
     }
 }

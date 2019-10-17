@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.RegularExpressions;
 using TroydonFitness.Models.Products;
 
@@ -10,6 +11,7 @@ namespace TroydonFitness.Models.Products
     {
 
         // Primary Key
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int SupplementID { get; set; }
 
         public int ProductID { get; set; }

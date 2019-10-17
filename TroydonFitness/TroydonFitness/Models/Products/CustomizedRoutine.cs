@@ -22,8 +22,5 @@ namespace TroydonFitness.Models.Products
             Intermediate,
             Advanced
         }
-
-
-        public ICollection<Supplement> Supplements { get; set; }
     }
 }

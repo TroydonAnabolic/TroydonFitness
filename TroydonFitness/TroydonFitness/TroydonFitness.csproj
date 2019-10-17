@@ -25,10 +25,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Products\CustomizedRoutine\" />
-    <Folder Include="Views\Products\Diet\" />
-    <Folder Include="Views\Products\PersonalTraining\" />
-  </ItemGroup>
-
 </Project>

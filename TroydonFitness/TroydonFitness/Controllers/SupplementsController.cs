@@ -101,12 +101,12 @@ namespace TroydonFitness.Controllers
         //https://localhost:44346/Products/Supplements/2019
         [Route("Supplements/{year:min(2019)}/{month:range(1,12)?}/{key?}")]
         // Action to return the supplement uploaded
-        public IActionResult UploadProduct(int year, string month, int day, string key)
-        {
-            var upload = _db.Supplements.FirstOrDefault(x => x.Key == key);
+        //public IActionResult UploadProduct(int year, string month, int day, string key)
+        //{
+        //   // var upload = _db.Supplements.FirstOrDefault(x => x.Key == key);
 
-            return View(upload);
-        }
+        //  //  return View(upload);
+        //}
 
         //https://localhost:44346/Products/Supplements/CreateSupplement
         [HttpGet, Route("Supplements/CreateSupplement")]
@@ -124,7 +124,7 @@ namespace TroydonFitness.Controllers
             }
 
             // override fields that the user submitted
-            upload.Administrator = User.Identity.Name; //change to admin name
+            //upload.Administrator = User.Identity.Name; //change to admin name
             upload.SupplementAdded = DateTime.Now;
 
             // Save to the database
@@ -136,7 +136,7 @@ namespace TroydonFitness.Controllers
             {
                 year = upload.SupplementAdded.Year,
                 month = upload.SupplementAdded.Month,
-                key = upload.Key
+              //  key = upload.Key
             });
         }
 

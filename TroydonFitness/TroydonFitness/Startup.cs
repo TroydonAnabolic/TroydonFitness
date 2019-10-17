@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TroydonFitness.DAL;
 using TroydonFitness.Models.Products;
 
 namespace TroydonFitness

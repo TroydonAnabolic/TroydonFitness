@@ -26,10 +26,6 @@ namespace TroydonFitness.Models.Products
         // Primary Key
         public int ProductID { get; set; }
 
-        // Foreign Key
-        public int SupplementID { get; set; }
-        public int CustomizedRoutineID { get; set; }
-
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
@@ -39,12 +35,6 @@ namespace TroydonFitness.Models.Products
         public  ICollection<Supplement> Supplements { get; set; }
         public ICollection<CustomizedRoutine> CustomizedRoutines { get; set; }
 
-
-       
-        public Products Product { get; set; }
-        public Supplement Supplement { get; set; }
-        public CustomizedRoutine customizedRoutine { get; set; }
-        //public string Url { get; set; }
 
         public bool HasStock { get; set; }
         public string Person { get; set; }

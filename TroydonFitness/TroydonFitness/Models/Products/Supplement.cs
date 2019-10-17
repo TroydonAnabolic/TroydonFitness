@@ -15,7 +15,7 @@ namespace TroydonFitness.Models.Products
         }
 
         // Primary Key
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int SupplementID { get; set; }
 
         public int ProductID { get; set; }

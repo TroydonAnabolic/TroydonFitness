@@ -121,9 +121,16 @@ namespace TroydonFitness.DAL
             builder.Entity<CustomizedRoutine>().ToTable("CustomizedRoutine");
             builder.Entity<Supplement>().ToTable("Supplement");
 
+            // Fluent API to define Entity Relationships
             builder.Entity<Supplement>().HasMany(routine => routine.CustomizedRoutines)
                            .WithOne().HasForeignKey(prod => prod.ProductID);
 
+            builder.Entity<CustomizedRoutine>().HasMany(supps => supps.Supplements)
+                            .WithOne().HasForeignKey(prod => prod.ProductID); ;
+                            
+            builder.Entity<Products>().HasMany(supps => supps.Supplements);
+
+            builder.Entity<Products>().HasMany(routine => routine.CustomizedRoutines);
 
             //builder.Entity<Products>()
             //    .HasOne(p => p.Product)

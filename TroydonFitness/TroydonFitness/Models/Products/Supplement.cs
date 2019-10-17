@@ -9,6 +9,10 @@ namespace TroydonFitness.Models.Products
 {
     public class Supplement
     {
+        public Supplement()
+        {
+            CustomizedRoutines = new HashSet<CustomizedRoutine>();
+        }
 
         // Primary Key
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

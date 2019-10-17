@@ -36,11 +36,11 @@ namespace TroydonFitness.Models.Products
         public decimal Quantity { get; set; }
 
         // Navigation Properties
-        public virtual ICollection<Supplement> Supplements { get; set; }
+        public  ICollection<Supplement> Supplements { get; set; }
         public ICollection<CustomizedRoutine> CustomizedRoutines { get; set; }
 
 
-        [ForeignKey(nameof(Product))]
+       
         public Products Product { get; set; }
         public Supplement Supplement { get; set; }
         public CustomizedRoutine customizedRoutine { get; set; }

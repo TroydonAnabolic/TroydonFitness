@@ -2,6 +2,18 @@
 {
     public class TrainingEquipment 
     {
-        public int ProductForeignKey { get; set; }
+        public int TrainingEquipmentID { get; set; }
+
+        public int ProductID { get; set; }
+
+        public Type EquipmentType { get; set; }
+
+        public enum Type
+        {
+            Belt,
+            Strap,
+            Band,
+            Hooks
+        }
     }
 }

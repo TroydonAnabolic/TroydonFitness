@@ -8,13 +8,10 @@ namespace TroydonFitness.Models.Products
 
         public int PersonalTrainingID { get; set; }
 
-        public int ProductID { get; set; }
+        public ICollection<Products> Products { get; set; }
 
         public string ExperienceLevel { get; set; }
         public TimeSpan WorkoutLength { get; set; }
-
-
-        //public Products Product { get; set; }
 
     }
 }

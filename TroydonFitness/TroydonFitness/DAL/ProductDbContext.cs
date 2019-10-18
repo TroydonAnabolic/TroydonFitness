@@ -17,13 +17,14 @@ namespace TroydonFitness.DAL
             //Database.EnsureCreated();
         }
 
-        public DbSet<PersonalTraining> OnlinePersonalTrainingSessions { get; set; }
+        public DbSet<Products> Products { get; set; }
+
         public DbSet<CustomizedRoutine> CustomizedRoutines { get; set; }
         public DbSet<Diet> Diets { get; set; }
         public DbSet<Supplement> Supplements { get; set; }
         public DbSet<TrainingEquipment> TrainingEquipments { get; set; }
 
-       // public IQueryable<PersonalTraining> PersonalTrainingSessions
+        public IQueryable<PersonalTraining> PersonalTrainingSessions { get; set; }
         //{
         //    get
         //    {
@@ -107,7 +108,7 @@ namespace TroydonFitness.DAL
         //    }
         //}
 
-        public DbSet<Products> Products { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -126,11 +127,21 @@ namespace TroydonFitness.DAL
                            .WithOne().HasForeignKey(prod => prod.ProductID);
 
             builder.Entity<CustomizedRoutine>().HasMany(supps => supps.Supplements)
-                            .WithOne().HasForeignKey(prod => prod.ProductID); ;
-                            
+                            .WithOne().HasForeignKey(prod => prod.ProductID);
+
+            builder.Entity<PersonalTraining>().HasMany(prod => prod.Products);
+
+            // Product to others
+
             builder.Entity<Products>().HasMany(supps => supps.Supplements);
 
             builder.Entity<Products>().HasMany(routine => routine.CustomizedRoutines);
+
+            builder.Entity<Products>().HasMany(diet => diet.Diets);
+
+            builder.Entity<Products>().HasMany(equip => equip.TrainingEquipments);
+
+            builder.Entity<Products>().HasOne(PT => PT.PersonalTrainingSessions);
 
             //builder.Entity<Products>()
             //    .HasOne(p => p.Product)

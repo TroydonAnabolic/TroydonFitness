@@ -11,7 +11,7 @@ using TroydonFitness.Models.Products;
 
 namespace TroydonFitness.Controllers
 {
-    [Route("Products")]
+    [Route("Supplement")]
     public class SupplementsController : Controller
     {
 

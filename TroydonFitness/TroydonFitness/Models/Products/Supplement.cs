@@ -36,7 +36,7 @@ namespace TroydonFitness.Models.Products
             ComingSoon
         }
 
-        public Products Product { get; set; }
+        public Product Product { get; set; }
 
         public ICollection<CustomizedRoutine> CustomizedRoutines { get; set; }
     }

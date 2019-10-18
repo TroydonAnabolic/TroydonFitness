@@ -17,7 +17,7 @@ namespace TroydonFitness.DAL
             //Database.EnsureCreated();
         }
 
-        public DbSet<Products> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public DbSet<CustomizedRoutine> CustomizedRoutines { get; set; }
         public DbSet<Diet> Diets { get; set; }
@@ -115,10 +115,10 @@ namespace TroydonFitness.DAL
             base.OnModelCreating(builder);
 
             // Define composite key.
-            builder.Entity<Products>()
-                .HasKey(p => new { p.ProductID});
+            //builder.Entity<Products>()
+            //    .HasKey(p => new { p.ProductID});
 
-            builder.Entity<Products>().ToTable("Products");
+            builder.Entity<Product>().ToTable("Products");
             builder.Entity<CustomizedRoutine>().ToTable("CustomizedRoutine");
             builder.Entity<Supplement>().ToTable("Supplement");
 
@@ -133,15 +133,15 @@ namespace TroydonFitness.DAL
 
             // Product to others
 
-            builder.Entity<Products>().HasMany(supps => supps.Supplements);
+            builder.Entity<Product>().HasMany(supps => supps.Supplements);
 
-            builder.Entity<Products>().HasMany(routine => routine.CustomizedRoutines);
+            builder.Entity<Product>().HasMany(routine => routine.CustomizedRoutines);
 
-            builder.Entity<Products>().HasMany(diet => diet.Diets);
+            builder.Entity<Product>().HasMany(diet => diet.Diets);
 
-            builder.Entity<Products>().HasMany(equip => equip.TrainingEquipments);
+            builder.Entity<Product>().HasMany(equip => equip.TrainingEquipments);
 
-            builder.Entity<Products>().HasOne(PT => PT.PersonalTrainingSessions);
+            builder.Entity<Product>().HasOne(PT => PT.PersonalTrainingSessions);
 
             //builder.Entity<Products>()
             //    .HasOne(p => p.Product)

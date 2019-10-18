@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TroydonFitness.Models.Products
 {
-    public class Products
+    public class Product
     {
         private string _key { get; set; }
         public string Key

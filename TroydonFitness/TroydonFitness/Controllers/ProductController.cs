@@ -10,12 +10,12 @@ using TroydonFitness.Models.Products;
 
 namespace TroydonFitness.Controllers
 {
-    [Route("Products")]
-    public class ProductsController : Controller
+    [Route("Product")]
+    public class ProductController : Controller
     {
         private readonly ProductDbContext _context;
 
-        public ProductsController(ProductDbContext context)
+        public ProductController(ProductDbContext context)
         {
             _context = context;
         }
@@ -58,7 +58,7 @@ namespace TroydonFitness.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Key,ProductID,Title,Description,Price,Quantity,HasStock,Person,Administrator")] Products products)
+        public async Task<IActionResult> Create([Bind("Key,ProductID,Title,Description,Price,Quantity,HasStock,Person,Administrator")] Product products)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace TroydonFitness.Controllers
         [Route("Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Key,ProductID,Title,Description,Price,Quantity,HasStock,Person,Administrator")] Products products)
+        public async Task<IActionResult> Edit(int id, [Bind("Key,ProductID,Title,Description,Price,Quantity,HasStock,Person,Administrator")] Product products)
         {
             if (id != products.ProductID)
             {

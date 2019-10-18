@@ -12,7 +12,7 @@ namespace TroydonFitness.DAL
         // May need to correct seed statement
         public static void Initialize(ProductDbContext context)
         {
-            context.Database.EnsureDeleted(); //may need to add to drop database first to add new schema
+           // context.Database.EnsureDeleted(); //may need to add to drop database first to add new schema
 
             context.Database.EnsureCreated();
 
@@ -22,17 +22,17 @@ namespace TroydonFitness.DAL
                 return;   // DB has been seeded
             }
 
-            var products = new Products[]
+            var products = new Product[]
 {
-                new Products{Title="Strength", Description="Gain Mass", Price=100, Quantity=1002 },
-                new Products{Title="Ultra Saiyan", Description="Build muscle and transform to supersaiyan", Price=150, Quantity=5002 },
-                new Products{Title="Marathon Runner", Description="Get endurance you need", Price=70, Quantity=1502 },
-                new Products{Title="Get started", Description="Begin muscle journey", Price=50, Quantity=806 },
-                new Products{Title="Improve Fitness", Description="General fitness levels improvement", Price=100, Quantity=1002 },
-                new Products{Title="Endure and Build", Description="Build lean muscle nad keep lean", Price=80, Quantity=902 },
-                new Products{Title="Strength", Description="Gain Strength", Price=100, Quantity=1002 },
+                new Product{Title="Strength", Description="Gain Mass", Price=100, Quantity=1002 },
+                new Product{Title="Ultra Saiyan", Description="Build muscle and transform to supersaiyan", Price=150, Quantity=5002 },
+                new Product{Title="Marathon Runner", Description="Get endurance you need", Price=70, Quantity=1502 },
+                new Product{Title="Get started", Description="Begin muscle journey", Price=50, Quantity=806 },
+                new Product{Title="Improve Fitness", Description="General fitness levels improvement", Price=100, Quantity=1002 },
+                new Product{Title="Endure and Build", Description="Build lean muscle nad keep lean", Price=80, Quantity=902 },
+                new Product{Title="Strength", Description="Gain Strength", Price=100, Quantity=1002 },
 };
-            foreach (Products p in products)
+            foreach (Product p in products)
             {
                 context.Products.Add(p);
             }

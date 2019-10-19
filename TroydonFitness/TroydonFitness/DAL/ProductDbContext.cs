@@ -116,7 +116,7 @@ namespace TroydonFitness.DAL
             //builder.Entity<Products>()
             //    .HasKey(p => new { p.ProductID});
 
-            builder.Entity<Product>().ToTable("Products");
+            builder.Entity<Product>().ToTable("Product");
             builder.Entity<CustomizedRoutine>().ToTable("CustomizedRoutine");
             builder.Entity<Supplement>().ToTable("Supplement");
             builder.Entity<Diet>().ToTable("Diet");

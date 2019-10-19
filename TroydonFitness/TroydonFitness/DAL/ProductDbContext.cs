@@ -19,13 +19,11 @@ namespace TroydonFitness.DAL
         }
 
         public DbSet<Product> Products { get; set; }
-
         public DbSet<CustomizedRoutine> CustomizedRoutines { get; set; }
         public DbSet<Diet> Diets { get; set; }
         public DbSet<Supplement> Supplements { get; set; }
         public DbSet<TrainingEquipment> TrainingEquipments { get; set; }
        // public DbSet<SupplementRoutine> SupplementRoutines { get; set; }
-
         public IQueryable<PersonalTraining> PersonalTrainingSessions { get; set; }
         //{
         //    get

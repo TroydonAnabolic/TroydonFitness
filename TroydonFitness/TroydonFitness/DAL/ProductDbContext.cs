@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TroydonFitness.Models.Products;
 
+
 namespace TroydonFitness.DAL
 {
     public class ProductDbContext : DbContext
@@ -121,27 +122,50 @@ namespace TroydonFitness.DAL
             builder.Entity<Product>().ToTable("Products");
             builder.Entity<CustomizedRoutine>().ToTable("CustomizedRoutine");
             builder.Entity<Supplement>().ToTable("Supplement");
+            builder.Entity<Diet>().ToTable("Diet");
+            builder.Entity<PersonalTraining>().ToTable("PersonalTraiing");
+            builder.Entity<TrainingEquipment>().ToTable("TrainingEquipment");
 
-            // Fluent API to define Entity Relationships
+            // Fluent API to define Entity Relationships one-to-many
+            builder.Entity<Product>()
+                .HasMany<Supplement>(s => s.Supplements)
+                .WithOne(p => p.Product)
+                .HasForeignKey(s => s.ProductID);
+
+            builder.Entity<Product>()
+                .HasMany<CustomizedRoutine>(c => c.CustomizedRoutines)
+                .WithOne(p => p.Product)
+                .HasForeignKey(c => c.ProductID);
+
+
+            builder.Entity<Product>()
+                .HasMany<Diet>(d => d.Diets)
+                .WithOne(p => p.Product)
+                .HasForeignKey(d => d.ProductID);
+
+
+            builder.Entity<Product>()
+                .HasMany<TrainingEquipment>(e => e.TrainingEquipments)
+                .WithOne(p => p.Product)
+                .HasForeignKey(s => s.ProductID);
+
+            builder.Entity<PersonalTraining>()
+                .HasMany<Product>(p => p.Products)
+                .WithOne(pt => pt.PersonalTrainingSessions)
+                .HasForeignKey(p => p.PersonalTrainingId);
+
+
+
+
+
             builder.Entity<Supplement>().HasMany(routine => routine.CustomizedRoutines)
                            .WithOne().HasForeignKey(prod => prod.ProductID);
 
             builder.Entity<CustomizedRoutine>().HasMany(supps => supps.Supplements)
                             .WithOne().HasForeignKey(prod => prod.ProductID);
 
-            builder.Entity<PersonalTraining>().HasMany(prod => prod.Products);
+           
 
-            // Product to others
-
-            builder.Entity<Product>().HasMany(supps => supps.Supplements);
-
-            builder.Entity<Product>().HasMany(routine => routine.CustomizedRoutines);
-
-            builder.Entity<Product>().HasMany(diet => diet.Diets);
-
-            builder.Entity<Product>().HasMany(equip => equip.TrainingEquipments);
-
-            builder.Entity<Product>().HasOne(PT => PT.PersonalTrainingSessions);
 
             //builder.Entity<Products>()
             //    .HasOne(p => p.Product)

@@ -19,6 +19,8 @@ namespace TroydonFitness.Models.Products
         public int SupplementID { get; set; }
 
         public int ProductID { get; set; }
+        public Product Product { get; set; }
+
 
         public int CustomizedRoutineID { get; set; }
 
@@ -36,7 +38,6 @@ namespace TroydonFitness.Models.Products
             ComingSoon
         }
 
-        public Product Product { get; set; }
 
         public ICollection<CustomizedRoutine> CustomizedRoutines { get; set; }
     }

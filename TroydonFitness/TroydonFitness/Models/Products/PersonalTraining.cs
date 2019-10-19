@@ -12,6 +12,6 @@ namespace TroydonFitness.Models.Products
 
         public string ExperienceLevel { get; set; }
         public TimeSpan WorkoutLength { get; set; }
-
+        public PersonalTraining PersonalTrainingSessions { get; set; }
     }
 }

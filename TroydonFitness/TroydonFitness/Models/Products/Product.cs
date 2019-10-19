@@ -32,6 +32,7 @@ namespace TroydonFitness.Models.Products
         public decimal Quantity { get; set; }
 
         // Navigation Properties
+        public int PersonalTrainingId { get; set; }
         public PersonalTraining PersonalTrainingSessions { get; set; }
         public  ICollection<Supplement> Supplements { get; set; }
         public ICollection<CustomizedRoutine> CustomizedRoutines { get; set; }

@@ -6,6 +6,8 @@
 
         public int ProductID { get; set; }
 
+        public Product Product { get; set; }
+
         public Type EquipmentType { get; set; }
 
         public enum Type

@@ -18,6 +18,7 @@ namespace TroydonFitness.Models.Products
         public string RoutineType { get; set; }
         public Difficulty DifficultyLevel { get; set; }
         public DateTime RoutineAdded { get; set; }
+        public Product Product { get; internal set; }
 
         public enum Difficulty
         {

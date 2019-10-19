@@ -9,20 +9,15 @@ namespace TroydonFitness.Models.Products
 {
     public class Supplement
     {
-        public Supplement()
-        {
-            CustomizedRoutines = new HashSet<CustomizedRoutine>();
-        }
-
         // Primary Key
         
         public int SupplementID { get; set; }
+        public int CustomizedRoutineID { get; set; }
 
         public int ProductID { get; set; }
         public Product Product { get; set; }
 
 
-        public int CustomizedRoutineID { get; set; }
 
 
         // TODO: try to add many to many relationship so we will not need to rewrite this code in the products table
@@ -39,6 +34,6 @@ namespace TroydonFitness.Models.Products
         }
 
 
-        public ICollection<CustomizedRoutine> CustomizedRoutines { get; set; }
+        public ICollection<SupplementRoutine> CustomizedRoutines { get; set; }
     }
 }

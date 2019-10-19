@@ -24,6 +24,7 @@ namespace TroydonFitness.DAL
         public DbSet<Diet> Diets { get; set; }
         public DbSet<Supplement> Supplements { get; set; }
         public DbSet<TrainingEquipment> TrainingEquipments { get; set; }
+       // public DbSet<SupplementRoutine> SupplementRoutines { get; set; }
 
         public IQueryable<PersonalTraining> PersonalTrainingSessions { get; set; }
         //{
@@ -130,52 +131,46 @@ namespace TroydonFitness.DAL
             builder.Entity<Product>()
                 .HasMany<Supplement>(s => s.Supplements)
                 .WithOne(p => p.Product)
-                .HasForeignKey(s => s.ProductID);
+                .HasForeignKey(s => s.ProductID)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<Product>()
                 .HasMany<CustomizedRoutine>(c => c.CustomizedRoutines)
                 .WithOne(p => p.Product)
-                .HasForeignKey(c => c.ProductID);
+                .HasForeignKey(c => c.ProductID)
+                .OnDelete(DeleteBehavior.SetNull);
 
 
             builder.Entity<Product>()
                 .HasMany<Diet>(d => d.Diets)
                 .WithOne(p => p.Product)
-                .HasForeignKey(d => d.ProductID);
+                .HasForeignKey(d => d.ProductID)
+                .OnDelete(DeleteBehavior.SetNull);
 
 
             builder.Entity<Product>()
                 .HasMany<TrainingEquipment>(e => e.TrainingEquipments)
                 .WithOne(p => p.Product)
-                .HasForeignKey(s => s.ProductID);
+                .HasForeignKey(s => s.ProductID)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<PersonalTraining>()
                 .HasMany<Product>(p => p.Products)
                 .WithOne(pt => pt.PersonalTrainingSessions)
-                .HasForeignKey(p => p.PersonalTrainingId);
+                .HasForeignKey(p => p.PersonalTrainingId)
+                .OnDelete(DeleteBehavior.SetNull);
 
-
-
-
-
-            builder.Entity<Supplement>().HasMany(routine => routine.CustomizedRoutines)
-                           .WithOne().HasForeignKey(prod => prod.ProductID);
-
-            builder.Entity<CustomizedRoutine>().HasMany(supps => supps.Supplements)
-                            .WithOne().HasForeignKey(prod => prod.ProductID);
-
-           
-
-
-            //builder.Entity<Products>()
-            //    .HasOne(p => p.Product)
-            //    .WithMany(c => c.CustomizedRoutines)
-            //    .HasForeignKey(p => p.Product);
-
-            //builder.Entity<Products>()
-            //    .HasOne(p => p.Product)
-            //    .WithMany(c => c.TrainingEquipments)
-            //    .HasForeignKey(p => p.Product);
+            // Many-to-Many Relationships definition
+            builder.Entity<SupplementRoutine>()
+                .HasKey(sr => new { sr.SupplementId, sr.CustomizedRoutineId });
+            builder.Entity<SupplementRoutine>()
+                .HasOne(sr => sr.Supplement)
+                .WithMany(s => s.CustomizedRoutines)
+                .HasForeignKey(sr => sr.SupplementId);
+            builder.Entity<SupplementRoutine>()
+                .HasOne(sr => sr.CustomizedRoutine)
+                .WithMany(c => c.Supplements)
+                .HasForeignKey(sr => sr.CustomizedRoutineId);
         }
     }
 }

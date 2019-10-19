@@ -2,12 +2,15 @@
 {
     public class Diet 
     {
+        // Keys
         public int DietID { get; set; }
-
         public int ProductID { get; set; }
 
-        public Type DietType { get; set; }
+        // Navigation
         public Product Product { get; internal set; }
+
+        // Details
+        public Type DietType { get; set; }
 
         public enum Type
         {

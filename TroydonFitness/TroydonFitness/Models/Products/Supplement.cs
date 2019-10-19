@@ -9,31 +9,25 @@ namespace TroydonFitness.Models.Products
 {
     public class Supplement
     {
-        // Primary Key
+        // Keys
         
         public int SupplementID { get; set; }
         public int CustomizedRoutineID { get; set; }
-
         public int ProductID { get; set; }
+
+        // Navigation
         public Product Product { get; set; }
+        public ICollection<SupplementRoutine> CustomizedRoutines { get; set; }
 
-
-
-
-        // TODO: try to add many to many relationship so we will not need to rewrite this code in the products table
+        // Supplement Details
         public DateTime SupplementAdded { get; internal set; }
-
         public string SupplementType { get; set; }
         public Availability? SupplementAvailability { get; set; }
-
         public enum Availability
         {
             Available,
             Unavailable,
             ComingSoon
         }
-
-
-        public ICollection<SupplementRoutine> CustomizedRoutines { get; set; }
     }
 }

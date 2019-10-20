@@ -33,7 +33,8 @@ namespace TroydonFitness
                 try
                 {
                     var context = services.GetRequiredService<ProductContext>();
-                    context.Database.EnsureCreated();
+                    //context.Database.EnsureCreated();
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

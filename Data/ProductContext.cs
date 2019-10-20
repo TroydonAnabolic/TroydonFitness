@@ -31,20 +31,22 @@ namespace TroydonFitness.Data
             modelBuilder.Entity<PersonalTraining>().ToTable("PersonalTraining");
             modelBuilder.Entity<TrainingEquipment>().ToTable("TrainingEquipment");
 
+
+
             // Fluent API to define Entity Relationships one-to-many
             modelBuilder.Entity<Product>()
                 .HasMany<Supplement>(s => s.Supplements)
                 .WithOne(p => p.Product)
                 .HasForeignKey(s => s.ProductID)
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Product>()
                 .HasMany<CustomizedRoutine>(c => c.CustomizedRoutines)
                 .WithOne(p => p.Product)
                 .HasForeignKey(c => c.ProductID)
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
 
             modelBuilder.Entity<Product>()
@@ -52,7 +54,7 @@ namespace TroydonFitness.Data
                 .WithOne(p => p.Product)
                 .HasForeignKey(d => d.ProductID)
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
 
             modelBuilder.Entity<Product>()
@@ -60,14 +62,14 @@ namespace TroydonFitness.Data
                 .WithOne(p => p.Product)
                 .HasForeignKey(s => s.ProductID)
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<PersonalTraining>()
                 .HasMany<Product>(p => p.Products)
                 .WithOne(pt => pt.PersonalTrainingSessions)
                 .HasForeignKey(p => p.PersonalTrainingId)
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Many-to-Many Relationships definition
             modelBuilder.Entity<SupplementRoutine>()

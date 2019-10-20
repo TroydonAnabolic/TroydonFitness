@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TroydonFitness.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class SeedProducts : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +28,7 @@ namespace TroydonFitness.Migrations
                         column: x => x.PersonalTrainingSessionsPersonalTrainingID,
                         principalTable: "PersonalTraining",
                         principalColumn: "PersonalTrainingID",
-                        onDelete: ReferentialAction.SetNull); //changed for .SetRestrict
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,7 +52,7 @@ namespace TroydonFitness.Migrations
                         column: x => x.PersonalTrainingId,
                         principalTable: "PersonalTraining",
                         principalColumn: "PersonalTrainingID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,8 +61,8 @@ namespace TroydonFitness.Migrations
                 {
                     CustomizedRoutineID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SupplementID = table.Column<int>(nullable: true),
-                    ProductID = table.Column<int>(nullable: true),
+                    SupplementID = table.Column<int>(nullable: false),
+                    ProductID = table.Column<int>(nullable: false),
                     RoutineType = table.Column<string>(nullable: true),
                     DifficultyLevel = table.Column<int>(nullable: false),
                     RoutineAdded = table.Column<DateTime>(nullable: false)
@@ -75,7 +75,7 @@ namespace TroydonFitness.Migrations
                         column: x => x.ProductID,
                         principalTable: "Product",
                         principalColumn: "ProductID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -84,7 +84,7 @@ namespace TroydonFitness.Migrations
                 {
                     DietID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductID = table.Column<int>(nullable: true),
+                    ProductID = table.Column<int>(nullable: false),
                     DietType = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -95,7 +95,7 @@ namespace TroydonFitness.Migrations
                         column: x => x.ProductID,
                         principalTable: "Product",
                         principalColumn: "ProductID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -104,8 +104,8 @@ namespace TroydonFitness.Migrations
                 {
                     SupplementID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomizedRoutineID = table.Column<int>(nullable: true),
-                    ProductID = table.Column<int>(nullable: true),
+                    CustomizedRoutineID = table.Column<int>(nullable: false),
+                    ProductID = table.Column<int>(nullable: false),
                     SupplementAdded = table.Column<DateTime>(nullable: false),
                     SupplementType = table.Column<string>(nullable: true),
                     SupplementAvailability = table.Column<int>(nullable: true)
@@ -118,7 +118,7 @@ namespace TroydonFitness.Migrations
                         column: x => x.ProductID,
                         principalTable: "Product",
                         principalColumn: "ProductID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -127,7 +127,7 @@ namespace TroydonFitness.Migrations
                 {
                     TrainingEquipmentID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductID = table.Column<int>(nullable: true),
+                    ProductID = table.Column<int>(nullable: false),
                     EquipmentType = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -138,7 +138,7 @@ namespace TroydonFitness.Migrations
                         column: x => x.ProductID,
                         principalTable: "Product",
                         principalColumn: "ProductID",
-                        onDelete: ReferentialAction.SetNull);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

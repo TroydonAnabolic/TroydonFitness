@@ -10,8 +10,8 @@ using TroydonFitness.Data;
 namespace TroydonFitness.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20191020122459_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20191020213103_SeedProducts")]
+    partial class SeedProducts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,7 +72,7 @@ namespace TroydonFitness.Migrations
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.PersonalTraining", b =>
                 {
-                    b.Property<int>("PersonalTrainingID")
+                    b.Property<int?>("PersonalTrainingID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -115,7 +115,7 @@ namespace TroydonFitness.Migrations
                     b.Property<int>("HasStock")
                         .HasColumnType("int");
 
-                    b.Property<int>("PersonalTrainingId")
+                    b.Property<int?>("PersonalTrainingId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -206,7 +206,7 @@ namespace TroydonFitness.Migrations
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("CustomizedRoutines")
                         .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Diet", b =>
@@ -214,7 +214,7 @@ namespace TroydonFitness.Migrations
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("Diets")
                         .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.PersonalTraining", b =>
@@ -229,7 +229,7 @@ namespace TroydonFitness.Migrations
                     b.HasOne("TroydonFitness.Models.ProductModel.PersonalTraining", "PersonalTrainingSessions")
                         .WithMany("Products")
                         .HasForeignKey("PersonalTrainingId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Supplement", b =>
@@ -237,7 +237,7 @@ namespace TroydonFitness.Migrations
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("Supplements")
                         .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.SupplementRoutine", b =>
@@ -256,7 +256,7 @@ namespace TroydonFitness.Migrations
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("TrainingEquipments")
                         .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

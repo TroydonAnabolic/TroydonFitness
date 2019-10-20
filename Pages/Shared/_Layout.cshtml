@@ -1,50 +1,152 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TroydonFitness</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="title" content="Troydon Fitness" />
+    <meta name="description"
+          content="Troydon Fitness is a personal training website. The website consists of selling personal training sessions, training routines and diets.">
+    <meta name="keywords" content="Personal Training" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/css/normalize.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link href="~/css/ProductsStyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/ed77362d70.js"></script>
 </head>
+
 <body>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!-- navbar navbar-dark navbar-2 bg-primary mb-4
+          navbar navbar-dark  indigo darken-2
+          -->
+        <nav class="navbar navbar-expand-lg navbar-dark indigo darken-2" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">TroydonFitness</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="#">Troydon Fitness</a>
+                <!-- Collapse button -->
+                <button class="navbar-toggler third-button myFakeClass" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent22" aria-controls="navbarSupportedContent22" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <div class="animated-icon3"><span></span><span></span><span></span></div>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent22">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                ☰
+                            </a>
+                            <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                            <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                                <div id="dropdown-left">
+                                    <a class="dropdown-item" asp-area="" asp-page="/Index">Home<span class="sr-only">(current)</span></a>
+                                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/Product/Index">Products</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Gallery</a>
+                                    <a class="dropdown-item" href="#">About</a>
+                                    <a class="dropdown-item" href="#">Contact</a>
+                                </div>
+                                <div class="dropdown-right  mr-auto">
+                                    <div class="search-container">
+                                        <form action="/Search.cshtml">
+                                            <input type="search" placeholder="Search.." name="search" class="hidden search-input">
+                                        </form>
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                        <button type="submit" id="myBtn">User Login <i class="fa fa-user"></i></button>
+                                        <button><i class="fa fa-shopping-cart"></i></button>
+
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        <!-- login modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div id="modal-content">
+                <div id="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Login to user</h2>
+                </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - TroydonFitness 1- <a asp-area="" asp-page="/Privacy">Privacy</a>
+                <form action="/Login.cshtml">
+                    <div class="modal-body">
+                        <input type="text" placeholder="UserName" name="login" class="login">
+                        <input type="password" placeholder="Password" name="search" class="password">
+                    </div>
+
+                    <div id="modal-footer">
+                        <div class="credentials">
+                            <!-- TO DO: Make these buttons into forms to subscribe with asp tag helpers -->
+                            <h4>Login</h4>
+                            <h4>SignUp</h4>
+                        </div>
+                        <p>Forgotten Password? Click <a href="#">here</a> to reset password.</p>
+                    </div>
+                </form>
+
+            </div>
         </div>
+    </header>
+
+
+
+    <main>
+
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+    </main>
+
+    <footer class="page-footer font-small blue">
+
+        <p> Connect with me </p>
+        <div id="connect">
+            <a href=""><i class="fa fa-facebook size msg-icon"></i></a>
+            <a href=""><i class="fa fa-instagram msg-icon"></i></a>
+            <a href=""><i class="fa fa-linkedin msg-icon"></i></a>
+            <a href=""><i class="fa fa-github-alt msg-icon"></i></a>
+        </div>
+
+        <p> &copy; Troydon Luicien 2019, All Rights Reserved.</p>
+        <form action="/FooterNav">
+            <span><a asp-controller="" asp-action="">Legals</a></span>
+            <span><a asp-controller="" asp-action="">Policies</a></span>
+            <span><a asp-controller="" asp-action="">Sitemap</a></span>
+        </form>
+
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @RenderSection("Scripts", required: false)
+    <script src="~/js/vendor/modernizr-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
+
 </html>

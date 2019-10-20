@@ -19,6 +19,15 @@ namespace TroydonFitness.Pages.Products
             _context = context;
         }
 
+        public Availability HasStock { get; set; }
+
+        public enum Availability
+        {
+            Available,
+            Unavailable,
+            ComingSoon
+        }
+
         public IActionResult OnGet()
         {
         ViewData["PersonalTrainingId"] = new SelectList(_context.Set<PersonalTraining>(), "PersonalTrainingID", "PersonalTrainingID");

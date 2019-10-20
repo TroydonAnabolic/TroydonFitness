@@ -30,6 +30,58 @@ namespace TroydonFitness.Data
             modelBuilder.Entity<Diet>().ToTable("Diet");
             modelBuilder.Entity<PersonalTraining>().ToTable("PersonalTraining");
             modelBuilder.Entity<TrainingEquipment>().ToTable("TrainingEquipment");
+
+            // Fluent API to define Entity Relationships one-to-many
+            modelBuilder.Entity<Product>()
+                .HasMany<Supplement>(s => s.Supplements)
+                .WithOne(p => p.Product)
+                .HasForeignKey(s => s.ProductID)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Product>()
+                .HasMany<CustomizedRoutine>(c => c.CustomizedRoutines)
+                .WithOne(p => p.Product)
+                .HasForeignKey(c => c.ProductID)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+
+
+            modelBuilder.Entity<Product>()
+                .HasMany<Diet>(d => d.Diets)
+                .WithOne(p => p.Product)
+                .HasForeignKey(d => d.ProductID)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+
+
+            modelBuilder.Entity<Product>()
+                .HasMany<TrainingEquipment>(e => e.TrainingEquipments)
+                .WithOne(p => p.Product)
+                .HasForeignKey(s => s.ProductID)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<PersonalTraining>()
+                .HasMany<Product>(p => p.Products)
+                .WithOne(pt => pt.PersonalTrainingSessions)
+                .HasForeignKey(p => p.PersonalTrainingId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Many-to-Many Relationships definition
+            modelBuilder.Entity<SupplementRoutine>()
+                .HasKey(sr => new { sr.SupplementId, sr.CustomizedRoutineId });
+            modelBuilder.Entity<SupplementRoutine>()
+                .HasOne(sr => sr.Supplement)
+                .WithMany(s => s.CustomizedRoutines)
+                .HasForeignKey(sr => sr.SupplementId)
+                .IsRequired(false);
+            modelBuilder.Entity<SupplementRoutine>()
+                .HasOne(sr => sr.CustomizedRoutine)
+                .WithMany(c => c.Supplements)
+                .HasForeignKey(sr => sr.CustomizedRoutineId)
+                .IsRequired(false);
         }
     }
 }

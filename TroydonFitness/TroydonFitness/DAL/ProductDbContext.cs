@@ -128,12 +128,14 @@ namespace TroydonFitness.DAL
                 .HasMany<Supplement>(s => s.Supplements)
                 .WithOne(p => p.Product)
                 .HasForeignKey(s => s.ProductID)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<Product>()
                 .HasMany<CustomizedRoutine>(c => c.CustomizedRoutines)
                 .WithOne(p => p.Product)
                 .HasForeignKey(c => c.ProductID)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
 
 
@@ -141,6 +143,7 @@ namespace TroydonFitness.DAL
                 .HasMany<Diet>(d => d.Diets)
                 .WithOne(p => p.Product)
                 .HasForeignKey(d => d.ProductID)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
 
 
@@ -148,12 +151,14 @@ namespace TroydonFitness.DAL
                 .HasMany<TrainingEquipment>(e => e.TrainingEquipments)
                 .WithOne(p => p.Product)
                 .HasForeignKey(s => s.ProductID)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<PersonalTraining>()
                 .HasMany<Product>(p => p.Products)
                 .WithOne(pt => pt.PersonalTrainingSessions)
                 .HasForeignKey(p => p.PersonalTrainingId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
 
             // Many-to-Many Relationships definition
@@ -162,11 +167,13 @@ namespace TroydonFitness.DAL
             builder.Entity<SupplementRoutine>()
                 .HasOne(sr => sr.Supplement)
                 .WithMany(s => s.CustomizedRoutines)
-                .HasForeignKey(sr => sr.SupplementId);
+                .HasForeignKey(sr => sr.SupplementId)
+                .IsRequired(false);
             builder.Entity<SupplementRoutine>()
                 .HasOne(sr => sr.CustomizedRoutine)
                 .WithMany(c => c.Supplements)
-                .HasForeignKey(sr => sr.CustomizedRoutineId);
+                .HasForeignKey(sr => sr.CustomizedRoutineId)
+                .IsRequired(false);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace TroydonFitness.Migrations
                         column: x => x.PersonalTrainingSessionsPersonalTrainingID,
                         principalTable: "PersonalTraining",
                         principalColumn: "PersonalTrainingID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull); //changed for .SetRestrict
                 });
 
             migrationBuilder.CreateTable(

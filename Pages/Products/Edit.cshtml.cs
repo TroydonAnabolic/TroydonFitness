@@ -19,6 +19,12 @@ namespace TroydonFitness.Pages.Products
         {
             _context = context;
         }
+        public enum Availability
+        {
+            Available,
+            Unavailable,
+            ComingSoon
+        }
 
         [BindProperty]
         public Product Product { get; set; }

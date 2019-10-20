@@ -19,8 +19,6 @@ namespace TroydonFitness.Pages.Products
             _context = context;
         }
 
-        public Availability HasStock { get; set; }
-
         public enum Availability
         {
             Available,

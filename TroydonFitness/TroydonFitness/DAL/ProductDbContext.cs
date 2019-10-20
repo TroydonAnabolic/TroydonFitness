@@ -24,7 +24,7 @@ namespace TroydonFitness.DAL
         public DbSet<Supplement> Supplements { get; set; }
         public DbSet<TrainingEquipment> TrainingEquipments { get; set; }
        // public DbSet<SupplementRoutine> SupplementRoutines { get; set; }
-        public IQueryable<PersonalTraining> PersonalTrainingSessions { get; set; }
+        public DbSet<PersonalTraining> PersonalTrainingSessions { get; set; }
         //{
         //    get
         //    {

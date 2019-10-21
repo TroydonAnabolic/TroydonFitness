@@ -13,6 +13,10 @@
     <Compile Remove="Migrations\20191020210133_SeedProducts.Designer.cs" />
     <Compile Remove="Migrations\20191020211338_SeedProducts.cs" />
     <Compile Remove="Migrations\20191020211338_SeedProducts.Designer.cs" />
+    <Compile Remove="Migrations\20191020223956_SeedProduct3.cs" />
+    <Compile Remove="Migrations\20191020223956_SeedProduct3.Designer.cs" />
+    <Compile Remove="Migrations\20191020224557_SeedProduct4.cs" />
+    <Compile Remove="Migrations\20191020224557_SeedProduct4.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

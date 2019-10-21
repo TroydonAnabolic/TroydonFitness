@@ -8,11 +8,10 @@ namespace TroydonFitness.Models.ProductModel
     public class PersonalTraining
     {
         // Keys
-        public int? PersonalTrainingID { get; set; }
+        public int Id { get; set; }
 
         // Navigation
-        public PersonalTraining PersonalTrainingSessions { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         // Details
         public string PTTitle { get; set; }

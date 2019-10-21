@@ -11,7 +11,7 @@ namespace TroydonFitness.Models.ProductModel
         public int ProductID { get; set; }
 
         // Foreign Key
-        public int? PersonalTrainingId { get; set; }
+        public int PersonalTrainingId { get; set; }
 
         // Navigation Properties
         public PersonalTraining PersonalTrainingSessions { get; set; }

@@ -60,7 +60,7 @@ namespace TroydonFitness.Data
                         " model or bodybuilding some time.",
                         WorkoutLength = new TimeSpan(0, 60, 00),
 
-                    }, 
+                    },
 
                     // Endurance Sessions
                     new PersonalTraining {
@@ -71,7 +71,6 @@ namespace TroydonFitness.Data
                         WorkoutLength = new TimeSpan(0, 30, 00),
                     },
                     new PersonalTraining {
-                        PersonalTrainingID = 8,
                         PTTitle = "Long distance runner", PTSessionName = PersonalTraining.SessionType.Endurance,
                         ExperienceLevel = PersonalTraining.Difficulty.Intermediate,
                         Description = "This routine is great for those that have some experience in training and are looking at increasing their endurance tier",
@@ -83,6 +82,15 @@ namespace TroydonFitness.Data
                         Description = "This routine is great for those that have a lot of experience and are interested in being highly trained with long distance" +
                         " model or bodybuilding some time.",
                         WorkoutLength = new TimeSpan(0, 60, 00),
+                    },
+
+                    new PersonalTraining {
+                        PTTitle = "Super muscle bodybuilding", PTSessionName = PersonalTraining.SessionType.Hypertrophy,
+                        ExperienceLevel = PersonalTraining.Difficulty.Advanced,
+                        Description = "This routine is great for those that have a lot of experience and are interested in competing in novice fitness" +
+                        " model or bodybuilding some time.",
+                        WorkoutLength = new TimeSpan(0, 60, 00),
+
                     },
 };
             foreach (PersonalTraining pt in ptSessions)

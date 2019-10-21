@@ -7,7 +7,7 @@ namespace TroydonFitness.Models.ProductModel
 {
     public class SupplementRoutine
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public int SupplementId { get; set; }
         public int CustomizedRoutineId { get; set; }
         public Supplement Supplement { get; set; }

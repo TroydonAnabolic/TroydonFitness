@@ -8,8 +8,8 @@ namespace TroydonFitness.Models.ProductModel
     public class Diet
     {
         // Keys
-        public int DietID { get; set; }
-        public int ProductID { get; set; }
+        public int Id { get; set; }
+        //public int ProductID { get; set; }
 
         // Navigation
         public Product Product { get; internal set; }

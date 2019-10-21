@@ -8,14 +8,14 @@ namespace TroydonFitness.Models.ProductModel
     public class CustomizedRoutine
     {
         // Keys
-        public int CustomizedRoutineID { get; set; }
-        public int SupplementID { get; set; }
-        public int ProductID { get; set; }
+        public int Id { get; set; }
+        //public int SupplementID { get; set; }
+        //public int ProductID { get; set; }
 
         // Navigation 
         public Product Product { get; set; }
 
-        public ICollection<SupplementRoutine> Supplements { get; set; }
+        public ICollection<SupplementRoutine> SupplementRoutines { get; set; }
 
         // Details
         public string RoutineType { get; set; }

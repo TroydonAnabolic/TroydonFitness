@@ -10,8 +10,8 @@ using TroydonFitness.Data;
 namespace TroydonFitness.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20191020223314_SeedProduct2")]
-    partial class SeedProduct2
+    [Migration("20191023032743_SeedCustomizedRoutines")]
+    partial class SeedCustomizedRoutines
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace TroydonFitness.Migrations
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.CustomizedRoutine", b =>
                 {
-                    b.Property<int>("CustomizedRoutineID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -37,13 +37,13 @@ namespace TroydonFitness.Migrations
                     b.Property<DateTime>("RoutineAdded")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("RoutineDescription")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("RoutineType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SupplementID")
-                        .HasColumnType("int");
-
-                    b.HasKey("CustomizedRoutineID");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductID");
 
@@ -52,7 +52,7 @@ namespace TroydonFitness.Migrations
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Diet", b =>
                 {
-                    b.Property<int>("DietID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -60,10 +60,10 @@ namespace TroydonFitness.Migrations
                     b.Property<int>("DietType")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductID")
+                    b.Property<int?>("ProductID")
                         .HasColumnType("int");
 
-                    b.HasKey("DietID");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductID");
 
@@ -72,7 +72,7 @@ namespace TroydonFitness.Migrations
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.PersonalTraining", b =>
                 {
-                    b.Property<int?>("PersonalTrainingID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -89,15 +89,10 @@ namespace TroydonFitness.Migrations
                     b.Property<string>("PTTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonalTrainingSessionsPersonalTrainingID")
-                        .HasColumnType("int");
-
                     b.Property<TimeSpan>("WorkoutLength")
                         .HasColumnType("time");
 
-                    b.HasKey("PersonalTrainingID");
-
-                    b.HasIndex("PersonalTrainingSessionsPersonalTrainingID");
+                    b.HasKey("Id");
 
                     b.ToTable("PersonalTraining");
                 });
@@ -115,7 +110,7 @@ namespace TroydonFitness.Migrations
                     b.Property<int>("HasStock")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PersonalTrainingId")
+                    b.Property<int>("PersonalTrainingId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -136,15 +131,12 @@ namespace TroydonFitness.Migrations
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Supplement", b =>
                 {
-                    b.Property<int>("SupplementID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomizedRoutineID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductID")
+                    b.Property<int?>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SupplementAdded")
@@ -156,7 +148,7 @@ namespace TroydonFitness.Migrations
                     b.Property<string>("SupplementType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("SupplementID");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductID");
 
@@ -171,9 +163,6 @@ namespace TroydonFitness.Migrations
                     b.Property<int>("CustomizedRoutineId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.HasKey("SupplementId", "CustomizedRoutineId");
 
                     b.HasIndex("CustomizedRoutineId");
@@ -183,7 +172,7 @@ namespace TroydonFitness.Migrations
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.TrainingEquipment", b =>
                 {
-                    b.Property<int>("TrainingEquipmentID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -191,10 +180,10 @@ namespace TroydonFitness.Migrations
                     b.Property<int>("EquipmentType")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductID")
+                    b.Property<int?>("ProductID")
                         .HasColumnType("int");
 
-                    b.HasKey("TrainingEquipmentID");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductID");
 
@@ -206,22 +195,15 @@ namespace TroydonFitness.Migrations
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("CustomizedRoutines")
                         .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Diet", b =>
                 {
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("Diets")
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("TroydonFitness.Models.ProductModel.PersonalTraining", b =>
-                {
-                    b.HasOne("TroydonFitness.Models.ProductModel.PersonalTraining", "PersonalTrainingSessions")
-                        .WithMany()
-                        .HasForeignKey("PersonalTrainingSessionsPersonalTrainingID");
+                        .HasForeignKey("ProductID");
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Product", b =>
@@ -229,25 +211,25 @@ namespace TroydonFitness.Migrations
                     b.HasOne("TroydonFitness.Models.ProductModel.PersonalTraining", "PersonalTrainingSessions")
                         .WithMany("Products")
                         .HasForeignKey("PersonalTrainingId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Supplement", b =>
                 {
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("Supplements")
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ProductID");
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.SupplementRoutine", b =>
                 {
                     b.HasOne("TroydonFitness.Models.ProductModel.CustomizedRoutine", "CustomizedRoutine")
-                        .WithMany("Supplements")
+                        .WithMany("SupplementRoutines")
                         .HasForeignKey("CustomizedRoutineId");
 
                     b.HasOne("TroydonFitness.Models.ProductModel.Supplement", "Supplement")
-                        .WithMany("CustomizedRoutines")
+                        .WithMany("SupplementRoutines")
                         .HasForeignKey("SupplementId");
                 });
 
@@ -255,8 +237,7 @@ namespace TroydonFitness.Migrations
                 {
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("TrainingEquipments")
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ProductID");
                 });
 #pragma warning restore 612, 618
         }

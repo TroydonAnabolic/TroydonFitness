@@ -29,11 +29,14 @@ namespace TroydonFitness.Migrations
                     b.Property<int>("DifficultyLevel")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProductID")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("RoutineAdded")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("RoutineDescription")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoutineType")
                         .HasColumnType("nvarchar(max)");
@@ -189,7 +192,9 @@ namespace TroydonFitness.Migrations
                 {
                     b.HasOne("TroydonFitness.Models.ProductModel.Product", "Product")
                         .WithMany("CustomizedRoutines")
-                        .HasForeignKey("ProductID");
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TroydonFitness.Models.ProductModel.Diet", b =>

@@ -13,12 +13,10 @@
         <h4>Product</h4>
         <hr />
         <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Product.PersonalTrainingSessions)
-            </dt>
+
             @*<dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Product.PersonalTrainingSessions.PersonalTrainingID)
-            </dd>*@
+            @Html.DisplayFor(model => model.Product.PersonalTrainingSessions.PersonalTrainingID)
+        </dd>*@
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Product.Title)
             </dt>
@@ -49,6 +47,33 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Product.HasStock)
             </dd>
+            @*Begin addition for personal training info*@
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Product.CustomizedRoutines)
+            </dt>
+            <dd class="col-sm-10">
+                <table class="table">
+                    <tr>
+                        <th>Course Title</th>
+                        <th>Grade</th>
+                    </tr>
+                    @foreach (var item in Model.Product.CustomizedRoutines)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RoutineType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DifficultyLevel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RoutineAdded)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </dd>
+           
         </dl>
     </div>
     <div>

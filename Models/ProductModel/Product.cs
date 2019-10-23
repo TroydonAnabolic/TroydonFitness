@@ -16,7 +16,7 @@ namespace TroydonFitness.Models.ProductModel
         // Navigation Properties
         public PersonalTraining PersonalTrainingSessions { get; set; }
         public ICollection<Supplement> Supplements { get; set; }
-        public ICollection<CustomizedRoutine> CustomizedRoutines { get; set; }
+        public List<CustomizedRoutine> CustomizedRoutines { get; set; }
         public ICollection<Diet> Diets { get; set; }
         public ICollection<TrainingEquipment> TrainingEquipments { get; set; }
 

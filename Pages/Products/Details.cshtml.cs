@@ -28,14 +28,26 @@ namespace TroydonFitness.Pages.Products
                 return NotFound();
             }
 
+            //Product = await _context.Products
+            //    .Include(p => p.PersonalTrainingSessions).FirstOrDefaultAsync(m => m.ProductID == id);
+
             Product = await _context.Products
-                .Include(p => p.PersonalTrainingSessions).FirstOrDefaultAsync(m => m.ProductID == id);
+                .Include(pt => pt.PersonalTrainingSessions)
+                .Include(c => c.CustomizedRoutines)
+                .ThenInclude(t => t.SupplementRoutines) // May need to remove
+                .Include(d => d.Diets)
+                .Include(s => s.Supplements)
+                .Include(t => t.TrainingEquipments)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ProductID == id);
+
 
             if (Product == null)
             {
                 return NotFound();
             }
             return Page();
+
         }
     }
 }

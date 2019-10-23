@@ -2,7 +2,7 @@
 
 namespace TroydonFitness.Migrations
 {
-    public partial class SeedProduct2 : Migration
+    public partial class SeedCustomizedRoutine : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

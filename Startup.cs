@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TroydonFitness.Data;
+using TroydonFitness.Models;
 
 namespace TroydonFitness
 {
@@ -26,6 +27,7 @@ namespace TroydonFitness
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddTransient<FormattingService>();
 
             services.AddDbContext<ProductContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ProductContext")));

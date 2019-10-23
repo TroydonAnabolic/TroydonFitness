@@ -21,6 +21,7 @@ namespace TroydonFitness.Pages.Products
 
         public Product Product { get; set; }
 
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

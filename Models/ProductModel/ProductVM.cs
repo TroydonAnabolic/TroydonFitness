@@ -7,7 +7,7 @@ namespace TroydonFitness.Models.ProductModel
 {
     public class ProductVM
     {
-        public int PersonalTrainingId { get; set; }
+        //public int PersonalTrainingId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

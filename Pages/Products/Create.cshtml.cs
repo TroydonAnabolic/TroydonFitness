@@ -44,10 +44,20 @@ namespace TroydonFitness.Pages.Products
                 return Page();
             }
 
-            _context.Products.Add(Product);
-            await _context.SaveChangesAsync();
+            var emptyProduct = new Product();
 
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<Product>(
+                emptyProduct,
+                "product",   // Prefix for form value.
+                p => p.PersonalTrainingId, p => p.Title, p => p.Description, p => p.Price,
+                p => p.Quantity, p => p.HasStock))
+            {
+                _context.Products.Add(emptyProduct);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+
+            return Page();
         }
     }
 }

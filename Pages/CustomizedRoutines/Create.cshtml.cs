@@ -44,10 +44,20 @@ namespace TroydonFitness.Pages.CustomizedRoutines
                 return Page();
             }
 
-            _context.CustomizedRoutines.Add(CustomizedRoutine);
-            await _context.SaveChangesAsync();
+            var emptyRoutine = new CustomizedRoutine();
 
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<CustomizedRoutine>(
+                emptyRoutine,
+                "customizedroutine",   // Prefix for form value.
+                p => p.ProductID, p => p.RoutineType, p => p.RoutineDescription, p => p.DifficultyLevel,
+                p => p.RoutineAdded))
+            {
+                _context.CustomizedRoutines.Add(emptyRoutine);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+
+            return Page();
         }
     }
 }

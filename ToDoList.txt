@@ -1,0 +1,5 @@
+﻿1. Add safety by using Lambda expressions on all pages classes.
+2. Add Error message to all pages classes using Product.cshtml.cs
+3. Create all pages for remaining Entities.
+
+

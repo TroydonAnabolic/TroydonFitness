@@ -21,8 +21,9 @@ namespace TroydonFitness.Pages.Products
 
         [BindProperty]
         public Product Product { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
@@ -30,12 +31,20 @@ namespace TroydonFitness.Pages.Products
             }
 
             Product = await _context.Products
-                .Include(p => p.PersonalTrainingSessions).FirstOrDefaultAsync(m => m.ProductID == id);
+                .AsNoTracking()
+                .Include(p => p.PersonalTrainingSessions)
+                .FirstOrDefaultAsync(m => m.ProductID == id);
 
             if (Product == null)
             {
                 return NotFound();
             }
+
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ErrorMessage = "Delete failed. Try again";
+            }
+
             return Page();
         }
 
@@ -46,15 +55,25 @@ namespace TroydonFitness.Pages.Products
                 return NotFound();
             }
 
-            Product = await _context.Products.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
 
-            if (Product != null)
+            if (product == null)
             {
-                _context.Products.Remove(Product);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            try
+            {
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            catch (DbUpdateException /* ex */)
+            {
+                //Log the error (uncomment ex variable name and write a log.)
+                return RedirectToAction("./Delete",
+                                     new { id, saveChangesError = true });
+            }
         }
     }
 }

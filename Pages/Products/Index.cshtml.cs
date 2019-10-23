@@ -19,11 +19,46 @@ namespace TroydonFitness.Pages.Products
             _context = context;
         }
 
-        public IList<Product> Product { get;set; }
+        // Sort/Filter/Group props
+        public string TitleSort { get; set; }
+        public string QuantitySort { get; set; }
+        public string PriceSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
-        public async Task OnGetAsync()
+        public IList<Product> Products { get;set; }
+
+        public async Task OnGetAsync(string sortOrder)
         {
-            Product = await _context.Products
+            // Sorting
+            TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            QuantitySort = sortOrder == "Quantity" ? "quantity_desc" : "Quantity";
+            PriceSort = sortOrder == "Price" ? "price_desc" : "Price";
+
+            IQueryable<Product> toSort = from p in _context.Products
+                                             select p;
+
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    toSort = toSort.OrderByDescending(s => s.Title);
+                    break;
+                case "Quantity":
+                    toSort = toSort.OrderBy(s => s.Quantity);
+                    break;
+                case "quantity_desc":
+                    toSort = toSort.OrderByDescending(s => s.Quantity);
+                    break;
+                case "price_desc":
+                    toSort = toSort.OrderByDescending(s => s.Price);
+                    break;
+                default:
+                    toSort = toSort.OrderBy(s => s.Price);
+                    break;
+            }
+
+            // Load in the products
+            Products = await toSort.AsNoTracking()
                 .Include(p => p.PersonalTrainingSessions).ToListAsync();
         }
     }

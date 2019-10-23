@@ -2,12 +2,12 @@
 @model TroydonFitness.Pages.Products.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Products";
 }
 
 
 <div class="post-wrap text-dark">
-    <h1>Index</h1>
+    <h1>Products</h1>
 
     <p>
         <a asp-page="Create">Create New</a>
@@ -17,25 +17,32 @@
             <tr>
 
                 <th>
-                    @Html.DisplayNameFor(model => model.Product[0].Title)
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
+                        @Html.DisplayNameFor(model => model.Products[0].Title)
+                    </a>
+                    @*@Html.DisplayNameFor(model => model.Product[0].Title)*@
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Product[0].Description)
+                    @Html.DisplayNameFor(model => model.Products[0].Description)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Product[0].Price)
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort">
+                        @Html.DisplayNameFor(model => model.Products[0].Price)
+                    </a>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Product[0].Quantity)
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.QuantitySort">
+                        @Html.DisplayNameFor(model => model.Products[0].Quantity)
+                    </a>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Product[0].HasStock)
+                    @Html.DisplayNameFor(model => model.Products[0].HasStock)
                 </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Product)
+            @foreach (var item in Model.Products)
             {
                 <tr>
                     @*<td>

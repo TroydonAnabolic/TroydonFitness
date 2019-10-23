@@ -1,0 +1,60 @@
+﻿@page
+@model TroydonFitness.Pages.CustomizedRoutines.CreateRoutineModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="post-wrap text-dark">
+
+    <h1>Create</h1>
+
+    <h4>Product</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.ProductID" class="control-label"></label>
+                    <input asp-for="CustomizedRoutine.ProductID" class="form-control" />
+                    <span asp-validation-for="CustomizedRoutine.ProductID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.RoutineType" class="control-label"></label>
+                    <input asp-for="CustomizedRoutine.RoutineType" class="form-control" />
+                    <span asp-validation-for="CustomizedRoutine.RoutineType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.RoutineDescription" class="control-label"></label>
+                    <input asp-for="CustomizedRoutine.RoutineDescription" class="form-control" />
+                    <span asp-validation-for="CustomizedRoutine.RoutineDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Stock Availability")
+                    <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.RoutineAdded" class="control-label"></label>
+                    <input asp-for="CustomizedRoutine.RoutineAdded" class="form-control" />
+                    <span asp-validation-for="CustomizedRoutine.RoutineAdded" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
+
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+

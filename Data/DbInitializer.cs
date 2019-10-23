@@ -163,31 +163,12 @@ namespace TroydonFitness.Data
                 new CustomizedRoutine{
                    RoutineType = "Easy Stregth Starter Routine", RoutineDescription = "This routine is great for those that are new to the fitness " +
                    "industry and want to increase their strength, max training duration is 30 minutes.",
-                    DifficultyLevel = Difficulty.Beginner, RoutineAdded = DateTime.Now, ProductID = 1,
+                    DifficultyLevel = Difficulty.Beginner, RoutineAdded = DateTime.Now, ProductID = 4,
                 },
 
                 new CustomizedRoutine{
                    RoutineType = "Strength for the trained", RoutineDescription = "This routine is great for those that have some experience in" +
                    " training and are looking at increasing their strength tier",
-                    DifficultyLevel = Difficulty.Intermediate, RoutineAdded = DateTime.Now, ProductID = 2,
-                },
-
-                new CustomizedRoutine{
-                   RoutineType = "Super Heavy Lifter", RoutineDescription = "This routine is great for those that have a lot of experience" +
-                   " and are interested in competing in novice powerlifting some time.",
-                    DifficultyLevel = Difficulty.Advanced, RoutineAdded = DateTime.Now, ProductID = 3,
-                },
-                
-                // Hypertrophy routines
-                new CustomizedRoutine{
-                   RoutineType = "Time to grow muscle", RoutineDescription ="This routine is great for those that are new to the fitness" +
-                   " industry and want to increase their muscle level, max training duration is 30 minutes.",
-                    DifficultyLevel = Difficulty.Beginner, RoutineAdded = DateTime.Now, ProductID = 4,
-                },
-
-                new CustomizedRoutine{
-                   RoutineType = "Hydro muscle builder", RoutineDescription = "This routine is great for those that have some experience" +
-                   " in training and are looking at increasing their muscle tier.",
                     DifficultyLevel = Difficulty.Intermediate, RoutineAdded = DateTime.Now, ProductID = 5,
                 },
 
@@ -196,12 +177,31 @@ namespace TroydonFitness.Data
                    " and are interested in competing in novice powerlifting some time.",
                     DifficultyLevel = Difficulty.Advanced, RoutineAdded = DateTime.Now, ProductID = 6,
                 },
+                
+                // Hypertrophy routines
+                new CustomizedRoutine{
+                   RoutineType = "Time to grow muscle", RoutineDescription ="This routine is great for those that are new to the fitness" +
+                   " industry and want to increase their muscle level, max training duration is 30 minutes.",
+                    DifficultyLevel = Difficulty.Beginner, RoutineAdded = DateTime.Now, ProductID = 7,
+                },
+
+                new CustomizedRoutine{
+                   RoutineType = "Hydro muscle builder", RoutineDescription = "This routine is great for those that have some experience" +
+                   " in training and are looking at increasing their muscle tier.",
+                    DifficultyLevel = Difficulty.Intermediate, RoutineAdded = DateTime.Now, ProductID = 8,
+                },
+
+                new CustomizedRoutine{
+                   RoutineType = "Super Heavy Lifter", RoutineDescription = "This routine is great for those that have a lot of experience" +
+                   " and are interested in competing in novice powerlifting some time.",
+                    DifficultyLevel = Difficulty.Advanced, RoutineAdded = DateTime.Now, ProductID = 9,
+                },
 
                 // Endurance routines
                 new CustomizedRoutine{
                    RoutineType = "Long distance runner", RoutineDescription = "This routine is great for those that are new to the fitness " +
                    "industry and want to increase their strength, max training duration is 30 minutes.",
-                    DifficultyLevel = Difficulty.Beginner, RoutineAdded = DateTime.Now, ProductID = 8,
+                    DifficultyLevel = Difficulty.Beginner, RoutineAdded = DateTime.Now, ProductID = 10,
                 },
 
                 new CustomizedRoutine{

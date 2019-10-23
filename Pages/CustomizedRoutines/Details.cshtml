@@ -1,0 +1,51 @@
+﻿@page
+@model TroydonFitness.Pages.CustomizedRoutines.RoutineDetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="post-wrap text-dark">
+    <h1>Details</h1>
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="row">
+
+            @*<dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.PersonalTrainingSessions.PersonalTrainingID)
+        </dd>*@
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.RoutineType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomizedRoutine.RoutineType)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.RoutineDescription)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomizedRoutine.RoutineDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.DifficultyLevel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomizedRoutine.DifficultyLevel)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.RoutineAdded)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomizedRoutine.RoutineAdded)
+            </dd>
+           
+        </dl>
+    </div>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.CustomizedRoutine.Id">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>
+    </div>

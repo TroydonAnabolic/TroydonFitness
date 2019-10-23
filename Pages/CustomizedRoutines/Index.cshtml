@@ -1,0 +1,63 @@
+﻿@page
+@model TroydonFitness.Pages.CustomizedRoutines.IndexProductModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="post-wrap text-dark">
+    <h1>Index</h1>
+
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomizedRoutine[0].RoutineType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomizedRoutine[0].RoutineDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomizedRoutine[0].DifficultyLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomizedRoutine[0].RoutineAdded)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CustomizedRoutine)
+            {
+                <tr>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.PersonalTrainingSessions.PersonalTrainingID)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DifficultyLevel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineAdded)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ProductID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

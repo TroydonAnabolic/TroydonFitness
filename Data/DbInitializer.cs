@@ -13,9 +13,8 @@ namespace TroydonFitness.Data
         // May need to correct seed statement
         public static void Initialize(ProductContext context) // try changing Initialize to Seed
         {
-            // context.Database.EnsureDeleted(); //may need to add to drop database first to add new schema
 
-            context.Database.EnsureCreated();
+            // context.Database.EnsureCreated();
 
             // Look for any CustomizedRoutines.
             if (context.Products.Any())

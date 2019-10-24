@@ -62,7 +62,7 @@ namespace TroydonFitness.Pages.Products
                 studentToUpdate,
                 "product",
                 p => p.Title, p => p.Description, p => p.Price,
-                p => p.Quantity, p => p.HasStock))
+                p => p.Quantity, p => p.HasStock, p => p.ProductAdded))
             {
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");

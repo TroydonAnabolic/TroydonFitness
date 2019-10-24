@@ -50,7 +50,7 @@ namespace TroydonFitness.Pages.Products
                 emptyProduct,
                 "product",   // Prefix for form value.
                 p => p.PersonalTrainingId, p => p.Title, p => p.Description, p => p.Price,
-                p => p.Quantity, p => p.HasStock))
+                p => p.Quantity, p => p.HasStock, p => p.ProductAdded))
             {
                 _context.Products.Add(emptyProduct);
                 await _context.SaveChangesAsync();

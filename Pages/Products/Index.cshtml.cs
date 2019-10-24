@@ -28,37 +28,45 @@ namespace TroydonFitness.Pages.Products
 
         public IList<Product> Products { get;set; }
 
-        public async Task OnGetAsync(string sortOrder)
+        public async Task OnGetAsync(string sortOrder, string searchString)
         {
             // Sorting
             TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             QuantitySort = sortOrder == "Quantity" ? "quantity_desc" : "Quantity";
             PriceSort = sortOrder == "Price" ? "price_desc" : "Price";
 
-            IQueryable<Product> toSort = from p in _context.Products
+            CurrentFilter = searchString;
+
+            IQueryable<Product> productIQ = from p in _context.Products
                                              select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                productIQ = productIQ.Where(s => s.Title.Contains(searchString.ToUpper())
+                                       || s.Description.Contains(searchString.ToUpper()));
+            }
 
             switch (sortOrder)
             {
                 case "title_desc":
-                    toSort = toSort.OrderByDescending(s => s.Title);
+                    productIQ = productIQ.OrderByDescending(s => s.Title);
                     break;
                 case "Quantity":
-                    toSort = toSort.OrderBy(s => s.Quantity);
+                    productIQ = productIQ.OrderBy(s => s.Quantity);
                     break;
                 case "quantity_desc":
-                    toSort = toSort.OrderByDescending(s => s.Quantity);
+                    productIQ = productIQ.OrderByDescending(s => s.Quantity);
                     break;
                 case "price_desc":
-                    toSort = toSort.OrderByDescending(s => s.Price);
+                    productIQ = productIQ.OrderByDescending(s => s.Price);
                     break;
                 default:
-                    toSort = toSort.OrderBy(s => s.Price);
+                    productIQ = productIQ.OrderBy(s => s.Price);
                     break;
             }
 
             // Load in the products
-            Products = await toSort.AsNoTracking()
+            Products = await productIQ.AsNoTracking()
                 .Include(p => p.PersonalTrainingSessions).ToListAsync();
         }
     }

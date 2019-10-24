@@ -6,71 +6,83 @@
 }
 
 
-<div class="post-wrap text-dark">
-    <h1>Products</h1>
+    <div class="post-wrap text-dark">
+        <h1>Products</h1>
 
-    <p>
-        <a asp-page="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
+        <p>
+            <a asp-page="Create">Create New</a>
+        </p>
 
-                <th>
-                    <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
-                        @Html.DisplayNameFor(model => model.Products[0].Title)
-                    </a>
-                    @*@Html.DisplayNameFor(model => model.Product[0].Title)*@
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Products[0].Description)
-                </th>
-                <th>
-                    <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort">
-                        @Html.DisplayNameFor(model => model.Products[0].Price)
-                    </a>
-                </th>
-                <th>
-                    <a asp-page="./Index" asp-route-sortOrder="@Model.QuantitySort">
-                        @Html.DisplayNameFor(model => model.Products[0].Quantity)
-                    </a>
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Products[0].HasStock)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Products)
-            {
+        <form asp-page="./Index" method="get">
+            <div class="form-actions no-color">
+                <p>
+                    Find by product title or description:
+                    <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+                    <input type="submit" value="Search" class="btn btn-primary" /> |
+                    <a asp-page="./Index">Back to full List</a>
+                </p>
+            </div>
+        </form>
+
+        <table class="table">
+            <thead>
                 <tr>
-                    @*<td>
-                        @Html.DisplayFor(modelItem => item.PersonalTrainingSessions.PersonalTrainingID)
-                    </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HasStock)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.ProductID">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
 
-</div>
+                    <th>
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
+                            @Html.DisplayNameFor(model => model.Products[0].Title)
+                        </a>
+
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].Description)
+                    </th>
+                    <th>
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort">
+                            @Html.DisplayNameFor(model => model.Products[0].Price)
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.QuantitySort">
+                            @Html.DisplayNameFor(model => model.Products[0].Quantity)
+                        </a>
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Products[0].HasStock)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.PersonalTrainingSessions.PersonalTrainingID)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HasStock)
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.ProductID">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>

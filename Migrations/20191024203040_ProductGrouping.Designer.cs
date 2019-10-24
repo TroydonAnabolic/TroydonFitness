@@ -10,8 +10,8 @@ using TroydonFitness.Data;
 namespace TroydonFitness.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20191023032743_SeedCustomizedRoutines")]
-    partial class SeedCustomizedRoutines
+    [Migration("20191024203040_ProductGrouping")]
+    partial class ProductGrouping
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -115,6 +115,9 @@ namespace TroydonFitness.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("ProductAdded")
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("Quantity")
                         .HasColumnType("decimal(18,2)");

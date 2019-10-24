@@ -1,0 +1,46 @@
+﻿@page
+@model TroydonFitness.Pages.AboutModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Student Body Statistics";
+}
+
+    <div class="post-wrap text-dark">
+
+        <h2>Troydon Fitness Info</h2>
+
+        <section>
+            <p>Troydon Fitness is the go to place to achieve fitness goals such as building muscle, gaining strength or building up endurance.</p>
+            <p>The website was formulated so I can help others achieve the same as I have, by transforming bodies.</p>
+        </section>
+
+        @*TODO: Add a section here similar to below to display client results, maybe using user accounts if possible*@ 
+
+        <h3>Product Info</h3>
+        <p>Over here we can see the products added over time.</p>
+        <table>
+            <tr>
+                <th>
+                    Products Added
+                </th>
+                <th>
+                    Products
+                </th>
+            </tr>
+
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductAdded)
+                    </td>
+                    <td>
+                        @item.ProductCount
+                    </td>
+                </tr>
+            }
+        </table>
+
+</div>

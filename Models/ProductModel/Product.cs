@@ -26,6 +26,8 @@ namespace TroydonFitness.Models.ProductModel
         public string Description { get; set; }
         public decimal Price { get; set; }
         public decimal Quantity { get; set; }
+
+        public DateTime ProductAdded { get; set; }
         public Availability HasStock { get; set; }
 
         public enum Availability

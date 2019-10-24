@@ -114,6 +114,9 @@ namespace TroydonFitness.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("ProductAdded")
+                        .HasColumnType("datetime2");
+
                     b.Property<decimal>("Quantity")
                         .HasColumnType("decimal(18,2)");
 

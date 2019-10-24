@@ -26,14 +26,25 @@ namespace TroydonFitness.Pages.Products
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public IList<Product> Products { get;set; }
+        public PaginatedList<Product> Products { get;set; }
 
-        public async Task OnGetAsync(string sortOrder, string searchString)
+        public async Task OnGetAsync(string sortOrder, string searchString,
+            string currentFilter, int? pageIndex)
         {
             // Sorting
+            CurrentSort = sortOrder;
             TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             QuantitySort = sortOrder == "Quantity" ? "quantity_desc" : "Quantity";
             PriceSort = sortOrder == "Price" ? "price_desc" : "Price";
+
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
             CurrentFilter = searchString;
 
@@ -66,8 +77,9 @@ namespace TroydonFitness.Pages.Products
             }
 
             // Load in the products
-            Products = await productIQ.AsNoTracking()
-                .Include(p => p.PersonalTrainingSessions).ToListAsync();
+            int pageSize = 3;
+            Products = await PaginatedList<Product>.CreateAsync(
+                productIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }
 }

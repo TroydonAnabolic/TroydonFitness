@@ -29,7 +29,8 @@
                 <tr>
 
                     <th>
-                        <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort"
+                           asp-route-currentFilter="@Model.CurrentFilter">
                             @Html.DisplayNameFor(model => model.Products[0].Title)
                         </a>
 
@@ -38,12 +39,14 @@
                         @Html.DisplayNameFor(model => model.Products[0].Description)
                     </th>
                     <th>
-                        <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort">
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort"
+                           asp-route-currentFilter="@Model.CurrentFilter">
                             @Html.DisplayNameFor(model => model.Products[0].Price)
                         </a>
                     </th>
                     <th>
-                        <a asp-page="./Index" asp-route-sortOrder="@Model.QuantitySort">
+                        <a asp-page="./Index" asp-route-sortOrder="@Model.QuantitySort"
+                           asp-route-currentFilter="@Model.CurrentFilter">
                             @Html.DisplayNameFor(model => model.Products[0].Quantity)
                         </a>
                     </th>
@@ -84,5 +87,26 @@
                 }
             </tbody>
         </table>
+
+        @{
+            var prevDisabled = !Model.Products.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.Products.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-page="./Index"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-pageIndex="@(Model.Products.PageIndex - 1)"
+           asp-route-currentFilter="@Model.CurrentFilter"
+           class="btn btn-primary @prevDisabled">
+            Previous
+        </a>
+        <a asp-page="./Index"
+           asp-route-sortOrder="@Model.CurrentSort"
+           asp-route-pageIndex="@(Model.Products.PageIndex + 1)"
+           asp-route-currentFilter="@Model.CurrentFilter"
+           class="btn btn-primary @nextDisabled">
+            Next
+        </a>
+
 
     </div>

@@ -8,19 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using TroydonFitness.Data;
 using TroydonFitness.Models.ProductModel;
 
-namespace TroydonFitness.Pages.Products
+namespace TroydonFitness.Pages.CustomizedRoutines
 {
-    public class DeleteModel : PageModel
+    public class DeleteRoutineModel : PageModel
     {
         private readonly TroydonFitness.Data.ProductContext _context;
 
-        public DeleteModel(TroydonFitness.Data.ProductContext context)
+        public DeleteRoutineModel(TroydonFitness.Data.ProductContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Product Product { get; set; }
+        public CustomizedRoutine CustomizedRoutine { get; set; }
         public string ErrorMessage { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
@@ -30,12 +30,12 @@ namespace TroydonFitness.Pages.Products
                 return NotFound();
             }
 
-            Product = await _context.Products
+            CustomizedRoutine = await _context.CustomizedRoutines
                 .AsNoTracking()
-                .Include(p => p.PersonalTrainingSessions)
-                .FirstOrDefaultAsync(m => m.ProductID == id);
+                .Include(p => p.Product)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Product == null)
+            if (CustomizedRoutine == null)
             {
                 return NotFound();
             }
@@ -55,16 +55,16 @@ namespace TroydonFitness.Pages.Products
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var routine = await _context.CustomizedRoutines.FindAsync(id);
 
-            if (product == null)
+            if (routine == null)
             {
                 return NotFound();
             }
 
             try
             {
-                _context.Products.Remove(product);
+                _context.CustomizedRoutines.Remove(routine);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,10 +15,12 @@ namespace TroydonFitness.Pages.CustomizedRoutines
     public class CreateRoutineModel : PageModel
     {
         private readonly TroydonFitness.Data.ProductContext _context;
+        private readonly IWebHostEnvironment _hostingEnv;
 
-        public CreateRoutineModel(TroydonFitness.Data.ProductContext context)
+        public CreateRoutineModel(TroydonFitness.Data.ProductContext context, IWebHostEnvironment hostingEnv)
         {
             _context = context;
+            _hostingEnv = hostingEnv;
         }
 
         public enum Difficulty
@@ -28,7 +32,7 @@ namespace TroydonFitness.Pages.CustomizedRoutines
 
         public IActionResult OnGet()
         {
-        ViewData["ProductID"] = new SelectList(_context.Set<Product>(), "ProductID", "ProductID");
+        ViewData["Id"] = new SelectList(_context.Set<CustomizedRoutine>(), "Id", "Id");
             return Page();
         }
 
@@ -44,14 +48,28 @@ namespace TroydonFitness.Pages.CustomizedRoutines
                 return Page();
             }
 
-            var emptyRoutine = new CustomizedRoutine();
+                var emptyRoutine = new CustomizedRoutine();
 
             if (await TryUpdateModelAsync<CustomizedRoutine>(
                 emptyRoutine,
                 "customizedroutine",   // Prefix for form value.
-                p => p.ProductID, p => p.RoutineType, p => p.RoutineDescription, p => p.DifficultyLevel,
-                p => p.RoutineAdded))
+                p => p.ProductID, p => p.RoutineType, p => p.RoutineDescription, p => p.DifficultyLevel, p => p.RoutineAdded,
+                 p => p.Exercise, p => p.MuscleGroup, p => p.Equipment, p => p.WorkoutDuration, p => p.Sets, p => p.Reps,
+                 p => p.Rest, p => p.DayOfTheWeek, p => p.ImagePath) 
+                 && CustomizedRoutine.Image!= null) // check
             {
+                    // Image file search and add
+                    var a = _hostingEnv.WebRootPath;
+                    var fileName = Path.GetFileName(CustomizedRoutine.Image.FileName);
+                    var filePath = Path.Combine(_hostingEnv.WebRootPath, "images\\Products\\Routines", fileName);
+
+                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                    {
+                        await CustomizedRoutine.Image.CopyToAsync(fileSteam);
+                    }
+
+                // Add the remaining data
+                CustomizedRoutine.ImagePath = filePath;
                 _context.CustomizedRoutines.Add(emptyRoutine);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");

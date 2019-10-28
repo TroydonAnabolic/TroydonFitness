@@ -13,7 +13,7 @@
     <hr />
     <div class="row">
         <div class="col-md-4">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label asp-for="CustomizedRoutine.ProductID" class="control-label"></label>
                     <input asp-for="CustomizedRoutine.ProductID" class="form-control" />
@@ -33,7 +33,7 @@
                     <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
                     @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
                         new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
-                        "Select Stock Availability")
+                        "Select Difficulty")
                     <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -41,6 +41,72 @@
                     <input asp-for="CustomizedRoutine.RoutineAdded" class="form-control" />
                     <span asp-validation-for="CustomizedRoutine.RoutineAdded" class="text-danger"></span>
                 </div>
+
+                @*-----------------------------------------------Begin routine details(View by Details Page Only)---------------------------------------------------*@
+
+
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.Monday" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.Monday,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                        "Select Muscles Trained")
+                    <span asp-validation-for="CustomizedRoutine.Monday" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Difficulty")
+                    <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Difficulty")
+                    <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Difficulty")
+                    <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Difficulty")
+                    <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Difficulty")
+                    <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CustomizedRoutine.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutine.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Difficulty")
+                    <span asp-validation-for="CustomizedRoutine.DifficultyLevel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>

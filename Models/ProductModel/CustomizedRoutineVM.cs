@@ -7,18 +7,10 @@ using System.Threading.Tasks;
 
 namespace TroydonFitness.Models.ProductModel
 {
-    public class CustomizedRoutine
+    public class CustomizedRoutineVM
     {
-        // Keys
         public int Id { get; set; }
-        //public int SupplementID { get; set; }
         public int ProductID { get; set; }
-
-        // Navigation 
-        public Product Product { get; set; }
-
-        public ICollection<SupplementRoutine> SupplementRoutines { get; set; }
-
         // Details
         [Required]
         [Display(Name = "Routine Type")]
@@ -38,7 +30,7 @@ namespace TroydonFitness.Models.ProductModel
 
         // Routine props to describe what the routine entails (DO not show in Index, just details and create[delete if needed])
         [Display(Name = "Difficulty Level")]
-        public Difficulty? DifficultyLevel { get; set; }
+        public Difficulty DifficultyLevel { get; set; }
 
         public enum Difficulty
         {
@@ -78,6 +70,7 @@ namespace TroydonFitness.Models.ProductModel
         [Display(Name = "Exercise 15")]
         public Exercises? Exercise15 { get; set; }
 
+        // TODO: Use multi selection grouping method later
         public enum Exercises
         {
             // Calves
@@ -112,7 +105,7 @@ namespace TroydonFitness.Models.ProductModel
             // Lats
             [Display(Name = "---Upper Back---")]
             LATS,
-            [Display(Name = "Pull Ups")] PullUps, Rows, [Display(Name = "Pull Down")] PullDown, 
+            [Display(Name = "Pull Ups")] PullUps, Rows, [Display(Name = "Pull Down")] PullDown,
 
             //Abdominals
             [Display(Name = "---Abdominals---")]
@@ -136,7 +129,7 @@ namespace TroydonFitness.Models.ProductModel
             // Biceps
             [Display(Name = "---Biceps---")]
             BICEPS,
-            [Display(Name = "Bicep Curl")] BicepCurl, [Display(Name = "Single Arm Bicep Curl")] SingleArmBicepCurl, 
+            [Display(Name = "Bicep Curl")] BicepCurl, [Display(Name = "Single Arm Bicep Curl")] SingleArmBicepCurl,
 
             // Forearms
             [Display(Name = "---Forearms---")]
@@ -168,7 +161,7 @@ namespace TroydonFitness.Models.ProductModel
 
 
         [Display(Name = "Muscle Group")]
-        public MuscleGroups MuscleGroup { get; set; }
+        public MuscleGroups? MuscleGroup { get; set; }
 
         public enum MuscleGroups
         {
@@ -180,20 +173,21 @@ namespace TroydonFitness.Models.ProductModel
 
         public enum Equipment
         {
-            Barbell, Dumbbell, 
+            Barbell, Dumbbell,
             [Display(Name = "Tread Mill")] TreadMill, [Display(Name = "Spin Bike")] SpinBike, Elliptical, StepMill, [Display(Name = "Rowing Machine")] RowingMachine
         }
 
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss} hours.", ApplyFormatInEditMode = true)]
         [Display(Name = "Workout Duration Time")]
-        public TimeSpan WorkoutDuration { get; set; }
+        public TimeSpan? WorkoutDuration { get; set; }
 
         // Specify Sets, Reps, Rest Time, TUT using a customized template to copy paste -- later create many to many relationship to add exercise class to show link
+        // So we can then use different TUT sets etc.
         [Required, DataType(DataType.MultilineText)]
         public string ExerciseDetails { get; set; }
 
-        public MuscleGroups? Monday{ get; set; }
+        public MuscleGroups? Monday { get; set; }
         public MuscleGroups? Tuesday { get; set; }
         public MuscleGroups? Wednesday { get; set; }
         public MuscleGroups? Thursday { get; set; }
@@ -204,10 +198,5 @@ namespace TroydonFitness.Models.ProductModel
 
         [DataType(DataType.ImageUrl)]
         public string ImagePath { get; set; }
-
-     //   public IFormFile Image { get; set; }
-
-        // TODO: Display who the routine is customized for by linking to user and making visible only to the user
-        //public User UserName { get; set; }
     }
 }

@@ -20,20 +20,18 @@ namespace TroydonFitness.Models.ProductModel
         public ICollection<SupplementRoutine> SupplementRoutines { get; set; }
 
         // Details
-        [Required]
-        [Display(Name = "Routine Type")]
+        [Required, Display(Name = "Routine Type")]
         [StringLength(50)]
         public string RoutineType { get; set; }
 
-        [Required]
         [MinLength(50, ErrorMessage = "Description posts must be at least 50 characters long")]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Routine Description")]
+        [Required, Display(Name = "Routine Description")]
         public string RoutineDescription { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Routine Added Date")]
+        [Required, Display(Name = "Routine Added Date")]
         public DateTime? RoutineAdded { get; set; }
 
         // Routine props to describe what the routine entails (DO not show in Index, just details and create[delete if needed])
@@ -186,7 +184,7 @@ namespace TroydonFitness.Models.ProductModel
 
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss} hours.", ApplyFormatInEditMode = true)]
-        [Display(Name = "Workout Duration Time")]
+        [Required, Display(Name = "Workout Duration Time")]
         public TimeSpan WorkoutDuration { get; set; }
 
         // Specify Sets, Reps, Rest Time, TUT using a customized template to copy paste -- later create many to many relationship to add exercise class to show link

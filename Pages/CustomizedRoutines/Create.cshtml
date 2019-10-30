@@ -9,34 +9,28 @@
 
     <h1>Create</h1>
 
-    <h4>Product</h4>
+    <h4>Product Details</h4>
     <hr />
     <div class="row">
         <div class="col-md-4">
             <form method="post" enctype="multipart/form-data">
-                <div class="form-group">
+                <div class="form-group required">
                     <label asp-for="CustomizedRoutineVM.ProductID" class="control-label"></label>
                     <input asp-for="CustomizedRoutineVM.ProductID" class="form-control" />
                     <span asp-validation-for="CustomizedRoutineVM.ProductID" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group required">
                     <label asp-for="CustomizedRoutineVM.RoutineType" class="control-label"></label>
                     <input asp-for="CustomizedRoutineVM.RoutineType" class="form-control" />
                     <span asp-validation-for="CustomizedRoutineVM.RoutineType" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group required">
                     <label asp-for="CustomizedRoutineVM.RoutineDescription" class="control-label"></label>
                     <input asp-for="CustomizedRoutineVM.RoutineDescription" class="form-control" />
                     <span asp-validation-for="CustomizedRoutineVM.RoutineDescription" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.DifficultyLevel" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.DifficultyLevel,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
-                        "Select Difficulty")
-                    <span asp-validation-for="CustomizedRoutineVM.DifficultyLevel" class="text-danger"></span>
-                </div>
-                <div class="form-group">
+
+                <div class="form-group required">
                     <label asp-for="CustomizedRoutineVM.RoutineAdded" class="control-label"></label>
                     <input asp-for="CustomizedRoutineVM.RoutineAdded" class="form-control" />
                     <span asp-validation-for="CustomizedRoutineVM.RoutineAdded" class="text-danger"></span>
@@ -44,79 +38,96 @@
 
                 @*-----------------------------------------------Begin routine details(View by Details Page Only)---------------------------------------------------*@
 
+                <h4>Exercise Details</h4>
 
 
-                <div class="form-group">
+                <div class="form-group required">
                     <label asp-for="CustomizedRoutineVM.WorkoutDuration" class="control-label"></label>
                     <input asp-for="CustomizedRoutineVM.WorkoutDuration" class="form-control" />
                     <span asp-validation-for="CustomizedRoutineVM.WorkoutDuration" class="text-danger"></span>
                 </div>
 
+                <div class="form-group required">
+                    <label asp-for="CustomizedRoutineVM.DifficultyLevel" class="control-label"></label>
+                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.DifficultyLevel,
+                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Difficulty))),
+                        "Select Difficulty")
+                    <span asp-validation-for="CustomizedRoutineVM.DifficultyLevel" class="text-danger"></span>
+                </div>
+
                 @*Day of the week*@
 
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Monday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Monday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Monday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Tuesday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Tuesday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Tuesday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Wednesday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Wednesday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Wednesday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Thursday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Thursday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Thursday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Friday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Friday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Friday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Saturday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Saturday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Saturday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Sunday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Sunday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
-                </div>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Monday" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Monday,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Monday" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Tuesday" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Tuesday,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Tuesday" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Wednesday" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Wednesday,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Wednesday" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Thursday" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Thursday,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Thursday" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Friday" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Friday,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Friday" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Saturday" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Saturday,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Saturday" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Sunday,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 @*Exercises*@
 
@@ -241,37 +252,45 @@
 
                 @*Stretch*@
 
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Sunday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
-                </div>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Stretch1" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Stretch1,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Stretch1" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Stretch2" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Stretch2,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Stretch2" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Stretch3" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Stretch3,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
+                                        "Select Muscles Trained")
+                                    <span asp-validation-for="CustomizedRoutineVM.Stretch3" class="text-danger"></span>
+                                </div>
+                            </td>
 
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Sunday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
-                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Sunday,
-                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                        "Select Muscles Trained")
-                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label asp-for="CustomizedRoutineVM.ExerciseDetails" class="control-label"></label>
-                    <input asp-for="CustomizedRoutineVM.ExerciseDetails" class="form-control" />
-                    <span asp-validation-for="CustomizedRoutineVM.ExerciseDetails" class="text-danger"></span>
-                </div>
-
+                        </tr>
+                    </tbody>
+                </table>
+                    <div class="form-group required">
+                        <label asp-for="CustomizedRoutineVM.ExerciseDetails" class="control-label"></label>
+                        <input asp-for="CustomizedRoutineVM.ExerciseDetails" class="form-control" />
+                        <span asp-validation-for="CustomizedRoutineVM.ExerciseDetails" class="text-danger"></span>
+                    </div>
 
                 <div class="form-group">
                     <label asp-for="Image" class="control-label"></label>
@@ -279,7 +298,7 @@
                     <span asp-validation-for="Image" class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group required">
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
             </form>

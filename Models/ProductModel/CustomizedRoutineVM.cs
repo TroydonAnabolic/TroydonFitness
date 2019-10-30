@@ -12,15 +12,14 @@ namespace TroydonFitness.Models.ProductModel
         public int Id { get; set; }
         public int ProductID { get; set; }
         // Details
-        [Required]
-        [Display(Name = "Routine Type")]
+        [Required, Display(Name = "Routine Type")]
         [StringLength(50)]
         public string RoutineType { get; set; }
 
-        [Required]
+
         [MinLength(50, ErrorMessage = "Description posts must be at least 50 characters long")]
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Routine Description")]
+        [Required, Display(Name = "Routine Description")]
         public string RoutineDescription { get; set; }
 
         [DataType(DataType.Date)]
@@ -165,7 +164,8 @@ namespace TroydonFitness.Models.ProductModel
 
         public enum MuscleGroups
         {
-            Calves, Quadriceps, Hamstrings, Gluteus, Hips, [Display(Name = "Lower Back")] LowerBack, [Display(Name = "Upper Back")] UpperBack, Abdominals
+            Calves, Quadriceps, Hamstrings, Gluteus, Hips, [Display(Name = "Lower Back")] LowerBack, [Display(Name = "Upper Back")] UpperBack, Abdominals,
+            sREST,
         }
 
         [Display(Name = "Equipment Used")]

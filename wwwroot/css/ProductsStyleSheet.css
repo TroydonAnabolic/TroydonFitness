@@ -5,3 +5,12 @@
 .post-wrap {
     margin: 10%;
 }
+
+.form-group.required .control-label:after {
+    /*content: "*";
+    color: red;*/
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    font-size: 10px;
+    content: " \f069";
+}

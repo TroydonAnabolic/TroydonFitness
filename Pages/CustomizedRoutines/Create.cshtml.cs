@@ -33,7 +33,11 @@ namespace TroydonFitness.Pages.CustomizedRoutines
         }
         public enum MuscleGroups
         {
-            Calves, Quadriceps, Hamstrings, Gluteus, Hips, [Display(Name = "Lower Back")] LowerBack, [Display(Name = "Upper Back")] UpperBack, Abdominals
+            Calves, Quadriceps, Hamstrings, Gluteus, Hips, [Display(Name = "Lower Back")] LowerBack, [Display(Name = "Upper Back")] UpperBack, Abdominals,
+            Pectorals, Deltoids, Triceps, Biceps, Forearms, Trapezius,
+            // Combo
+            [Display(Name = "Legs & Calves")] LegsCalves, [Display(Name = "Chest & Shoulders")] ChestShoulders, [Display(Name = "Back & Trapezius")] BackTrapezius, Arms,
+            REST
         }
         public enum Equipment
         {
@@ -72,7 +76,7 @@ namespace TroydonFitness.Pages.CustomizedRoutines
             LOWERBACK,
             Deadlift, Hyperextension,
 
-            // Lats
+            // Upper Back
             [Display(Name = "---Upper Back---")]
             LATS,
             [Display(Name = "Pull Ups")] PullUps, Rows, [Display(Name = "Pull Down")] PullDown,
@@ -118,16 +122,74 @@ namespace TroydonFitness.Pages.CustomizedRoutines
         }
         // -------------- HTTP GET  HTTP POST------------------------
 
-        public IActionResult OnGet()
-        {
-        ViewData["ProductID"] = new SelectList(_context.Set<CustomizedRoutine>(), "ProductID", "ProductID");
-            return Page();
-        }
-
         [BindProperty]
         public CustomizedRoutineVM CustomizedRoutineVM { get; set; }
         [BindProperty]
         public IFormFile Image { get; set; }
+
+        [BindProperty]
+        public int? Strecth1 { get; set; }
+        [BindProperty]
+        public int? Strecth2 { get; set; }
+        [BindProperty]
+        public int? Strecth3 { get; set; }
+        [BindProperty]
+        public int? Strecth4 { get; set; }
+        [BindProperty]
+        public int? Strecth5 { get; set; }
+        public List<SelectListItem> Split { get; set; }
+
+        public IActionResult OnGet()
+        {
+            ViewData["ProductID"] = new SelectList(_context.Set<CustomizedRoutine>(), "ProductID", "ProductID");
+
+            // Add Stretches
+            var SixDaySplit = new SelectListGroup { Name = "Six Day Split" };
+            var FiveDaySplit = new SelectListGroup { Name = "Five Day Split" };
+            var FourDaySpliy = new SelectListGroup { Name = "Four Day Split" };
+            var ThreeDaySplit = new SelectListGroup { Name = "Three Day Split" };
+
+            Split = new List<SelectListItem>
+            {
+                new SelectListItem{ Value = "1", Text = "Calves", Group = SixDaySplit},
+                new SelectListItem{ Value = "2", Text = "Quadriceps", Group = SixDaySplit},
+                new SelectListItem{ Value = "3", Text = "Hamstrings", Group = SixDaySplit}, 
+                new SelectListItem{ Value = "4", Text = "Hips", Group = SixDaySplit},
+                new SelectListItem{ Value = "5", Text = "Lower Back", Group = SixDaySplit},
+                new SelectListItem{ Value = "6", Text = "Upper Back", Group = SixDaySplit},
+                new SelectListItem{ Value = "7", Text = "Abdominals", Group = SixDaySplit},
+                new SelectListItem{ Value = "8", Text = "Pectorals", Group = SixDaySplit},
+                new SelectListItem{ Value = "9", Text = "Deltoids", Group = SixDaySplit},
+                new SelectListItem{ Value = "10", Text = "Triceps", Group = SixDaySplit},
+                new SelectListItem{ Value = "11", Text = "Biceps", Group = SixDaySplit},
+                new SelectListItem{ Value = "12", Text = "Forearms", Group = SixDaySplit},
+                new SelectListItem{ Value = "13", Text = "Upper Back", Group = SixDaySplit},
+                new SelectListItem{ Value = "14", Text = "Trapezius", Group = SixDaySplit},
+                new SelectListItem{ Value = "15", Text = "Back", Group = SixDaySplit},
+                new SelectListItem{ Value = "16", Text = "Legs", Group = SixDaySplit},
+                new SelectListItem{ Value = "17", Text = "Legs & Calves", Group = SixDaySplit},
+                new SelectListItem{ Value = "18", Text = "Deltoids & Trapezius", Group = SixDaySplit},
+                new SelectListItem{ Value = "19", Text = "Arms & Abs", Group = SixDaySplit},
+
+                new SelectListItem{ Value = "20", Text = "Chest", Group = FiveDaySplit},
+                new SelectListItem{ Value = "21", Text = "Legs & Calves", Group = FiveDaySplit},
+                new SelectListItem{ Value = "22", Text = "Deltoids & Abs", Group = FiveDaySplit},
+                new SelectListItem{ Value = "23", Text = "Back & Traps", Group = FiveDaySplit},
+                new SelectListItem{ Value = "24", Text = "Arms, Abs & Calves", Group = FiveDaySplit},
+
+                new SelectListItem{ Value = "25", Text = "Legs & Calves", Group = FourDaySpliy},
+                new SelectListItem{ Value = "26", Text = "Chest, Shoulders & Abs", Group = FourDaySpliy},
+                new SelectListItem{ Value = "27", Text = "Back & Trapezius", Group = FourDaySpliy},
+                new SelectListItem{ Value = "28", Text = "Arms, Calves & Abs", Group = FourDaySpliy},
+
+                new SelectListItem{ Value = "4", Text = "Upper Body", Group = ThreeDaySplit},
+                new SelectListItem{ Value = "4", Text = "Lower Body", Group = ThreeDaySplit},
+                new SelectListItem{ Value = "4", Text = "Full Body", Group = ThreeDaySplit},
+                new SelectListItem{ Value = "4", Text = "Rest Day", Group = ThreeDaySplit}
+            };
+
+            return Page();
+        }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.

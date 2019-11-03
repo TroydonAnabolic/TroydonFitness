@@ -91,8 +91,10 @@ namespace TroydonFitness.Migrations
             migrationBuilder.AddColumn<TimeSpan>(
                 name: "WorkoutDuration",
                 table: "CustomizedRoutine",
-                nullable: false,
+                nullable: true,
                 defaultValue: new TimeSpan(0, 0, 0, 0, 0));
+
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

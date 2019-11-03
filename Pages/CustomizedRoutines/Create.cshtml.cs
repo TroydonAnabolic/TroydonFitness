@@ -128,15 +128,19 @@ namespace TroydonFitness.Pages.CustomizedRoutines
         public IFormFile Image { get; set; }
 
         [BindProperty]
-        public int? Strecth1 { get; set; }
+        public int? Monday { get; set; }
         [BindProperty]
-        public int? Strecth2 { get; set; }
+        public int? Tuesday { get; set; }
         [BindProperty]
-        public int? Strecth3 { get; set; }
+        public int? Wednesday { get; set; }
         [BindProperty]
-        public int? Strecth4 { get; set; }
+        public int? Thursday { get; set; }
         [BindProperty]
-        public int? Strecth5 { get; set; }
+        public int? Friday { get; set; }
+        [BindProperty]
+        public int? Saturday { get; set; }
+        [BindProperty]
+        public int? Sunday { get; set; }
         public List<SelectListItem> Split { get; set; }
 
         public IActionResult OnGet()
@@ -182,10 +186,10 @@ namespace TroydonFitness.Pages.CustomizedRoutines
                 new SelectListItem{ Value = "27", Text = "Back & Trapezius", Group = FourDaySpliy},
                 new SelectListItem{ Value = "28", Text = "Arms, Calves & Abs", Group = FourDaySpliy},
 
-                new SelectListItem{ Value = "4", Text = "Upper Body", Group = ThreeDaySplit},
-                new SelectListItem{ Value = "4", Text = "Lower Body", Group = ThreeDaySplit},
-                new SelectListItem{ Value = "4", Text = "Full Body", Group = ThreeDaySplit},
-                new SelectListItem{ Value = "4", Text = "Rest Day", Group = ThreeDaySplit}
+                new SelectListItem{ Value = "29", Text = "Upper Body", Group = ThreeDaySplit},
+                new SelectListItem{ Value = "30", Text = "Lower Body", Group = ThreeDaySplit},
+                new SelectListItem{ Value = "31", Text = "Full Body", Group = ThreeDaySplit},
+                new SelectListItem{ Value = "32", Text = "Rest Day", Group = ThreeDaySplit}
             };
 
             return Page();

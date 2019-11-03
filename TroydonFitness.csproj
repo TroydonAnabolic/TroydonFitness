@@ -19,6 +19,8 @@
     <Compile Remove="Migrations\20191020224557_SeedProduct4.Designer.cs" />
     <Compile Remove="Migrations\20191024201220_ProductGrouping.cs" />
     <Compile Remove="Migrations\20191024201220_ProductGrouping.Designer.cs" />
+    <Compile Remove="Migrations\20191103010922_RoutineBasic.cs" />
+    <Compile Remove="Migrations\20191103010922_RoutineBasic.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,7 +16,6 @@ namespace TroydonFitness.Models.ProductModel
         [StringLength(50)]
         public string RoutineType { get; set; }
 
-
         [MinLength(50, ErrorMessage = "Description posts must be at least 50 characters long")]
         [DataType(DataType.MultilineText)]
         [Required, Display(Name = "Routine Description")]
@@ -29,7 +28,7 @@ namespace TroydonFitness.Models.ProductModel
 
         // Routine props to describe what the routine entails (DO not show in Index, just details and create[delete if needed])
         [Display(Name = "Difficulty Level")]
-        public Difficulty DifficultyLevel { get; set; }
+        public Difficulty? DifficultyLevel { get; set; }
 
         public enum Difficulty
         {
@@ -68,6 +67,33 @@ namespace TroydonFitness.Models.ProductModel
         public Exercises? Exercise14 { get; set; }
         [Display(Name = "Exercise 15")]
         public Exercises? Exercise15 { get; set; }
+        [Display(Name = "Exercise 16")]
+        public Exercises? Exercise16 { get; set; }
+        [Display(Name = "Exercise 17")]
+        public Exercises? Exercise17 { get; set; }
+        [Display(Name = "Exercise 18")]
+        public Exercises? Exercise18 { get; set; }
+        [Display(Name = "Exercise 19")]
+        public Exercises? Exercise19 { get; set; }
+        [Display(Name = "Exercise 20")]
+        public Exercises? Exercise20 { get; set; }
+        [Display(Name = "Exercise 21")]
+        public Exercises? Exercise21 { get; set; }
+        [Display(Name = "Exercise 22")]
+        public Exercises? Exercise22 { get; set; }
+        [Display(Name = "Exercise 23")]
+        public Exercises? Exercise23 { get; set; }
+        [Display(Name = "Exercise 24")]
+        public Exercises? Exercise24 { get; set; }
+        [Display(Name = "Exercise 25")]
+        public Exercises? Exercise25 { get; set; }
+        [Display(Name = "Exercise 26")]
+        public Exercises? Exercise26 { get; set; }
+        [Display(Name = "Exercise 27")]
+        public Exercises? Exercise27 { get; set; }
+        [Display(Name = "Exercise 28")]
+        public Exercises? Exercise28 { get; set; }
+
 
         // TODO: Use multi selection grouping method later
         public enum Exercises
@@ -165,7 +191,10 @@ namespace TroydonFitness.Models.ProductModel
         public enum MuscleGroups
         {
             Calves, Quadriceps, Hamstrings, Gluteus, Hips, [Display(Name = "Lower Back")] LowerBack, [Display(Name = "Upper Back")] UpperBack, Abdominals,
-            sREST,
+            Pectorals, Deltoids, Triceps, Biceps, Forearms, Trapezius,
+            // Combo
+            [Display(Name = "Legs & Calves")] LegsCalves, [Display(Name = "Chest & Shoulders")] ChestShoulders, [Display(Name = "Back & Trapezius")] BackTrapezius, Arms,
+            REST
         }
 
         [Display(Name = "Equipment Used")]
@@ -178,7 +207,7 @@ namespace TroydonFitness.Models.ProductModel
         }
 
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss} hours.", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}", ApplyFormatInEditMode = true)]
         [Display(Name = "Workout Duration Time")]
         public TimeSpan? WorkoutDuration { get; set; }
 

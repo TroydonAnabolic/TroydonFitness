@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TroydonFitness.Data;
 using TroydonFitness.Models;
+using Microsoft.Extensions.Logging;
 
 namespace TroydonFitness
 {
@@ -29,8 +30,19 @@ namespace TroydonFitness
             services.AddRazorPages();
             services.AddTransient<FormattingService>();
 
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddConsole()
+                    .AddFilter(DbLoggerCategory.Database.Command.Name, LogLevel.Information);
+                loggingBuilder.AddDebug();
+            });
+
+
             services.AddDbContext<ProductContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ProductContext")));
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("ProductContext"));
+                options.EnableSensitiveDataLogging(true);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

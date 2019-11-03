@@ -75,6 +75,32 @@ namespace TroydonFitness.Models.ProductModel
         public Exercises? Exercise14 { get; set; }
         [Display(Name = "Exercise 15")]
         public Exercises? Exercise15 { get; set; }
+        [Display(Name = "Exercise 16")]
+        public Exercises? Exercise16 { get; set; }
+        [Display(Name = "Exercise 17")]
+        public Exercises? Exercise17 { get; set; }
+        [Display(Name = "Exercise 18")]
+        public Exercises? Exercise18 { get; set; }
+        [Display(Name = "Exercise 19")]
+        public Exercises? Exercise19 { get; set; }
+        [Display(Name = "Exercise 20")]
+        public Exercises? Exercise20 { get; set; }
+        [Display(Name = "Exercise 21")]
+        public Exercises? Exercise21 { get; set; }
+        [Display(Name = "Exercise 22")]
+        public Exercises? Exercise22 { get; set; }
+        [Display(Name = "Exercise 23")]
+        public Exercises? Exercise23 { get; set; }
+        [Display(Name = "Exercise 24")]
+        public Exercises? Exercise24 { get; set; }
+        [Display(Name = "Exercise 25")]
+        public Exercises? Exercise25 { get; set; }
+        [Display(Name = "Exercise 26")]
+        public Exercises? Exercise26 { get; set; }
+        [Display(Name = "Exercise 27")]
+        public Exercises? Exercise27 { get; set; }
+        [Display(Name = "Exercise 28")]
+        public Exercises? Exercise28 { get; set; }
 
         public enum Exercises
         {
@@ -166,11 +192,15 @@ namespace TroydonFitness.Models.ProductModel
 
 
         [Display(Name = "Muscle Group")]
-        public MuscleGroups MuscleGroup { get; set; }
+        public MuscleGroups? MuscleGroup { get; set; }
 
         public enum MuscleGroups
         {
-            Calves, Quadriceps, Hamstrings, Gluteus, Hips, [Display(Name = "Lower Back")] LowerBack, [Display(Name = "Upper Back")] UpperBack, Abdominals
+            Calves, Quadriceps, Hamstrings, Gluteus, Hips, [Display(Name = "Lower Back")] LowerBack, [Display(Name = "Upper Back")] UpperBack, Abdominals,
+            Pectorals, Deltoids, Triceps, Biceps, Forearms, Trapezius,
+            // Combo
+            [Display(Name = "Legs & Calves")] LegsCalves, [Display(Name = "Chest & Shoulders")] ChestShoulders, [Display(Name = "Back & Trapezius")] BackTrapezius, Arms,
+            REST
         }
 
         [Display(Name = "Equipment Used")]
@@ -184,8 +214,8 @@ namespace TroydonFitness.Models.ProductModel
 
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss} hours.", ApplyFormatInEditMode = true)]
-        [Required, Display(Name = "Workout Duration Time")]
-        public TimeSpan WorkoutDuration { get; set; }
+        [Display(Name = "Workout Duration Time")]
+        public TimeSpan? WorkoutDuration { get; set; }
 
         // Specify Sets, Reps, Rest Time, TUT using a customized template to copy paste -- later create many to many relationship to add exercise class to show link
         [Required, DataType(DataType.MultilineText)]

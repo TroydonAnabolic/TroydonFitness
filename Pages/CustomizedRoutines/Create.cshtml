@@ -58,82 +58,372 @@
                 @*Day of the week*@
 
                 <table class="table table-bordered">
-                    <tbody>
-                        <tr>
-                            <td>
+                    <tr>
+                        <td>
+                            <label asp-for="Monday" class="control-label"></label>
+                            <div class="form-group">
+                                <select data-val="true" data-val-required="The training done for the day is required" id="Monday" name="Monday">
+                                    <optgroup label="Six Day Split">
+                                        <option value="1">Calves</option>
+                                        <option value="2">Quadriceps</option>
+                                        <option value="3">Hamstrings</option>
+                                        <option value="4">Hips</option>
+                                        <option value="5">Lower Back</option>
+                                        <option value="6">Upper Back</option>
+                                        <option value="7">Abdominals</option>
+                                        <option value="8">Pectorals</option>
+                                        <option value="9">Deltoids</option>
+                                        <option value="10">Triceps</option>
+                                        <option value="11">Biceps</option>
+                                        <option value="12">Forearms</option>
+                                        <option value="13">Upper Back</option>
+                                        <option value="14">Trapezius</option>
+                                        <option value="15">Back</option>
+                                        <option value="16">Legs</option>
+                                        <option value="17">Legs & Calves</option>
+                                        <option value="18">Deltoids & Trapezius</option>
+                                        <option value="19">Arms & Abs</option>
+                                    </optgroup>
+                                    <optgroup label="FiveDaySplit">
+                                        <option value="20">Chest</option>
+                                        <option value="21">Legs & Calves</option>
+                                        <option value="22">Deltoids & Abs</option>
+                                        <option value="23">Back & Traps</option>
+                                        <option value="24">Arms, Abs & Calves</option>
+                                    </optgroup>
+                                    <optgroup label="FourDaySplit">
+                                        <option value="25">Legs & Calves</option>
+                                        <option value="26">Chest, Shoulders & Abs</option>
+                                        <option value="27">Back & Trapezius</option>
+                                        <option value="28">Arms, Abs & Calves</option>
+                                    </optgroup>
+                                    <optgroup label="ThreeDaySplit">
+                                        <option value="29">Upper Body</option>
+                                        <option value="30">Lower Body</option>
+                                        <option value="31">Ful Body</option>
+                                        <option selected value="32">Rest</option>
+                                    </optgroup>
+                                </select>
+                                <span asp-validation-for="Monday" class="text-danger"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="Tuesday" class="control-label"></label>
                                 <div class="form-group">
-                                    <label asp-for="CustomizedRoutineVM.Monday" class="control-label"></label>
-                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Monday,
-                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                                        "Select Muscles Trained")
-                                    <span asp-validation-for="CustomizedRoutineVM.Monday" class="text-danger"></span>
+                                    <select data-val="true" data-val-required="The training done for the day is required" id="Tuesday" name="Tuesay">
+                                        <option selected="selected" value="32"></option>
+                                        <optgroup label="Six Day Split">
+                                            <option value="1">Calves</option>
+                                            <option value="2">Quadriceps</option>
+                                            <option value="3">Hamstrings</option>
+                                            <option value="4">Hips</option>
+                                            <option value="5">Lower Back</option>
+                                            <option value="6">Upper Back</option>
+                                            <option value="7">Abdominals</option>
+                                            <option value="8">Pectorals</option>
+                                            <option value="9">Deltoids</option>
+                                            <option value="10">Triceps</option>
+                                            <option value="11">Biceps</option>
+                                            <option value="12">Forearms</option>
+                                            <option value="13">Upper Back</option>
+                                            <option value="14">Trapezius</option>
+                                            <option value="15">Back</option>
+                                            <option value="16">Legs</option>
+                                            <option value="17">Legs & Calves</option>
+                                            <option value="18">Deltoids & Trapezius</option>
+                                            <option value="19">Arms & Abs</option>
+                                        </optgroup>
+                                        <optgroup label="FiveDaySplit">
+                                            <option value="20">Chest</option>
+                                            <option value="21">Legs & Calves</option>
+                                            <option value="22">Deltoids & Abs</option>
+                                            <option value="23">Back & Traps</option>
+                                            <option value="24">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="FourDaySplit">
+                                            <option value="25">Legs & Calves</option>
+                                            <option value="26">Chest, Shoulders & Abs</option>
+                                            <option value="27">Back & Trapezius</option>
+                                            <option value="28">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="ThreeDaySplit">
+                                            <option value="29">Upper Body</option>
+                                            <option value="30">Lower Body</option>
+                                            <option value="31">Ful Body</option>
+                                            <option selected value="32">Rest</option>
+                                        </optgroup>
+                                    </select>
+                                    <span asp-validation-for="Tuesday" class="text-danger"></span>
                                 </div>
-                            </td>
-                            <td>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="Wednesday" class="control-label"></label>
                                 <div class="form-group">
-                                    <label asp-for="CustomizedRoutineVM.Tuesday" class="control-label"></label>
-                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Tuesday,
-                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                                        "Select Muscles Trained")
-                                    <span asp-validation-for="CustomizedRoutineVM.Tuesday" class="text-danger"></span>
+                                    <select data-val="true" data-val-required="The training done for the day is required" id="Wednesday" name="Wednesday">
+                                        <option selected="selected" value="32"></option>
+                                        <optgroup label="Six Day Split">
+                                            <option value="1">Calves</option>
+                                            <option value="2">Quadriceps</option>
+                                            <option value="3">Hamstrings</option>
+                                            <option value="4">Hips</option>
+                                            <option value="5">Lower Back</option>
+                                            <option value="6">Upper Back</option>
+                                            <option value="7">Abdominals</option>
+                                            <option value="8">Pectorals</option>
+                                            <option value="9">Deltoids</option>
+                                            <option value="10">Triceps</option>
+                                            <option value="11">Biceps</option>
+                                            <option value="12">Forearms</option>
+                                            <option value="13">Upper Back</option>
+                                            <option value="14">Trapezius</option>
+                                            <option value="15">Back</option>
+                                            <option value="16">Legs</option>
+                                            <option value="17">Legs & Calves</option>
+                                            <option value="18">Deltoids & Trapezius</option>
+                                            <option value="19">Arms & Abs</option>
+                                        </optgroup>
+                                        <optgroup label="FiveDaySplit">
+                                            <option value="20">Chest</option>
+                                            <option value="21">Legs & Calves</option>
+                                            <option value="22">Deltoids & Abs</option>
+                                            <option value="23">Back & Traps</option>
+                                            <option value="24">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="FourDaySplit">
+                                            <option value="25">Legs & Calves</option>
+                                            <option value="26">Chest, Shoulders & Abs</option>
+                                            <option value="27">Back & Trapezius</option>
+                                            <option value="28">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="ThreeDaySplit">
+                                            <option value="29">Upper Body</option>
+                                            <option value="30">Lower Body</option>
+                                            <option value="31">Ful Body</option>
+                                            <option selected value="32">Rest</option>
+                                        </optgroup>
+                                    </select>
+                                    <span asp-validation-for="Wednesday" class="text-danger"></span>
                                 </div>
-                            </td>
-                            <td>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="Thursday" class="control-label"></label>
                                 <div class="form-group">
-                                    <label asp-for="CustomizedRoutineVM.Wednesday" class="control-label"></label>
-                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Wednesday,
-                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                                        "Select Muscles Trained")
-                                    <span asp-validation-for="CustomizedRoutineVM.Wednesday" class="text-danger"></span>
+                                    <select data-val="true" data-val-required="The training done for the day is required" id="Thursday" name="Thursday">
+                                        <option selected="selected" value="32"></option>
+                                        <optgroup label="Six Day Split">
+                                            <option value="1">Calves</option>
+                                            <option value="2">Quadriceps</option>
+                                            <option value="3">Hamstrings</option>
+                                            <option value="4">Hips</option>
+                                            <option value="5">Lower Back</option>
+                                            <option value="6">Upper Back</option>
+                                            <option value="7">Abdominals</option>
+                                            <option value="8">Pectorals</option>
+                                            <option value="9">Deltoids</option>
+                                            <option value="10">Triceps</option>
+                                            <option value="11">Biceps</option>
+                                            <option value="12">Forearms</option>
+                                            <option value="13">Upper Back</option>
+                                            <option value="14">Trapezius</option>
+                                            <option value="15">Back</option>
+                                            <option value="16">Legs</option>
+                                            <option value="17">Legs & Calves</option>
+                                            <option value="18">Deltoids & Trapezius</option>
+                                            <option value="19">Arms & Abs</option>
+                                        </optgroup>
+                                        <optgroup label="FiveDaySplit">
+                                            <option value="20">Chest</option>
+                                            <option value="21">Legs & Calves</option>
+                                            <option value="22">Deltoids & Abs</option>
+                                            <option value="23">Back & Traps</option>
+                                            <option value="24">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="FourDaySplit">
+                                            <option value="25">Legs & Calves</option>
+                                            <option value="26">Chest, Shoulders & Abs</option>
+                                            <option value="27">Back & Trapezius</option>
+                                            <option value="28">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="ThreeDaySplit">
+                                            <option value="29">Upper Body</option>
+                                            <option value="30">Lower Body</option>
+                                            <option value="31">Ful Body</option>
+                                            <option selected value="32">Rest</option>
+                                        </optgroup>
+                                    </select>
+                                    <span asp-validation-for="Thursday" class="text-danger"></span>
                                 </div>
-                            </td>
-                            <td>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="Friday" class="control-label"></label>
                                 <div class="form-group">
-                                    <label asp-for="CustomizedRoutineVM.Thursday" class="control-label"></label>
-                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Thursday,
-                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                                        "Select Muscles Trained")
-                                    <span asp-validation-for="CustomizedRoutineVM.Thursday" class="text-danger"></span>
+                                    <select data-val="true" data-val-required="The training done for the day is required" id="Friday" name="Friday">
+                                        <option selected="selected" value="32"></option>
+                                        <optgroup label="Six Day Split">
+                                            <option value="1">Calves</option>
+                                            <option value="2">Quadriceps</option>
+                                            <option value="3">Hamstrings</option>
+                                            <option value="4">Hips</option>
+                                            <option value="5">Lower Back</option>
+                                            <option value="6">Upper Back</option>
+                                            <option value="7">Abdominals</option>
+                                            <option value="8">Pectorals</option>
+                                            <option value="9">Deltoids</option>
+                                            <option value="10">Triceps</option>
+                                            <option value="11">Biceps</option>
+                                            <option value="12">Forearms</option>
+                                            <option value="13">Upper Back</option>
+                                            <option value="14">Trapezius</option>
+                                            <option value="15">Back</option>
+                                            <option value="16">Legs</option>
+                                            <option value="17">Legs & Calves</option>
+                                            <option value="18">Deltoids & Trapezius</option>
+                                            <option value="19">Arms & Abs</option>
+                                        </optgroup>
+                                        <optgroup label="FiveDaySplit">
+                                            <option value="20">Chest</option>
+                                            <option value="21">Legs & Calves</option>
+                                            <option value="22">Deltoids & Abs</option>
+                                            <option value="23">Back & Traps</option>
+                                            <option value="24">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="FourDaySplit">
+                                            <option value="25">Legs & Calves</option>
+                                            <option value="26">Chest, Shoulders & Abs</option>
+                                            <option value="27">Back & Trapezius</option>
+                                            <option value="28">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="ThreeDaySplit">
+                                            <option value="29">Upper Body</option>
+                                            <option value="30">Lower Body</option>
+                                            <option value="31">Ful Body</option>
+                                            <option selected value="32">Rest</option>
+                                        </optgroup>
+                                    </select>
+                                    <span asp-validation-for="Friday" class="text-danger"></span>
                                 </div>
-                            </td>
-                            <td>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="Saturday" class="control-label"></label>
                                 <div class="form-group">
-                                    <label asp-for="CustomizedRoutineVM.Friday" class="control-label"></label>
-                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Friday,
-                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                                        "Select Muscles Trained")
-                                    <span asp-validation-for="CustomizedRoutineVM.Friday" class="text-danger"></span>
+                                    <select data-val="true" data-val-required="The training done for the day is required" id="Saturday" name="Saturday">
+                                        <option selected="selected" value="32"></option>
+                                        <optgroup label="Six Day Split">
+                                            <option value="1">Calves</option>
+                                            <option value="2">Quadriceps</option>
+                                            <option value="3">Hamstrings</option>
+                                            <option value="4">Hips</option>
+                                            <option value="5">Lower Back</option>
+                                            <option value="6">Upper Back</option>
+                                            <option value="7">Abdominals</option>
+                                            <option value="8">Pectorals</option>
+                                            <option value="9">Deltoids</option>
+                                            <option value="10">Triceps</option>
+                                            <option value="11">Biceps</option>
+                                            <option value="12">Forearms</option>
+                                            <option value="13">Upper Back</option>
+                                            <option value="14">Trapezius</option>
+                                            <option value="15">Back</option>
+                                            <option value="16">Legs</option>
+                                            <option value="17">Legs & Calves</option>
+                                            <option value="18">Deltoids & Trapezius</option>
+                                            <option value="19">Arms & Abs</option>
+                                        </optgroup>
+                                        <optgroup label="FiveDaySplit">
+                                            <option value="20">Chest</option>
+                                            <option value="21">Legs & Calves</option>
+                                            <option value="22">Deltoids & Abs</option>
+                                            <option value="23">Back & Traps</option>
+                                            <option value="24">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="FourDaySplit">
+                                            <option value="25">Legs & Calves</option>
+                                            <option value="26">Chest, Shoulders & Abs</option>
+                                            <option value="27">Back & Trapezius</option>
+                                            <option value="28">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="ThreeDaySplit">
+                                            <option value="29">Upper Body</option>
+                                            <option value="30">Lower Body</option>
+                                            <option value="31">Ful Body</option>
+                                            <option selected value="32">Rest</option>
+                                        </optgroup>
+                                    </select>
+                                    <span asp-validation-for="Saturday" class="text-danger"></span>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <label asp-for="Sunday" class="control-label"></label>
                                 <div class="form-group">
-                                    <label asp-for="CustomizedRoutineVM.Saturday" class="control-label"></label>
-                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Saturday,
-                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                                        "Select Muscles Trained")
-                                    <span asp-validation-for="CustomizedRoutineVM.Saturday" class="text-danger"></span>
+                                    <select data-val="true" data-val-required="The training done for the day is required" id="Sunday" name="Sunday">
+                                        <option selected="selected" value="32"></option>
+                                        <optgroup label="Six Day Split">
+                                            <option value="1">Calves</option>
+                                            <option value="2">Quadriceps</option>
+                                            <option value="3">Hamstrings</option>
+                                            <option value="4">Hips</option>
+                                            <option value="5">Lower Back</option>
+                                            <option value="6">Upper Back</option>
+                                            <option value="7">Abdominals</option>
+                                            <option value="8">Pectorals</option>
+                                            <option value="9">Deltoids</option>
+                                            <option value="10">Triceps</option>
+                                            <option value="11">Biceps</option>
+                                            <option value="12">Forearms</option>
+                                            <option value="13">Upper Back</option>
+                                            <option value="14">Trapezius</option>
+                                            <option value="15">Back</option>
+                                            <option value="16">Legs</option>
+                                            <option value="17">Legs & Calves</option>
+                                            <option value="18">Deltoids & Trapezius</option>
+                                            <option value="19">Arms & Abs</option>
+                                        </optgroup>
+                                        <optgroup label="FiveDaySplit">
+                                            <option value="20">Chest</option>
+                                            <option value="21">Legs & Calves</option>
+                                            <option value="22">Deltoids & Abs</option>
+                                            <option value="23">Back & Traps</option>
+                                            <option value="24">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="FourDaySplit">
+                                            <option value="25">Legs & Calves</option>
+                                            <option value="26">Chest, Shoulders & Abs</option>
+                                            <option value="27">Back & Trapezius</option>
+                                            <option value="28">Arms, Abs & Calves</option>
+                                        </optgroup>
+                                        <optgroup label="ThreeDaySplit">
+                                            <option value="29">Upper Body</option>
+                                            <option value="30">Lower Body</option>
+                                            <option value="31">Ful Body</option>
+                                            <option selected value="32">Rest</option>
+                                        </optgroup>
+                                    </select>
+                                    <span asp-validation-for="Sunday" class="text-danger"></span>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="form-group">
-                                    <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
-                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Sunday,
-                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.MuscleGroups))),
-                                        "Select Muscles Trained")
-                                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
 
                 @*Exercises*@
-
+                <h5>Exercises for each day</h5>
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
+                            <th scope="row">Monday</th>
                             <td>
                                 <div class="form-group">
                                     <label asp-for="CustomizedRoutineVM.Exercise1" class="control-label"></label>
@@ -161,6 +451,9 @@
                                     <span asp-validation-for="CustomizedRoutineVM.Exercise3" class="text-danger"></span>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tuesday</th>
                             <td>
                                 <div class="form-group">
                                     <label asp-for="CustomizedRoutineVM.Exercise4" class="control-label"></label>
@@ -170,8 +463,7 @@
                                     <span asp-validation-for="CustomizedRoutineVM.Exercise4" class="text-danger"></span>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+
                             <td>
                                 <div class="form-group">
                                     <label asp-for="CustomizedRoutineVM.Exercise5" class="control-label"></label>
@@ -190,6 +482,9 @@
                                     <span asp-validation-for="CustomizedRoutineVM.Exercise6" class="text-danger"></span>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Wednesday</th>
                             <td>
                                 <div class="form-group">
                                     <label asp-for="CustomizedRoutineVM.Exercise7" class="control-label"></label>
@@ -208,8 +503,6 @@
                                     <span asp-validation-for="CustomizedRoutineVM.Exercise8" class="text-danger"></span>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <div class="form-group">
                                     <label asp-for="CustomizedRoutineVM.Exercise9" class="control-label"></label>
@@ -219,6 +512,9 @@
                                     <span asp-validation-for="CustomizedRoutineVM.Exercise9" class="text-danger"></span>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Thursday</th>
                             <td>
                                 <div class="form-group">
                                     <label asp-for="CustomizedRoutineVM.Exercise10" class="control-label"></label>
@@ -244,6 +540,96 @@
                                         new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
                                         "Select Exercise")
                                     <span asp-validation-for="CustomizedRoutineVM.Exercise12" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Friday</th>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise13" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise13,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise13" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise14" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise14,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise14" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise15" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise15,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise15" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Saturday</th>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise16" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise16,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise16" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise17" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise17,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise17" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise18" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise18,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise18" class="text-danger"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sunday</th>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise19" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise19,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise19" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise20" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise20,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise20" class="text-danger"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label asp-for="CustomizedRoutineVM.Exercise21" class="control-label"></label>
+                                    @Html.DropDownListFor(s => s.CustomizedRoutineVM.Exercise21,
+                                        new SelectList(Enum.GetValues(typeof(CreateRoutineModel.Exercises))),
+                                        "Select Exercise")
+                                    <span asp-validation-for="CustomizedRoutineVM.Exercise21" class="text-danger"></span>
                                 </div>
                             </td>
                         </tr>

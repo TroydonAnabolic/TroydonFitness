@@ -21,6 +21,8 @@
     <Compile Remove="Migrations\20191024201220_ProductGrouping.Designer.cs" />
     <Compile Remove="Migrations\20191103010922_RoutineBasic.cs" />
     <Compile Remove="Migrations\20191103010922_RoutineBasic.Designer.cs" />
+    <Compile Remove="Migrations\20191103090700_RoutineBase.cs" />
+    <Compile Remove="Migrations\20191103090700_RoutineBase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

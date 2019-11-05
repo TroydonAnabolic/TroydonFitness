@@ -10,7 +10,7 @@ using TroydonFitness.Data;
 namespace TroydonFitness.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20191103090700_RoutineBase")]
+    [Migration("20191105214209_RoutineBase")]
     partial class RoutineBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

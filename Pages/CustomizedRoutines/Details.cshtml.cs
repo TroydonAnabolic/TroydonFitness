@@ -21,27 +21,12 @@ namespace TroydonFitness.Pages.CustomizedRoutines
             _context = context;
         }
 
+        [BindProperty]
         public CustomizedRoutine CustomizedRoutine { get; set; }
-
         [BindProperty]
         public CustomizedRoutineVM CustomizedRoutineVM { get; set; }
-        [BindProperty]
-        public IFormFile Image { get; set; }
 
-        [BindProperty]
-        public int? Monday { get; set; }
-        [BindProperty]
-        public int? Tuesday { get; set; }
-        [BindProperty]
-        public int? Wednesday { get; set; }
-        [BindProperty]
-        public int? Thursday { get; set; }
-        [BindProperty]
-        public int? Friday { get; set; }
-        [BindProperty]
-        public int? Saturday { get; set; }
-        [BindProperty]
-        public int? Sunday { get; set; }
+
         public List<SelectListItem> Split { get; set; }
 
 

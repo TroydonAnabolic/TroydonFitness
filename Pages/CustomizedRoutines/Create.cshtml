@@ -55,12 +55,12 @@
                     <span asp-validation-for="CustomizedRoutineVM.DifficultyLevel" class="text-danger"></span>
                 </div>
 
-                @*Day of the week*@
+                @* Muscle trained by Day of the week*@
 
                 <table class="table table-bordered">
                     <tr>
                         <td>
-                            <label asp-for="Monday" class="control-label"></label>
+                            <label asp-for="CustomizedRoutineVM.Monday" class="control-label"></label>
                             <div class="form-group">
                                 <select data-val="true" data-val-required="The training done for the day is required" id="Monday" name="Monday">
                                     <optgroup label="Six Day Split">
@@ -104,12 +104,12 @@
                                         <option selected value="32">Rest</option>
                                     </optgroup>
                                 </select>
-                                <span asp-validation-for="Monday" class="text-danger"></span>
+                                <span asp-validation-for="CustomizedRoutineVM.Monday" class="text-danger"></span>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                <label asp-for="Tuesday" class="control-label"></label>
+                                <label asp-for="CustomizedRoutineVM.Tuesday" class="control-label"></label>
                                 <div class="form-group">
                                     <select data-val="true" data-val-required="The training done for the day is required" id="Tuesday" name="Tuesay">
                                         <option selected="selected" value="32"></option>
@@ -154,13 +154,13 @@
                                             <option selected value="32">Rest</option>
                                         </optgroup>
                                     </select>
-                                    <span asp-validation-for="Tuesday" class="text-danger"></span>
+                                    <span asp-validation-for="CustomizedRoutineVM.Tuesday" class="text-danger"></span>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                <label asp-for="Wednesday" class="control-label"></label>
+                                <label asp-for="CustomizedRoutineVM.Wednesday" class="control-label"></label>
                                 <div class="form-group">
                                     <select data-val="true" data-val-required="The training done for the day is required" id="Wednesday" name="Wednesday">
                                         <option selected="selected" value="32"></option>
@@ -205,13 +205,13 @@
                                             <option selected value="32">Rest</option>
                                         </optgroup>
                                     </select>
-                                    <span asp-validation-for="Wednesday" class="text-danger"></span>
+                                    <span asp-validation-for="CustomizedRoutineVM.Wednesday" class="text-danger"></span>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                <label asp-for="Thursday" class="control-label"></label>
+                                <label asp-for="CustomizedRoutineVM.Thursday" class="control-label"></label>
                                 <div class="form-group">
                                     <select data-val="true" data-val-required="The training done for the day is required" id="Thursday" name="Thursday">
                                         <option selected="selected" value="32"></option>
@@ -256,13 +256,13 @@
                                             <option selected value="32">Rest</option>
                                         </optgroup>
                                     </select>
-                                    <span asp-validation-for="Thursday" class="text-danger"></span>
+                                    <span asp-validation-for="CustomizedRoutineVM.Thursday" class="text-danger"></span>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                <label asp-for="Friday" class="control-label"></label>
+                                <label asp-for="CustomizedRoutineVM.Friday" class="control-label"></label>
                                 <div class="form-group">
                                     <select data-val="true" data-val-required="The training done for the day is required" id="Friday" name="Friday">
                                         <option selected="selected" value="32"></option>
@@ -307,7 +307,7 @@
                                             <option selected value="32">Rest</option>
                                         </optgroup>
                                     </select>
-                                    <span asp-validation-for="Friday" class="text-danger"></span>
+                                    <span asp-validation-for="CustomizedRoutineVM.Friday" class="text-danger"></span>
                                 </div>
                             </div>
                         </td>
@@ -315,7 +315,7 @@
                     <tr>
                         <td>
                             <div class="form-group">
-                                <label asp-for="Saturday" class="control-label"></label>
+                                <label asp-for="CustomizedRoutineVM.Saturday" class="control-label"></label>
                                 <div class="form-group">
                                     <select data-val="true" data-val-required="The training done for the day is required" id="Saturday" name="Saturday">
                                         <option selected="selected" value="32"></option>
@@ -360,13 +360,13 @@
                                             <option selected value="32">Rest</option>
                                         </optgroup>
                                     </select>
-                                    <span asp-validation-for="Saturday" class="text-danger"></span>
+                                    <span asp-validation-for="CustomizedRoutineVM.Saturday" class="text-danger"></span>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
-                                <label asp-for="Sunday" class="control-label"></label>
+                                <label asp-for="CustomizedRoutineVM.Sunday" class="control-label"></label>
                                 <div class="form-group">
                                     <select data-val="true" data-val-required="The training done for the day is required" id="Sunday" name="Sunday">
                                         <option selected="selected" value="32"></option>
@@ -411,7 +411,7 @@
                                             <option selected value="32">Rest</option>
                                         </optgroup>
                                     </select>
-                                    <span asp-validation-for="Sunday" class="text-danger"></span>
+                                    <span asp-validation-for="CustomizedRoutineVM.Sunday" class="text-danger"></span>
                                 </div>
                             </div>
                         </td>

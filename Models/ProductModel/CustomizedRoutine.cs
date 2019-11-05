@@ -43,7 +43,13 @@ namespace TroydonFitness.Models.ProductModel
             Beginner, Intermediate, Advanced
         }
 
-
+        public int? Monday { get; set; }
+        public int? Tuesday { get; set; }
+        public int? Wednesday { get; set; }
+        public int? Thursday { get; set; }
+        public int? Friday { get; set; }
+        public int? Saturday { get; set; }
+        public int? Sunday { get; set; }
 
         // Nullable with ? so add exercises does not have to be listed
         // Try to Use DisplayNameFor => MuscleGroups.Muscle to see if it can be reused or if need to create Muscle Group 1, 2, 3 ..20
@@ -222,15 +228,6 @@ namespace TroydonFitness.Models.ProductModel
         // Specify Sets, Reps, Rest Time, TUT using a customized template to copy paste -- later create many to many relationship to add exercise class to show link
         [Required, DataType(DataType.MultilineText)]
         public string ExerciseDetails { get; set; }
-
-        public MuscleGroups? Monday{ get; set; }
-        public MuscleGroups? Tuesday { get; set; }
-        public MuscleGroups? Wednesday { get; set; }
-        public MuscleGroups? Thursday { get; set; }
-        public MuscleGroups? Friday { get; set; }
-        public MuscleGroups? Saturday { get; set; }
-        public MuscleGroups? Sunday { get; set; }
-
 
         [DataType(DataType.ImageUrl)]
         public string ImagePath { get; set; }

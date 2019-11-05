@@ -43,6 +43,8 @@ namespace TroydonFitness.Models.ProductModel
             Beginner, Intermediate, Advanced
         }
 
+
+
         // Nullable with ? so add exercises does not have to be listed
         // Try to Use DisplayNameFor => MuscleGroups.Muscle to see if it can be reused or if need to create Muscle Group 1, 2, 3 ..20
         [Display(Name = "Exercise 1")]

@@ -9,32 +9,32 @@
     <div class="post-wrap text-dark">
         <h1>Details</h1>
 
-        <h4>Product</h4>
+        <h3>Product</h3>
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CustomizedRoutineVM.RoutineType)
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.RoutineType)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CustomizedRoutineVM.RoutineType)
+                @Html.DisplayFor(model => model.CustomizedRoutine.RoutineType)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CustomizedRoutineVM.RoutineDescription)
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.RoutineDescription)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CustomizedRoutineVM.RoutineDescription)
+                @Html.DisplayFor(model => model.CustomizedRoutine.RoutineDescription)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CustomizedRoutineVM.DifficultyLevel)
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.DifficultyLevel)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CustomizedRoutineVM.DifficultyLevel)
+                @Html.DisplayFor(model => model.CustomizedRoutine.DifficultyLevel)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CustomizedRoutineVM.RoutineAdded)
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.RoutineAdded)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CustomizedRoutineVM.RoutineAdded)
+                @Html.DisplayFor(model => model.CustomizedRoutine.RoutineAdded)
             </dd>
         </dl>
 
@@ -43,23 +43,156 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutineVM.Monday)</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
+                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutine.Monday)</th>
+                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutine.Tuesday)</th>
+                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutine.Wednesday)</th>
+                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutine.Thursday)</th>
+                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutine.Friday)</th>
+                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutine.Saturday)</th>
+                        <th>@Html.DisplayNameFor(model => model.CustomizedRoutine.Sunday)</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>@Html.DisplayFor(model => model.CustomizedRoutineVM.Monday)</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
+                        <td>@Html.DisplayFor(model => model.CustomizedRoutine.Monday)</td>
+                        <td>@Html.DisplayFor(model => model.CustomizedRoutine.Tuesday)</td>
+                        <td>@Html.DisplayFor(model => model.CustomizedRoutine.Wednesday)</td>
+                        <td>@Html.DisplayFor(model => model.CustomizedRoutine.Thursday)</td>
+                        <td>@Html.DisplayFor(model => model.CustomizedRoutine.Friday)</td>
+                        <td>@Html.DisplayFor(model => model.CustomizedRoutine.Saturday)</td>
+                        <td>@Html.DisplayFor(model => model.CustomizedRoutine.Sunday)</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+            </div>
 
-        <div>
-            <a asp-page="./Edit" asp-route-id="@Model.CustomizedRoutine.Id">Edit</a> |
-            <a asp-page="./Index">Back to List</a>
-        </div>
+            @*Exercise details*@
+            <div class="table-responsive">
+                <h5>Exercises</h5>
+                <table class="table table-hover">
+
+                    <tbody>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise1)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise2)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise3)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise1)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise2)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise3)</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise4)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise5)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise6)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise4)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise5)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise6)</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise7)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise8)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise9)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise7)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise8)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise9)</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise10)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise11)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise12)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise10)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise11)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise12)</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise13)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise14)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise15)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise13)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise14)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise15)</td>
+
+                        </tr>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise16)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise17)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise18)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise16)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise17)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise18)</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise19)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise20)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Exercise21)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise19)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise20)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Exercise21)</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            @*Stretch details*@
+            <div class="table-responsive">
+                <h5>Streches</h5>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Stretch1)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Stretch2)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Stretch3)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Stretch4)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.CustomizedRoutine.Stretch5)</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Stretch1)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Stretch2)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Stretch3)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Stretch4)</td>
+                            <td>@Html.DisplayFor(model => model.CustomizedRoutine.Stretch5)</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CustomizedRoutine.ExerciseDetails)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CustomizedRoutine.ExerciseDetails)
+                </dd>
+            </dl>
+
+            <p>
+                @Html.DisplayNameFor(model => model.CustomizedRoutine.ImagePath)
+                @Html.DisplayFor(model => model.CustomizedRoutine.ImagePath)
+                <img src="ImagePath" />
+
+            </p>
+
+            <div>
+                <a asp-page="./Edit" asp-route-id="@Model.CustomizedRoutine.Id">Edit</a> |
+                <a asp-page="./Index">Back to List</a>
+            </div>
     </div>

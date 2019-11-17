@@ -187,12 +187,15 @@
             <p>
                 @Html.DisplayNameFor(model => model.CustomizedRoutine.ImagePath)
                 @Html.DisplayFor(model => model.CustomizedRoutine.ImagePath)
-                <img src="ImagePath" />
-
+                <img src="@Url.Content(Model.CustomizedRoutine.ImagePath)" alt="Image" />
+                <img src="~/Content/img/'@Html.DisplayFor(model =>model.CustomizedRoutine.ImagePath)'" style="height:200px;width:200px;" />
+                <img src="C:\Users\troyi\Documents\Troydon\IT_Projects\TroydonFitness_v.2\TroydonFitness\wwwroot\images\Products\Routines\mass(2).jpg" />
+                <img src='/Serveimage/?path="+dr["img"].ToString()+"' class='img-responsive' />";
+                Server.MapPath("~/Products/Routines" +fileName)
             </p>
 
             <div>
                 <a asp-page="./Edit" asp-route-id="@Model.CustomizedRoutine.Id">Edit</a> |
-                <a asp-page="./Index">Back to List</a>
+                <a asp-page="./Index">Back to List</a>  
             </div>
     </div>

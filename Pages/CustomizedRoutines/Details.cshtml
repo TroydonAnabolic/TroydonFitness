@@ -187,11 +187,17 @@
             <p>
                 @Html.DisplayNameFor(model => model.CustomizedRoutine.ImagePath)
                 @Html.DisplayFor(model => model.CustomizedRoutine.ImagePath)
-                <img src="@Url.Content(Model.CustomizedRoutine.ImagePath)" alt="Image" />
-                <img src="~/Content/img/'@Html.DisplayFor(model =>model.CustomizedRoutine.ImagePath)'" style="height:200px;width:200px;" />
-                <img src="C:\Users\troyi\Documents\Troydon\IT_Projects\TroydonFitness_v.2\TroydonFitness\wwwroot\images\Products\Routines\mass(2).jpg" />
-                <img src='/Serveimage/?path="+dr["img"].ToString()+"' class='img-responsive' />";
-                Server.MapPath("~/Products/Routines" +fileName)
+
+                <img src="@Url.Content("~/images/Products/" + Model.CustomizedRoutine.ImagePath)" style="height:200px;width:200px" />
+
+                <img src="~/../../images/Products/Routines/mass.jpg" style="height:200px;width:200px" />
+
+
+
+                @* C:\Users\troyi\Documents\Troydon\IT_Projects\TroydonFitness_v.2\TroydonFitness\wwwroot\images\Products\Routines\mass.jpg *@
+                @* Routines/mass.jpg *@
+                @* C:/Users/troyi/Documents/Troydon/IT_Projects/TroydonFitness_v.2/TroydonFitness/wwwroot/images/Products/Routines/mass (2).jpg *@
+
             </p>
 
             <div>

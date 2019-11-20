@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TroydonFitness.Data;
 using TroydonFitness.Models.ProductModel;
+using System.Web;
 
 namespace TroydonFitness.Pages.CustomizedRoutines
 {
@@ -205,13 +206,24 @@ namespace TroydonFitness.Pages.CustomizedRoutines
             {
                 // Image file search and add
                 var a = _hostingEnv.WebRootPath;
-                    var fileName = Path.GetFileName(Image.FileName);
-                    var filePath = Path.Combine(_hostingEnv.WebRootPath, "images\\Products\\Routines", fileName);
+                var fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(Image.FileName);
+                var filePath = Path.Combine(_hostingEnv.WebRootPath, "images\\Products\\Routines\\", fileName);
+                //try path map as @"Products\" or Server.MapPath(@"/Routines") "images\\Products\\Routines"
+                using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                {
+                    await Image.CopyToAsync(fileSteam);
+                }
 
-                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
-                    {
-                        await Image.CopyToAsync(fileSteam);
-                    }
+                //// Image file search and add
+                //var a = _hostingEnv.WebRootPath;
+                //var fileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(Image.FileName);
+                //var filePath = System.Web.HttpContext.Current.Server.MapPath("~/images/Products/Routines/" + fileName);
+                ////try path map as @"Products\" or Server.MapPath(@"/Routines") "images\\Products\\Routines"
+                //using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                //{
+                //    await Image.CopyToAsync(fileSteam);
+                //}
+
 
                 // Add to the database
                 CustomizedRoutineVM.ImagePath = filePath;

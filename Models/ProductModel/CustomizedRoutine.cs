@@ -43,12 +43,19 @@ namespace TroydonFitness.Models.ProductModel
             Beginner, Intermediate, Advanced
         }
 
+        [DisplayFormat(NullDisplayText = "No training today")]
         public int? Monday { get; set; }
+        [DisplayFormat(NullDisplayText = "No training today")]
         public int? Tuesday { get; set; }
+        [DisplayFormat(NullDisplayText = "No training today")]
         public int? Wednesday { get; set; }
+        [DisplayFormat(NullDisplayText = "No training today")]
         public int? Thursday { get; set; }
+        [DisplayFormat(NullDisplayText = "No training today")]
         public int? Friday { get; set; }
+        [DisplayFormat(NullDisplayText = "No training today")]
         public int? Saturday { get; set; }
+        [DisplayFormat(NullDisplayText = "No training today")]
         public int? Sunday { get; set; }
 
         // Nullable with ? so add exercises does not have to be listed

@@ -187,10 +187,10 @@
             <p>
                 @Html.DisplayNameFor(model => model.CustomizedRoutine.ImagePath)
                 @Html.DisplayFor(model => model.CustomizedRoutine.ImagePath)
-
                 <img src="@Url.Content("~/images/Products/" + Model.CustomizedRoutine.ImagePath)" style="height:200px;width:200px" />
-
-                <img src="~/../../images/Products/Routines/mass.jpg" style="height:200px;width:200px" />
+                <img src="@Url.Content("~/" + Model.CustomizedRoutine.ImagePath)" style="height:200px;width:200px" />
+                <img src="~/Routines/@Model.CustomizedRoutine.ImagePath" width="100" height="100" />
+                <img src="/../../images/Products/Routines/mass.jpg" style="height:200px;width:200px" />
 
 
 

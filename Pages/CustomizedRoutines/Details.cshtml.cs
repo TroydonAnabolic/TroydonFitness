@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -28,7 +29,6 @@ namespace TroydonFitness.Pages.CustomizedRoutines
 
 
         public List<SelectListItem> Split { get; set; }
-
 
 
         public FileResult ServeImage(string path)

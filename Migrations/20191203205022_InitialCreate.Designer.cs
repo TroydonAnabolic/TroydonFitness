@@ -10,8 +10,8 @@ using TroydonFitness.Data;
 namespace TroydonFitness.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20191024203040_ProductGrouping")]
-    partial class ProductGrouping
+    [Migration("20191203205022_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,20 +28,160 @@ namespace TroydonFitness.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DifficultyLevel")
+                    b.Property<int?>("DifficultyLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EquipmentUsed")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise10")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise11")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise12")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise13")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise14")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise15")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise16")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise17")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise18")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise19")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise20")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise21")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise22")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise23")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise24")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise25")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise26")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise27")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise28")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise5")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise6")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise7")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise8")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Exercise9")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExerciseDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Friday")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Monday")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MuscleGroup")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("RoutineAdded")
+                    b.Property<DateTime?>("RoutineAdded")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("RoutineDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoutineType")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int?>("Saturday")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stretch1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stretch2")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stretch3")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stretch4")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Stretch5")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Sunday")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Thursday")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Tuesday")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Wednesday")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan?>("WorkoutDuration")
+                        .HasColumnType("time");
 
                     b.HasKey("Id");
 
@@ -105,6 +245,7 @@ namespace TroydonFitness.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("HasStock")
@@ -123,7 +264,10 @@ namespace TroydonFitness.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnName("Title")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("ProductID");
 

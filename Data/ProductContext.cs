@@ -85,5 +85,7 @@ namespace TroydonFitness.Data
                 .HasForeignKey(sr => sr.CustomizedRoutineId)
                 .IsRequired(false);
         }
+
+        public DbSet<TroydonFitness.Models.ProductModel.SupplementRoutine> SupplementRoutine { get; set; }
     }
 }

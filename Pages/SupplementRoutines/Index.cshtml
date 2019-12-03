@@ -1,0 +1,48 @@
+﻿@page
+@model TroydonFitness.Pages.SupplementRoutines.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplementRoutine[0].Supplement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplementRoutine[0].CustomizedRoutine)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.SupplementRoutine)*@
+                Exercise Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SupplementRoutine) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplement.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomizedRoutine.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomizedRoutine.ExerciseDetails)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -14,31 +14,31 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Supplements[0].Id)
+                @Html.DisplayNameFor(model => model.SupplementVM[0].Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Supplements[0].Product.ProductID)
+                @Html.DisplayNameFor(model => model.SupplementVM[0].ProductTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Supplements[0].SupplementAdded)
+                @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementAdded)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Supplements[0].SupplementType)
+                @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Supplements[0].SupplementAvailability)
+                @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementAvailability)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Supplements) {
+@foreach (var item in Model.SupplementVM) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductID)
+                @Html.DisplayFor(modelItem => item.ProductTitle)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SupplementAdded)
@@ -48,9 +48,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SupplementAvailability)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.HasStock)  @*retrieving related data from the products table*@
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

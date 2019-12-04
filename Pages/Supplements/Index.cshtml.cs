@@ -19,14 +19,21 @@ namespace TroydonFitness.Pages.Supplements
             _context = context;
         }
 
-        public IList<Supplement> Supplements { get;set; }
+        public IList<Supplement> Supplements { get; set; }
+        public IList<SupplementVM> SupplementVM { get;set; }
+
 
         public async Task OnGetAsync()
+
         {
-            Supplements = await _context.Supplements
-                .Include(c => c.Product) // links the related entity navigation property by explicit loading
-                .AsNoTracking()
-                .ToListAsync();
+            SupplementVM = await _context.Supplements
+                        .Select(p => new SupplementVM   // load only the data needed
+                        { 
+                            Id = p.Id,        
+                            SupplementAdded = p.SupplementAdded,
+                            SupplementType = p.SupplementType,
+                            ProductTitle  = p.Product.Title
+                        }).ToListAsync();
         }
     }
 }

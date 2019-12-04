@@ -1,0 +1,44 @@
+﻿@page
+@model TroydonFitness.Pages.Supplements.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Supplement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Supplement.SupplementAdded" class="control-label"></label>
+                <input asp-for="Supplement.SupplementAdded" class="form-control" />
+                <span asp-validation-for="Supplement.SupplementAdded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplement.SupplementType" class="control-label"></label>
+                <input asp-for="Supplement.SupplementType" class="form-control" />
+                <span asp-validation-for="Supplement.SupplementType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplement.SupplementAvailability" class="control-label"></label>
+                <input asp-for="Supplement.SupplementAvailability" class="form-control" />
+                <span asp-validation-for="Supplement.SupplementAvailability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

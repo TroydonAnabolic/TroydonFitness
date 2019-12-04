@@ -1,0 +1,63 @@
+﻿@page
+@model TroydonFitness.Pages.Supplements.IndexModel
+
+@{
+    ViewData["Title"] = "Troydon Fitness | Supplements";
+}
+
+<h1>Supplements</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].Product.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].SupplementAdded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].SupplementType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].SupplementAvailability)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Supplements) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplementAdded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplementType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplementAvailability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.HasStock)  @*retrieving related data from the products table*@
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

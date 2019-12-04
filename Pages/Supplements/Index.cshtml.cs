@@ -32,7 +32,8 @@ namespace TroydonFitness.Pages.Supplements
                             Id = p.Id,        
                             SupplementAdded = p.SupplementAdded,
                             SupplementType = p.SupplementType,
-                            ProductTitle  = p.Product.Title
+                            ProductTitle  = p.Product.Title,
+                            ProductID = p.Product.ProductID
                         }).ToListAsync();
         }
     }

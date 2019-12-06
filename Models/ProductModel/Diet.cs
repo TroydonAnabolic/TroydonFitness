@@ -13,9 +13,14 @@ namespace TroydonFitness.Models.ProductModel
 
         // Navigation
         public Product Product { get; internal set; }
+        public TrainingEquipment TrainingEquipment { get; set; }
+        public ICollection<SupplementRoutine> SupplementRoutine { get; set; }
+
 
         // Details
         public Type DietType { get; set; }
+
+        public decimal DietWeight { get; set; }
 
         public enum Type
         {

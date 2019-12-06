@@ -17,6 +17,8 @@ namespace TroydonFitness.Models.ProductModel
         // Navigation
         public Product Product { get; set; }
         public List<SupplementRoutine> SupplementRoutines { get; set; }
+        public IEnumerable<CustomizedRoutine> CustomizedRoutines { get; internal set; }
+
 
         // Supplement Details
         [DataType(DataType.Date)]
@@ -25,6 +27,7 @@ namespace TroydonFitness.Models.ProductModel
         public DateTime SupplementAdded { get; internal set; }
         public string SupplementType { get; set; }
         public Availability? SupplementAvailability { get; set; }
+
         public enum Availability
         {
             Available,

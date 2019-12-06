@@ -224,9 +224,6 @@ namespace TroydonFitness.Models.ProductModel
         [Required, DataType(DataType.MultilineText)]
         public string ExerciseDetails { get; set; }
 
-
-
-
         [DataType(DataType.ImageUrl)]
         public string ImagePath { get; set; }
     }

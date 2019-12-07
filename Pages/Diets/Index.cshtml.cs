@@ -35,15 +35,12 @@ namespace TroydonFitness.Pages.Diets
                 .Include(i => i.SupplementRoutine)
                     .ThenInclude(i => i.CustomizedRoutine) // CustomizedRoutine present in supp routine
                         .ThenInclude(i => i.Product) // Retreive the nav prop product from routine
-                            .ThenInclude(i => i.ProductID)
                 .Include(i => i.SupplementRoutine)
                     .ThenInclude(i => i.CustomizedRoutine) // CustomizedRoutine present in supp routine
                         .ThenInclude(i => i.Product) // Retreive the nav prop product from routine
-                            .ThenInclude(i => i.Price) // retrieve the price
                 .Include(i => i.SupplementRoutine)
                     .ThenInclude(i => i.CustomizedRoutine) // CustomizedRoutine present in supp routine
                         .ThenInclude(i => i.Product) // Retreive the nav prop product from routine
-                            .ThenInclude(i => i.Title) // retrieve the price
                 .AsNoTracking()
                 .OrderBy(i => i.Id)
                 .ToListAsync();

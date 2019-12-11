@@ -10,7 +10,7 @@ using TroydonFitness.Models.ProductModel;
 
 namespace TroydonFitness.Pages.Supplements
 {
-    public class CreateModel : PageModel
+    public class CreateModel : ProductNamePageModel
     {
         private readonly TroydonFitness.Data.ProductContext _context;
 
@@ -21,6 +21,7 @@ namespace TroydonFitness.Pages.Supplements
 
         public IActionResult OnGet()
         {
+            PopulateProductsDropDownList(_context);
             return Page();
         }
 
@@ -31,15 +32,21 @@ namespace TroydonFitness.Pages.Supplements
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptySupplement = new Supplement();
+
+            if (await TryUpdateModelAsync<Supplement>(
+                 emptySupplement,
+                 "supplement",   // Prefix for form value.
+                 s => s.Id, s => s.ProductID, s => s.SupplementAdded, s => s.SupplementAvailability, s => s.SupplementType))
             {
-                return Page();
+                _context.Courses.Add(emptySupplement);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.Supplements.Add(Supplement);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateProductsDropDownList(_context, emptySupplement.DepartmentID);
+            return Page();
         }
     }
 }

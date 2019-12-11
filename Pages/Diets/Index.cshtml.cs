@@ -32,6 +32,10 @@ namespace TroydonFitness.Pages.Diets
                 .Include(i => i.SupplementRoutine) // Many to many class contains supp routine
                     .ThenInclude(i => i.Supplement) // supplement nav prop is present in the many to many joint class
                         .ThenInclude(i => i.Product) // Product nav prop is present in Supplement
+                //.Include(i => i.SupplementRoutine)
+                //    .ThenInclude(i => i.Supplement)
+                //        .ThenInclude(i => i.CustomizedRoutines)
+                //            .ThenInclude(i => i.Product)
                 .Include(i => i.SupplementRoutine)
                     .ThenInclude(i => i.CustomizedRoutine) // CustomizedRoutine present in supp routine
                         .ThenInclude(i => i.Product) // Retreive the nav prop product from routine
@@ -48,17 +52,22 @@ namespace TroydonFitness.Pages.Diets
             if (id != null)
             {
                 DietID = id.Value;
-                Diet diet = DietData.Diets
-                    .Where(i => i.Id == id.Value).Single();
+                Diet diet = DietData.Diets.Single(
+                    i => i.Id == id.Value);
                 DietData.Supplements = diet.SupplementRoutine.Select(s => s.Supplement);
             }
 
             if (supplementID != null)
             {
                 SupplementID = supplementID.Value;
-                var selectedSupplement = DietData.Supplements   
-                    .Where(x => x.Id == SupplementID).Single();
-                DietData.CustomizedRoutines = selectedSupplement.CustomizedRoutines; // may need to remove prop from entity
+                var selectedSupplement = DietData.Supplements
+                    .Where(x => x.Id == supplementID).Single();
+                await _context.Entry(selectedSupplement).Collection(x => x.CustomizedRoutines).LoadAsync();
+                foreach (CustomizedRoutine routine in selectedSupplement.CustomizedRoutines)
+                {
+                    await _context.Entry(routine).Reference(x => x.Product).LoadAsync();
+                }
+                DietData.CustomizedRoutines = selectedSupplement.CustomizedRoutines;
             }
         }
     }

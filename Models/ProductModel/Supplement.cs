@@ -12,7 +12,7 @@ namespace TroydonFitness.Models.ProductModel
 
         public int Id { get; set; }
         //public int CustomizedRoutineID { get; set; }
-        //public int ProductID { get; set; }
+        public int ProductID { get; set; }
 
         // Navigation
         public Product Product { get; set; }

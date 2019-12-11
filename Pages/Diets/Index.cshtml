@@ -14,9 +14,6 @@
     <thead>
         <tr>
             <th>Diet Id</th>
-            <th>Product Id</th>
-            <th>Product Title</th>
-            <th>Product Price</th>
             <th>Diet Type</th>
             <th>Diet Weight</th>
 
@@ -35,10 +32,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product)
-                </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Product.ProductID)
                 </td>
                 <td>
@@ -46,12 +40,12 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.Price)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.DietType)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DietWeight)
+                    @Html.DisplayFor(modelItem => item.DietWeight) mg
                 </td>
                 <td>
                     @if (item.TrainingEquipment != null)
@@ -85,6 +79,7 @@
         <tr>
             <th></th>
             <th>Supplement Id</th>
+            <th>Product Id</th>
             <th>Supplement Name</th>
             <th>Supplement Type</th>
             <th>Supplement Availability</th>
@@ -104,6 +99,9 @@
         </td>
         <td>
             @item.Id
+        </td>
+        <td>
+            @item.Product.ProductID
         </td>
         <td>
             @item.Product.Title

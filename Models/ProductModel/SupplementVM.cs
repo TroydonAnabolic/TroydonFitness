@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace TroydonFitness.Models.ProductModel
 {
     public class SupplementVM
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public int ProductID { get; set; }
         // Supplement Details
@@ -24,6 +26,8 @@ namespace TroydonFitness.Models.ProductModel
         public string ProductTitle { get; set; }
 
         public Availability? SupplementAvailability { get; set; }
+        public decimal Price { get; internal set; }
+
         public enum Availability
         {
             Available,

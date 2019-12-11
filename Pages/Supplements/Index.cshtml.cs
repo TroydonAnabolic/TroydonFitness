@@ -10,7 +10,7 @@ using TroydonFitness.Models.ProductModel;
 
 namespace TroydonFitness.Pages.Supplements
 {
-    public class IndexModel : PageModel
+    public class IndexModel
     {
         private readonly TroydonFitness.Data.ProductContext _context;
 
@@ -22,7 +22,7 @@ namespace TroydonFitness.Pages.Supplements
         public IList<Supplement> Supplements { get; set; }
         public IList<SupplementVM> SupplementVM { get;set; }
 
-
+        // Eager Loading
         public async Task OnGetAsync()
 
         {
@@ -33,7 +33,8 @@ namespace TroydonFitness.Pages.Supplements
                             SupplementAdded = p.SupplementAdded,
                             SupplementType = p.SupplementType,
                             ProductTitle  = p.Product.Title,
-                            ProductID = p.Product.ProductID
+                            ProductID = p.Product.ProductID,
+                            Price = p.Product.Price
                         }).ToListAsync();
         }
     }

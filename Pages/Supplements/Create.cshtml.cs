@@ -12,9 +12,9 @@ namespace TroydonFitness.Pages.Supplements
 {
     public class CreateModel : ProductNamePageModel
     {
-        private readonly TroydonFitness.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
-        public CreateModel(TroydonFitness.Data.ProductContext context)
+        public CreateModel(ProductContext context)
         {
             _context = context;
         }

@@ -29,7 +29,10 @@ namespace TroydonFitness.Pages.Supplements
                 return NotFound();
             }
 
-            Supplement = await _context.Supplements.FirstOrDefaultAsync(m => m.Id == id);
+            Supplement = await _context.Supplements
+                .AsNoTracking()
+                .Include(p => p.Product)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Supplement == null)
             {

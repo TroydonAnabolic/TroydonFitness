@@ -12,9 +12,9 @@ namespace TroydonFitness.Pages.Supplements
 {
     public class DetailsModel : PageModel
     {
-        private readonly TroydonFitness.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
-        public DetailsModel(TroydonFitness.Data.ProductContext context)
+        public DetailsModel(ProductContext context)
         {
             _context = context;
         }
@@ -28,7 +28,10 @@ namespace TroydonFitness.Pages.Supplements
                 return NotFound();
             }
 
-            Supplement = await _context.Supplements.FirstOrDefaultAsync(m => m.Id == id);
+            Supplement = await _context.Supplements
+                .AsNoTracking()
+                .Include(c => c.Product)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Supplement == null)
             {

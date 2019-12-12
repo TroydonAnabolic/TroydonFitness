@@ -11,16 +11,16 @@ using TroydonFitness.Models.ProductModel;
 
 namespace TroydonFitness.Pages.Supplements
 {
-    public class EditModel : PageModel
+    public class EditModel : ProductNamePageModel
     {
-        private readonly TroydonFitness.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
-        public EditModel(TroydonFitness.Data.ProductContext context)
+        public EditModel(ProductContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
+        [BindProperty]  
         public Supplement Supplement { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -30,43 +30,48 @@ namespace TroydonFitness.Pages.Supplements
                 return NotFound();
             }
 
-            Supplement = await _context.Supplements.FirstOrDefaultAsync(m => m.Id == id);
+            Supplement = await _context.Supplements
+                .Include(c => c.Product).FirstOrDefaultAsync(m => m.ProductID == id);
+
 
             if (Supplement == null)
             {
                 return NotFound();
             }
+
+            // Select current ProductID.
+            PopulateProductsDropDownList(_context, Supplement.ProductID);
             return Page();
         }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (!ModelState.IsValid)
+            if (id == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Supplement).State = EntityState.Modified;
+            var supplementToUpdate = await _context.Supplements.FindAsync(id);
 
-            try
+            if (supplementToUpdate == null)
+            {
+                return NotFound();
+            }
+
+            if (await TryUpdateModelAsync<Supplement>(
+                 supplementToUpdate,
+                 "supplement",   // Prefix for form value.
+                   c => c.Product.Price, c => c.ProductID, c => c.Product.Title))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SupplementExists(Supplement.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateProductsDropDownList(_context, supplementToUpdate.ProductID);
+            return Page();
         }
 
         private bool SupplementExists(int id)

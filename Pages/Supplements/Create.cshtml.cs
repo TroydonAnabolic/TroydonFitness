@@ -39,13 +39,13 @@ namespace TroydonFitness.Pages.Supplements
                  "supplement",   // Prefix for form value.
                  s => s.Id, s => s.ProductID, s => s.SupplementAdded, s => s.SupplementAvailability, s => s.SupplementType))
             {
-                _context.Courses.Add(emptySupplement);
+                _context.Supplements.Add(emptySupplement);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }
 
-            // Select DepartmentID if TryUpdateModelAsync fails.
-            PopulateProductsDropDownList(_context, emptySupplement.DepartmentID);
+            // Select ProductID if TryUpdateModelAsync fails.
+            PopulateProductsDropDownList(_context, emptySupplement.ProductID);
             return Page();
         }
     }

@@ -12,9 +12,9 @@ namespace TroydonFitness.Pages.Supplements
 {
     public class IndexModel
     {
-        private readonly TroydonFitness.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
-        public IndexModel(TroydonFitness.Data.ProductContext context)
+        public IndexModel(ProductContext context)
         {
             _context = context;
         }

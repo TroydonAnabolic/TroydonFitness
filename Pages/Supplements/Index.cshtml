@@ -5,68 +5,73 @@
     ViewData["Title"] = "Troydon Fitness | Supplements";
 }
 
-<h1>Supplements</h1>
+<div class="post-wrap text-dark">
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplementVM[0].Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplementVM[0].ProductID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplementVM[0].ProductTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplementVM[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementAdded)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementAvailability)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.SupplementVM) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SupplementAdded)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SupplementType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SupplementAvailability)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Supplements</h1>
+
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplementVM[0].Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplementVM[0].ProductID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplementVM[0].ProductTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplementVM[0].Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementAdded)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplementVM[0].SupplementAvailability)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SupplementVM)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SupplementAdded)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SupplementType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SupplementAvailability)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

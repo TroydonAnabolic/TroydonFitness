@@ -9,7 +9,6 @@ namespace TroydonFitness.Models.ProductModel
 {
     public class SupplementVM
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public int ProductID { get; set; }
         // Supplement Details

@@ -10,7 +10,7 @@ using TroydonFitness.Models.ProductModel;
 
 namespace TroydonFitness.Pages.Diets
 {
-    public class CreateModel : PageModel
+    public class CreateModel : DietSupplementPageModel
     {
         private readonly TroydonFitness.Data.ProductContext _context;
 
@@ -21,25 +21,55 @@ namespace TroydonFitness.Pages.Diets
 
         public IActionResult OnGet()
         {
+            var diet = new Diet();
+            diet.SupplementRoutine = new List<SupplementRoutine>();
+
+            // Provides an empty collection for the foreach loop
+            // foreach (var course in Model.AssignedCourseDataList)
+            // in the Create Razor page.
+            PopulateAssignedDietData(_context, diet);
             return Page();
         }
 
         [BindProperty]
         public Diet Diet { get; set; }
 
+        public enum Type
+        {
+            looseWeight,
+            gainMuscle,
+        }
+
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string[] selectedSupplements)
         {
-            if (!ModelState.IsValid)
+            var newDiet = new Diet();
+            if (selectedSupplements != null)
             {
-                return Page();
+                newDiet.SupplementRoutine = new List<SupplementRoutine>();
+                foreach (var supplement in selectedSupplements)
+                {
+                    var supplementToAdd = new SupplementRoutine
+                    {
+                        SupplementId = int.Parse(supplement)
+                    };
+                    newDiet.SupplementRoutine.Add(supplementToAdd);
+                }
             }
 
-            _context.Diets.Add(Diet);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<Diet>(
+                newDiet,
+                "Diet",
+                i => i.DietWeight, i => i.DietType,
+                i => i.SupplementRoutine))
+            {
+                _context.Diets.Add(newDiet);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            PopulateAssignedDietData(_context, newDiet);
+            return Page();
         }
     }
 }

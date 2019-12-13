@@ -1,166 +1,171 @@
-﻿@page "{id:int?}" 
+﻿@page "{id:int?}"
 @model TroydonFitness.Pages.Diets.IndexModel
 
 @{
     ViewData["Title"] = "Troydon Fitness | Diet";
 }
 
-<h1>Diets</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Diet Id</th>
-            <th>Diet Type</th>
-            <th>Diet Weight</th>
+<div class="post-wrap text-dark">
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.DietData.Diets)
-        {
-            string selectedRow = "";
-            if (item.Id == Model.DietID)
-            {
-                selectedRow = "table-success";
-            }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Product.ProductID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product.Price)
-                </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.DietType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DietWeight) mg
-                </td>
-                <td>
-                    @if (item.TrainingEquipment != null)
-                    {
-                        @item.TrainingEquipment.Brand
-                    }
-                </td>
-                <td>
-                    @{
-                        foreach (var supp in item.SupplementRoutine)
-                        {
-                            @supp.Supplement.Id @:  @supp.Supplement.Product.Title <br />
-                        }
-                    }
-                </td>
-                <td>
-                    <a asp-page="./Index" asp-route-id="@item.Id">Select</a>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+    <h1>Diets</h1>
+
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Diet Id</th>
+                <th>Diet Type</th>
+                <th>Diet Weight</th>
+
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
-
-@if (Model.DietData.Supplements != null)
-{
-    <h3>Supplements available for these diets</h3>
-    <table class="table">
-        <tr>
-            <th></th>
-            <th>Supplement Id</th>
-            <th>Product Id</th>
-            <th>Supplement Name</th>
-            <th>Supplement Type</th>
-            <th>Supplement Availability</th>
-            <th>Supplement Added</th>
-        </tr>
-
-        @foreach (var item in Model.DietData.Supplements)
-        {
-            string selectedRow = "";
-            if (item.Id == Model.SupplementID)
+        </thead>
+        <tbody>
+            @foreach (var item in Model.DietData.Diets)
             {
-                selectedRow = "table-success";
+                string selectedRow = "";
+                if (item.Id == Model.DietID)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Price)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DietType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DietWeight) mg
+                    </td>
+                    <td>
+                        @if (item.TrainingEquipment != null)
+                        {
+                            @item.TrainingEquipment.Brand
+                        }
+                    </td>
+                    <td>
+                        @{
+                            foreach (var supp in item.SupplementRoutine)
+                            {
+                                @supp.Supplement.Id @:  @supp.Supplement.Product.Title <br />
+                            }
+                        }
+                    </td>
+                    <td>
+                        <a asp-page="./Index" asp-route-id="@item.Id">Select</a>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
             }
-    <tr class="@selectedRow">
-        <td>
-            <a asp-page="./Index" asp-route-courseID="@item.Id">Select</a>
-        </td>
-        <td>
-            @item.Id
-        </td>
-        <td>
-            @item.Product.ProductID
-        </td>
-        <td>
-            @item.Product.Title
-        </td>
-        <td>
-            @item.SupplementType
-        </td>
-        <td>
-            @item.SupplementAvailability
-        </td>
-        <td>
-            @item.SupplementAdded
-        </td>
-    </tr>
-        }
-
+        </tbody>
     </table>
-}
 
-@if (Model.DietData.CustomizedRoutines != null)
-{
-    <h3>
-        Customized Routines available for the Diet
-    </h3>
-    <table class="table">
-        <tr>
-            <th>Id</th>
-            <th>Product Id</th>
-            <th>Routine Name</th>
-            <th>Routine Type</th>
-            <th>Routine Description</th>
-            <th>Routine Added</th>
-            <th>Difficulty Level</th>
-        </tr>
-        @foreach (var item in Model.DietData.CustomizedRoutines)
-        {
-    <tr>
-        <td>
-            @item.Id
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoutineType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoutineDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoutineAdded)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DifficultyLevel)
-        </td>
-    </tr>
-        }
-    </table>
-}
+    @if (Model.DietData.Supplements != null)
+    {
+        <h3>Supplements available for these diets</h3>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Supplement Id</th>
+                <th>Product Id</th>
+                <th>Supplement Name</th>
+                <th>Supplement Type</th>
+                <th>Supplement Availability</th>
+                <th>Supplement Added</th>
+            </tr>
+
+            @foreach (var item in Model.DietData.Supplements)
+            {
+                string selectedRow = "";
+                if (item.Id == Model.SupplementID)
+                {
+                    selectedRow = "table-success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        <a asp-page="./Index" asp-route-courseID="@item.Id">Select</a>
+                    </td>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Product.ProductID
+                    </td>
+                    <td>
+                        @item.Product.Title
+                    </td>
+                    <td>
+                        @item.SupplementType
+                    </td>
+                    <td>
+                        @item.SupplementAvailability
+                    </td>
+                    <td>
+                        @item.SupplementAdded
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+
+    @if (Model.DietData.CustomizedRoutines != null)
+    {
+        <h3>
+            Customized Routines available for the Diet
+        </h3>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Product Id</th>
+                <th>Routine Name</th>
+                <th>Routine Type</th>
+                <th>Routine Description</th>
+                <th>Routine Added</th>
+                <th>Difficulty Level</th>
+            </tr>
+            @foreach (var item in Model.DietData.CustomizedRoutines)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoutineAdded)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DifficultyLevel)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+
+    </div>

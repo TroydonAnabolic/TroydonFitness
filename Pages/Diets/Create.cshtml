@@ -5,30 +5,50 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+    <div class="post-wrap text-dark">
 
-<h4>Diet</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Diet.DietType" class="control-label"></label>
-                <select asp-for="Diet.DietType" class="form-control"></select>
-                <span asp-validation-for="Diet.DietType" class="text-danger"></span>
+        <h1>Create</h1>
+
+        <h4>Diet</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Diet.Product.ProductID" class="control-label"></label>
+                        <input asp-for="Diet.Product.ProductID" class="form-control" />
+                        <span asp-validation-for="Diet.Product.ProductID" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Diet.DietWeight" class="control-label"></label>
+                        <input asp-for="Diet.DietWeight" class="form-control" />
+                        <span asp-validation-for="Diet.DietWeight" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Diet.DietType" class="control-label"></label>
+                        @Html.DropDownListFor(s => s.Diet.DietType,
+                            new SelectList(Enum.GetValues(typeof(CreateModel.Type))),
+                            "Select Diet Type")
+                        <span asp-validation-for="Diet.DietType" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+        <div>
+            <a asp-page="Index">Back to List</a>
+        </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

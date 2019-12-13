@@ -45,13 +45,23 @@ namespace TroydonFitness.Pages.Diets
                 return NotFound();
             }
 
-            Diet = await _context.Diets.FindAsync(id);
+            Diet diet = await _context.Diets
+                .Include(i => i.SupplementRoutine)
+                .SingleAsync(i => i.Id == id);
 
-            if (Diet != null)
+            if (diet == null)
             {
-                _context.Diets.Remove(Diet);
-                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
+
+            var departments = await _context.Products
+                .Where(d => d.DietID == id)
+                .ToListAsync();
+            departments.ForEach(d => d.DietID = null);
+
+            _context.Diets.Remove(diet);
+
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

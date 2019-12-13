@@ -11,11 +11,11 @@ using TroydonFitness.Models.ProductModel;
 
 namespace TroydonFitness.Pages.Diets
 {
-    public class EditModel : PageModel
+    public class EditModel : DietSupplementPageModel
     {
-        private readonly TroydonFitness.Data.ProductContext _context;
+        private readonly ProductContext _context;
 
-        public EditModel(TroydonFitness.Data.ProductContext context)
+        public EditModel(ProductContext context)
         {
             _context = context;
         }
@@ -32,46 +32,60 @@ namespace TroydonFitness.Pages.Diets
 
             Diet = await _context.Diets.FirstOrDefaultAsync(m => m.Id == id);
 
+            Diet = await _context.Diets
+               .Include(i => i.TrainingEquipment)
+               .Include(i => i.SupplementRoutine).ThenInclude(i => i.Supplement)
+               .AsNoTracking()
+               .FirstOrDefaultAsync(m => m.Id == id);
+
+
             if (Diet == null)
             {
                 return NotFound();
             }
+            PopulateAssignedDietData(_context, Diet);
+
             return Page();
         }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id, string[] selectedSupplements)
         {
-            if (!ModelState.IsValid)
+            if (id == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Diet).State = EntityState.Modified;
+            var dietToUpdate = await _context.Diets
+                .Include(i => i.TrainingEquipment)
+                .Include(i => i.SupplementRoutine)
+                    .ThenInclude(i => i.Supplement)
+                .FirstOrDefaultAsync(s => s.Id == id);
 
-            try
+            if (dietToUpdate == null)
             {
+                return NotFound();
+            }
+
+            if (await TryUpdateModelAsync<Diet>(
+                dietToUpdate,
+                "Diets",
+                i => i.DietType, i => i.DietWeight,
+                i => i.TrainingEquipment))
+            {
+                if (String.IsNullOrWhiteSpace(
+                    dietToUpdate.TrainingEquipment?.Brand))
+                {
+                    dietToUpdate.TrainingEquipment = null;
+                }
+                UpdateInstructorCourses(_context, selectedSupplements, dietToUpdate);
                 await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!DietExists(Diet.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool DietExists(int id)
-        {
-            return _context.Diets.Any(e => e.Id == id);
+            UpdateInstructorCourses(_context, selectedSupplements, dietToUpdate);
+            PopulateAssignedDietData(_context, dietToUpdate);
+            return Page();
         }
     }
 }

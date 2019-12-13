@@ -79,7 +79,12 @@ namespace TroydonFitness.Pages.Products
             // Load in the products
             int pageSize = 3;
             Products = await PaginatedList<Product>.CreateAsync(
-                productIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+                productIQ
+                .Include(d => d.PersonalTrainingSessions)  // eager loading
+                .AsNoTracking(),
+                pageIndex ?? 1, pageSize);
         }
+
+
     }
 }

@@ -59,5 +59,8 @@ namespace TroydonFitness.Models.ProductModel
             ComingSoon
         }
 
+        // The Timestamp attribute is what identifies the column as a concurrency tracking column. 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }

@@ -44,7 +44,7 @@ namespace TroydonFitness.Pages.Diets
                         .ThenInclude(i => i.Product) // Retreive the nav prop product from routine
                 .Include(i => i.SupplementRoutine)
                     .ThenInclude(i => i.CustomizedRoutine) // CustomizedRoutine present in supp routine
-                        .ThenInclude(i => i.Product) // Retreive the nav prop product from routine
+                        .ThenInclude(i => i.Product) // Retreive the nav prop product from r
                 .AsNoTracking()
                 .OrderBy(i => i.Id)
                 .ToListAsync();

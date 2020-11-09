@@ -1,0 +1,77 @@
+﻿@page
+@model TroydonFitnessWebsite.Pages.Products.Diets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_ProductsLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Diets</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DietVM.PersonalTraining.Product" class="control-label"></label>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DietVM.PersonalTraining" class="control-label"></label>
+                <select asp-for="DietVM.PersonalTrainingID" class="form-control"
+                        asp-items="@Model.PtNameSL">
+                    <option value="">-- Select PT Name--</option>
+                </select>
+                <span asp-validation-for="DietVM.PersonalTrainingID" class="text-danger" />
+            </div>
+
+            @*<div class="form-group">
+                    <label asp-for="DietVM.DietName" class="control-label"></label>
+                    <input asp-for="DietVM.DietName" class="form-control" />
+                    <span asp-validation-for="DietVM.DietName" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="DietVM.Description" class="control-label"></label>
+                <input asp-for="DietVM.Description" class="form-control" />
+                <span asp-validation-for="DietVM.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DietVM.Allergies" class="control-label"></label>
+                @*<input asp-for="DietVM.Allergies" class="form-control" />*@
+                <span asp-validation-for="DietVM.Allergies" class="text-danger"></span>
+                <span>
+                    @{
+                            for (int i = 0; i < this.Model.AllergiesList.Count(); i++)
+                            {
+                            <input asp-for="DietVM.Allergies" class="" name="AreChecked" type="checkbox" value="@i" /> @Model.AllergiesList[i]
+                            }
+                    }
+                </span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="DietVM.PreferredFood" class="control-label"></label>
+                <input asp-for="DietVM.PreferredFood" class="form-control" />
+                <span asp-validation-for="DietVM.PreferredFood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DietVM.Comments" class="control-label"></label>
+                <input asp-for="DietVM.Comments" class="form-control" />
+                <span asp-validation-for="DietVM.Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

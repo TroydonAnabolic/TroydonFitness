@@ -1,0 +1,60 @@
+﻿@page
+@model TroydonFitnessWebsite.Pages.Products.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_ProductsLayout.cshtml";
+}
+
+    <h1>Create</h1>
+
+    <h4>Product </h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ProductVM.Title" class="control-label"></label>
+                    <input asp-for="ProductVM.Title" class="form-control" />
+                    <span asp-validation-for="ProductVM.Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductVM.ShortDescription" class="control-label"></label>
+                    <input asp-for="ProductVM.ShortDescription" class="form-control" />
+                    <span asp-validation-for="ProductVM.ShortDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductVM.Price" class="control-label"></label>
+                    <input asp-for="ProductVM.Price" class="form-control" />
+                    <span asp-validation-for="ProductVM.Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductVM.Quantity" class="control-label"></label>
+                    <input asp-for="ProductVM.Quantity" class="form-control" />
+                    <span asp-validation-for="ProductVM.Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        @Html.DisplayNameFor(model => model.ProductVM.HasStock)
+
+                        @Html.LabelFor(x => x.ProductVM.HasStock) :
+                        @Html.RadioButtonFor(x => x.ProductVM.HasStock, "Available") Available
+                        @Html.RadioButtonFor(x => x.ProductVM.HasStock, "Unavailable") Unavailable
+                        @Html.RadioButtonFor(x => x.ProductVM.HasStock, "ComingSoon") ComingSoon
+                        @Html.ValidationMessageFor(x => x.ProductVM.HasStock)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

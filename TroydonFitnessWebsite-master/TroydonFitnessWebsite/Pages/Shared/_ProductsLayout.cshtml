@@ -1,0 +1,35 @@
+﻿@inject SignInManager<TroydonFitnessWebsiteUser> SignInManager
+
+@{
+    Layout = "_Layout";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+<div class="order-nav">
+    <div class="navbar-Product">
+        <a asp-page="/Products/Orders/ViewOrders" data-toggle="tooltip" data-placement="left" title="View my orders">My Orders</a>
+    </div>
+    <div class="cart-large">
+        <a data-toggle="tooltip" data-placement="left" title="View Cart" href="/Products/Orders/ManageCart/ViewCart">
+            <i class="fa fa-shopping-cart"></i>
+        </a>
+    </div>
+</div>
+    
+}
+<div class="post-wrap text-dark">
+    @* Renderbody calls the content within the master layout used here *@
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+</div>
+
+<div class="navbar-Product">
+    <a asp-page="/Products/Index">Products Home</a>
+    <a asp-page="/Products/PersonalTrainingSessions/Index">Personal Training Sessions</a>
+    <a asp-page="/Products/Diets/Index">Diets</a>
+    <a asp-page="/Products/Supplements/Index">Supplements</a>
+    <a asp-page="/Products/TrainingRoutines/Index">Training Routines</a>
+    <a asp-page="/Products/TrainingEquipmentPurchases/Index">Training Equipment</a>
+</div>
+

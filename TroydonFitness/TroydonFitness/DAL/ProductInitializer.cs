@@ -26,23 +26,23 @@ namespace TroydonFitness.DAL
             {
                 // Strength routines
                 new Product{
-                    PersonalTrainingId = 1,
+                    //PersonalTrainingId = 1,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=70, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
                 new Product{
-                    PersonalTrainingId = 2,
+                    //PersonalTrainingId = 2,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=90, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
                 new Product{
-                    PersonalTrainingId = 3,
+                    //PersonalTrainingId = 3,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=110, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
                 // Hypertrophy routines
                 new Product{
-                    PersonalTrainingId = 4,
+                    //PersonalTrainingId = 4,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=75, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
@@ -52,23 +52,23 @@ namespace TroydonFitness.DAL
                     Price=90, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
                 new Product{
-                    PersonalTrainingId = 6,
+                    //PersonalTrainingId = 6,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=120, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
                 // Endurance routines
                 new Product{
-                    PersonalTrainingId = 7,
+                    //PersonalTrainingId = 7,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=100, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
                 new Product{
-                    PersonalTrainingId = 8,
+                    //PersonalTrainingId = 8,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=100, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },
                 new Product{
-                    PersonalTrainingId = 9,
+                   // PersonalTrainingId = 9,
                     Title="Easy Stregth Starter Routine", Description="This routine is great for those that are new to the fitness industry and want to increase their strength",
                     Price=100, Quantity=3, HasStock = Product.Availability.Available, Person = "Troy", Administrator = "Troydon",
                     },

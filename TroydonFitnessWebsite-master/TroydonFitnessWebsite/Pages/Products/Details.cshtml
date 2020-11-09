@@ -1,0 +1,109 @@
+﻿@page "{id:int?}"
+
+@model TroydonFitnessWebsite.Pages.Products.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_ProductsLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ProductID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ProductID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ShortDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.ShortDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Quantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.HasStock)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.HasStock)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.LastUpdated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.LastUpdated)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            <a asp-page="./PersonalTrainingSessions/Index">
+                @Html.DisplayNameFor(model => model.Product.PersonalTrainingSessions)
+            </a>
+
+        </dt>
+
+        @* Display related data only if it exists *@
+        @if (Model.Product.PersonalTrainingSessions != null)
+        {
+
+            <dd class="col-sm-10">
+                <table class="table">
+                    <tr>
+                        <th>Personal Training Session Type</th>
+                        <th>Experience Level</th>
+                        <th>Training Routine Length</th>
+                    </tr>
+                    @foreach (var item in Model.Product.PersonalTrainingSessions)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PTSessionType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ExperienceLevel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LengthOfRoutine)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </dd>
+
+        }
+
+    </dl>
+</div>
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Product.ProductID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+<div class="add-to-cart">
+    <a asp-page="./PersonalTrainingSessions/Details" asp-route-id="@Model.Product.ProductID" class="btn btn-primary btn-lg btn-block">View Product</a>
+</div>

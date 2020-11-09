@@ -1,0 +1,66 @@
+﻿@page
+@model TroydonFitnessWebsite.Pages.Products.Diets.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_ProductsLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Diet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Diet.DietID" />
+            <div class="form-group">
+                <label asp-for="Diet.PersonalTrainingID" class="control-label"></label>
+                <select asp-for="Diet.PersonalTrainingID" class="form-control" asp-items="ViewBag.PersonalTrainingID"></select>
+                <span asp-validation-for="Diet.PersonalTrainingID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet.OrderID" class="control-label"></label>
+                <input asp-for="Diet.OrderID" class="form-control" />
+                <span asp-validation-for="Diet.OrderID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet.DietName" class="control-label"></label>
+                <input asp-for="Diet.DietName" class="form-control" />
+                <span asp-validation-for="Diet.DietName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet.Description" class="control-label"></label>
+                <input asp-for="Diet.Description" class="form-control" />
+                <span asp-validation-for="Diet.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet.Allergies" class="control-label"></label>
+                <input asp-for="Diet.Allergies" class="form-control" />
+                <span asp-validation-for="Diet.Allergies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet.PreferredFood" class="control-label"></label>
+                <input asp-for="Diet.PreferredFood" class="form-control" />
+                <span asp-validation-for="Diet.PreferredFood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Diet.Comments" class="control-label"></label>
+                <input asp-for="Diet.Comments" class="form-control" />
+                <span asp-validation-for="Diet.Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

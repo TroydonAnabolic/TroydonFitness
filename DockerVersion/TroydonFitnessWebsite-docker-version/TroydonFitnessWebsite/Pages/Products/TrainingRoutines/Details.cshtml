@@ -1,0 +1,60 @@
+﻿@page
+@model TroydonFitnessWebsite.Pages.Products.TrainingRoutines.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_ProductsLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+@*  TO DO: Inherit and display items from the product such as price etc, by selecting all the related items for the elected product ID created  *@
+
+<div>
+    <h4>TrainingRoutine</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TrainingRoutine.PersonalTrainingSession)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TrainingRoutine.PersonalTrainingSession.Product.Title)
+        </dd>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.TrainingRoutine.PersonalTrainingSession.Product.Title)
+        </dd>
+        <dd class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TrainingRoutine.PersonalTrainingSession.PtProductPicture)
+        </dd>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.TrainingRoutine.PersonalTrainingSession.PtProductPicture)
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TrainingRoutine.PersonalTrainingSession.PersonalTrainingID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TrainingRoutine.TrainingRoutineID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@*
+    TODO: UserInput box where buyer can add details, just for training routine and diet only
+    Comment box to be updated to hidden and comes up when the user clicks add to cart
+    User to be prompted if they want to add diet, if they do then navigates to diet page, if not then does nothing
+    User can only add one item for training session
+*@
+
+<div class="add-to-cart">
+    <a asp-page="./CreateRoutineOrder" class="btn btn-primary btn-lg btn-block">Add to Orders</a>
+</div>
+
+<div class="form-group vh-30">
+    <label asp-for="TrainingRoutine.Comments" class="control-label"></label>
+    <input asp-for="TrainingRoutine.Comments" class="form-control" />
+    <span asp-validation-for="TrainingRoutine.Comments" class="text-danger"></span>
+    <div>
+        <a asp-page="#" class="btn btn-primary btn-lg btn-block">Submit</a>
+    </div>
+</div>

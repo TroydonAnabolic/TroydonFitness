@@ -34,6 +34,7 @@ namespace TroydonFitnessWebsite.Models.Products
         [StringLength(500, MinimumLength = 0, ErrorMessage = "Comments needs to be a maximum of 500 characters, if you need to send a more detailed description, please email troy@hostgateremail.com")]
         public string Comments { get; set; }
         public string DailyAvailability { get; set; }
+        // TODO: Change these strings to bool so we can tick a checkbox to determine whether client will be training on these days
         public string Monday { get; set; }
         public string Tuesday { get; set; }
         public string Wednesday { get; set; }

@@ -1,0 +1,142 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="title" content="Troydon Fitness" />
+    <meta name="description"
+          content="Troydon Fitness is a personal training website. The website consists of selling personal training sessions, training routines and diets.">
+    <meta name="keywords" content="Personal Training" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/css/normalize.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/ProductsStyleSheet.css" />
+    <link rel="stylesheet"  href="~/css/IdentityStyle.css" />
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/ed77362d70.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+    <header>
+        <!-- navbar navbar-dark navbar-2 bg-primary mb-4
+        navbar navbar-dark  indigo darken-2
+        -->
+        <nav class="navbar navbar-expand-lg navbar-dark indigo darken-2" id="mainNav">
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand" asp-area="" asp-page="/Index">TroydonFitnessWebsite</a>
+                <div id="dropdown-left">
+                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/Products/MainProductPage">Products</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/Gallery/Index">Gallery</a>
+                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/About">About</a>
+                </div>
+                <!-- Collapse button -->
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent22">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                ☰
+                            </a>
+                            <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                            <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                                <div id="dropdown-left">
+                                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/Products/MainProductPage">Products</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/Gallery/Index">Gallery</a>
+                                    <a class="dropdown-item nav-link text-light" asp-area="" asp-page="/About">About</a>
+                                </div>
+                                <div class="dropdown-right  mr-auto" style="display: inline-flex">
+                                    <div class="search-container">
+                                        <form action="/Search.cshtml">
+                                            <input type="search" placeholder="Search.." name="search" class="hidden search-input">
+                                        </form>
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                        <partial name="_LoginPartial" />
+                                        @*<button></button>*@
+                                        <a class="dropdown-item" nav-link text-light asp-area="" asp-page="/Products/Orders/ManageCart/ViewCart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @*
+            TODO: Breadcrumbs access properties using: https://blog.zhaytam.com/2018/06/24/asp-net-core-using-smartbreadcrumbs/ OR
+                https://techyian.github.io/2020-03-02-aspnetcore-breadcrumbs/
+        *@
+        <div class="bc-icons">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb blue lighten-2">
+                    <li class="breadcrumb-item">
+                        <i class="far fa-star mr-2 white-text" aria-hidden="true"></i><a class="white-text" href="#">@Model</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <i class="far fa-star mx-2 white-text" aria-hidden="true"></i><a class="white-text" href="#">Library</a>
+                    </li>
+                    <li class="breadcrumb-item active"><i class="far fa-star mx-2 white-text" aria-hidden="true"></i>Data</li>
+                </ol>
+            </nav>
+        </div>
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+    </main>
+
+    <footer class="page-footer font-small blue">
+
+        <p> Connect with me </p>
+        <div id="connect">
+            <a href="https://www.facebook.com/TroydonAnabolicish" target="_blank"><i class="fa fa-facebook size msg-icon"></i></a>
+            <a href="https://www.instagram.com/troyincarnate/?hl=en" target="_blank"><i class="fa fa-instagram msg-icon"></i></a>
+            <a href="https://www.linkedin.com/in/troydon-luicien-6127a762/" target="_blank"><i class="fa fa-linkedin msg-icon"></i></a>
+            <a href="https://github.com/TroydonAnabolic" target="_blank"><i class="fa fa-github-alt msg-icon"></i></a>
+        </div>
+
+        <p> &copy; Troydon Luicien 2019, All Rights Reserved.</p>
+        <form action="/FooterNav">
+            <span><a asp-area="" asp-page="/Legals">Legals</a></span>
+            <span><a asp-area="" asp-page="/Policies">Policies</a></span>
+            <span><a asp-are="" asp-page="/Sitemap">Sitemap</a></span>
+        </form>
+
+    </footer>
+
+
+    <script src="~/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+</html>

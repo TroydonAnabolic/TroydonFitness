@@ -1,0 +1,85 @@
+﻿@inject SignInManager<TroydonFitnessWebsiteUser> SignInManager
+
+@{
+    Layout = "_Layout";
+
+    // get the URL path of the endpoint to use as the title
+    string path = Model.Request.Path;
+    int indexOfLastSlash = path.LastIndexOf('/');
+    string productNameTitle = path.Substring(indexOfLastSlash + 1), afterSpace = string.Empty;
+
+    // Create a space in between the second ocurrence of upper case
+    int i = 0, j = 0;
+    System.Text.StringBuilder productNameTidy = new System.Text.StringBuilder();
+    for (i = 0; i < productNameTitle.Length - 1; i++)
+    {
+
+        if (Char.IsUpper(productNameTitle[i]) && i != 0)
+        {
+
+            productNameTidy.Append(productNameTitle.Substring(0, i));
+            productNameTidy.Append(" ");
+            afterSpace = productNameTitle.Substring(i);
+            break;
+        }
+    }
+
+    // now check if there are two upper case, if two apply same for both words, otherwise just append the whole word
+    for (j = 0; j < afterSpace.Length - 1; j++)
+    {
+        // if there is another upper case then apply append both ends and a space from the index of where the second
+        if (Char.IsUpper(afterSpace[j]) && j != 0)
+        {
+            productNameTidy.Append(afterSpace.Substring(0, j));
+            productNameTidy.Append(" ");
+            productNameTidy.Append(afterSpace.Substring(j));
+            break;
+        }
+        // if we reach end of the loop and still no upper case, only then append it
+        else if (!Char.IsUpper(afterSpace[j]) && j == afterSpace.Length - 1)
+        {
+            productNameTidy.Append(afterSpace);
+            break;
+        }
+    }
+
+    ViewData["Title"] = productNameTidy;
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <div class="ordering">
+
+        <div class="make-order">
+
+        </div>
+
+        <div class="order-nav">
+            <div class="navbar-Product">
+                <a asp-page="/Products/Orders/ViewOrders" data-toggle="tooltip" data-placement="left" title="View my orders">My Orders</a>
+            </div>
+            <div class="cart-large">
+                <a data-toggle="tooltip" data-placement="left" title="View Cart" href="/Products/Orders/ManageCart/ViewCart">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+<div class="post-wrap text-dark">
+    @* Renderbody calls the content within the master layout used here *@
+    <h1 class="product-name">@ViewData["Title"]</h1>
+
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+</div>
+
+<div class="navbar-Product">
+    <a asp-page="/Products/Index">Products Home</a>
+    <a asp-page="/Products/PersonalTrainingSessions/Index">Personal Training Sessions</a>
+    <a asp-page="/Products/Diets/Index">Diets</a>
+    <a asp-page="/Products/Supplements/Index">Supplements</a>
+    <a asp-page="/Products/TrainingRoutines/Index">Training Routines</a>
+    <a asp-page="/Products/TrainingEquipmentPurchases/Index">Training Equipment</a>
+</div>

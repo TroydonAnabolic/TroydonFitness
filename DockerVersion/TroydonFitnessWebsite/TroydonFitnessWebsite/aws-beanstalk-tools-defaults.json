@@ -1,0 +1,22 @@
+
+{
+    "region" : "ap-southeast-2",
+    "configuration" : "Debug",
+    "framework"     : "netcoreapp3.1",
+    "self-contained" : true,
+    "application"    : "TroydonFitnessWebsite",
+    "environment"    : "TroydonFitnessWebsite-test",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-05becf3c9bd24dd71,sg-0fbc438480eeb2b17\";\"aws:ec2:vpc,Subnets\"=\"subnet-030cd40c57a8424d5\";\"aws:ec2:vpc,ELBSubnets\"=\"subnet-030cd40c57a8424d5,subnet-096b862a3d6a1e053,subnet-034f84bb1bc8e751d\";\"aws:autoscaling:updatepolicy:rollingupdate,MaxBatchSize\"=\"1\";\"aws:autoscaling:updatepolicy:rollingupdate,MinInstancesInService\"=\"1\";\"aws:elasticbeanstalk:command,BatchType\"=\"Percentage\";\"aws:elasticbeanstalk:command,BatchSize\"=\"50\"",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.0.4 running .NET Core",
+    "environment-type"     : "LoadBalanced",
+    "loadbalancer-type"    : "application",
+    "cname"                : "troydonfitnesswebsite-test",
+    "instance-type"        : "t2.micro",
+    "key-pair"             : "facility-key",
+    "health-check-url"     : "/",
+    "instance-profile"     : "TroydonFitnessEBRoleForEC2",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx"
+}

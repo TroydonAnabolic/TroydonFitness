@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <!--To prevent publishing static Identity assets (stylesheets and JavaScript files for Identity UI) to the web root-->
+
+  <PropertyGroup>
+    <ResolveStaticWebAssetsInputsDependsOn>RemoveIdentityAssets</ResolveStaticWebAssetsInputsDependsOn>
+    <UserSecretsId>3feb85a7-542c-4f96-b6eb-f02a16b99d55</UserSecretsId>
+  </PropertyGroup>
+
+  <Target Name="RemoveIdentityAssets">
+    <ItemGroup>
+      <StaticWebAsset Remove="@(StaticWebAsset)" Condition="%(SourceId) == 'Microsoft.AspNetCore.Identity.UI'" />
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\Product\20200724063548_edit length of routine.cs" />
+    <Compile Remove="Migrations\Product\20200724063548_edit length of routine.Designer.cs" />
+    <Compile Remove="Migrations\Product\20200724064647_edit length of routine.cs" />
+    <Compile Remove="Migrations\Product\20200724064647_edit length of routine.Designer.cs" />
+    <Compile Remove="Migrations\Product\20200724090253_length of routine change.cs" />
+    <Compile Remove="Migrations\Product\20200724090253_length of routine change.Designer.cs" />
+    <Compile Remove="Migrations\Product\20200724090440_length of routine change.cs" />
+    <Compile Remove="Migrations\Product\20200724090440_length of routine change.Designer.cs" />
+    <Compile Remove="Migrations\Product\20200724091624_length of routine change.cs" />
+    <Compile Remove="Migrations\Product\20200724091624_length of routine change.Designer.cs" />
+    <Compile Remove="Migrations\Product\20200725025706_add time remaining.cs" />
+    <Compile Remove="Migrations\Product\20200725025706_add time remaining.Designer.cs" />
+    <Compile Remove="Migrations\Product\20200725133225_add extra order details.cs" />
+    <Compile Remove="Migrations\Product\20200725133225_add extra order details.Designer.cs" />
+  </ItemGroup>
+<!--End code for static identity asset protection-->
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Products\TrainingEquipmentPurchases\" />
+    <Folder Include="Pages\Account\ClientUser\" />
+  </ItemGroup>
+
+</Project>

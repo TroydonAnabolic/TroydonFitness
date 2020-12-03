@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TroydonFitnessWebsite.Areas.Identity.Data
+
+@inject SignInManager<TroydonFitnessWebsiteUser> SignInManager
+@inject UserManager<TroydonFitnessWebsiteUser> UserManager
+@* If this returns a true value it will be displayed, to show login, otherwise nothing will show, this is only supposed to be seen in the Index class *@
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    // Always display the logout option and greeting when logged in
+    <a id="manage" class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @(User.FindFirst("given_name").Value)!  </a>
+    <form id="logoutForm" class="dropdown-item nav-link text-light" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+        <button id="logout" type="submit" class=" btn-danger  text-light">Logout</button>
+    </form>
+}
+else if (ViewBag.ShowLoginDetails ?? false && !SignInManager.IsSignedIn(User))
+{
+    // if the user is in the index page and not logged on, then show the login modal trigger - changed now to just re-direct to the login page
+    @*<button type="submit" id="myBtn">User Login <i class="fa fa-user"></i></button>*@
+    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">User Login</a>
+}
+else
+{
+    // if the user is not on the index page and logged out then we send him to the main login page
+    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">User Login</a>
+}

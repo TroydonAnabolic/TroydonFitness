@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+<div class=" login-logout-tab text-center">
+    <div class="card-header ">
+        <a class="signup-main" asp-area="Identity" asp-page="/Account/Login">Log In</a>
+        <a class=" signup-main" asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
+    </div>
+    <div class="card-content">
+        <div class="row">
+            <div class="col-md-12">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("scripts", required: false)
+}

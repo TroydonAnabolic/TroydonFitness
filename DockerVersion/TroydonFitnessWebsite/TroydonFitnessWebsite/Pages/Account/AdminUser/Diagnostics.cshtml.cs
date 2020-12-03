@@ -27,7 +27,7 @@ namespace TroydonFitnessWebsite.Pages.UserAccount.AdminUser
                 group product by product.HasStock into statsGroup
                 select new Diagnostic()
                 {
-                    HasStock = statsGroup.Key,
+                    HasStock = (Models.Products.Product.Availability)statsGroup.Key,
                     ProductCount = statsGroup.Count()
                 };
 

@@ -23,14 +23,12 @@ namespace TroydonFitnessWebsite.Models.Products
         public string ShortDescription { get; set; }
 
         // Below  Details to be passed down to sub classess
-        [Required]
+        // TODO: Make price quantity and has stock as optional as some items need to be individually priced, update in order too
         [DataType(DataType.Currency)]
-        public decimal Price { get; set; }
-        [Required]
-        public int Quantity { get; set; }
-        [Required]
+        public decimal? Price { get; set; }
+        public int? Quantity { get; set; }
         [Display(Name = "Stock Availability")]
-        public Availability HasStock { get; set; }
+        public Availability? HasStock { get; set; }
 
         public enum Availability
         {
@@ -47,5 +45,6 @@ namespace TroydonFitnessWebsite.Models.Products
         public bool IsChecked { get; set; }
         // For Admin
         // property Sold (to be auto increment on purchase)
+
     }
 }

@@ -30,7 +30,10 @@ namespace TroydonFitnessWebsite.Pages.CustomisedModel
         public SelectList RoutineLengthSL { get; set; }
         public SelectList SessionTypeSL { get; set; }
         public SelectList DifficultySL { get; set; }
+        public SelectList SupplementIDSL { get; set; }
+        public SelectList SupplementNameSL { get; set; }
         public SelectList OrdersSL { get; set; }
+
 
 
         // gather drop down data from related entities
@@ -50,14 +53,18 @@ namespace TroydonFitnessWebsite.Pages.CustomisedModel
 
             // training query
             var trainQuery = from d in _context.TrainingRoutines
-                          orderby d.PersonalTrainingID descending// Sort by name.
+                          orderby d.PersonalTrainingID descending// Sort by id.
                           select d;
+
+            // supplement query
+            var suppQuery = from d in _context.Supplements
+                             orderby d.SupplementID descending// Sort by id.
+                             select d;
 
             // orders query
             var orderQuery = from d in _context.Orders
-                             orderby d.TrainingRoutineID descending// Sort by name.
+                             orderby d.OrderID descending// Sort by name.
                              select d;
-
 
             // prod
             ProductIDSL = new SelectList(productQuery.AsNoTracking(),
@@ -82,7 +89,13 @@ namespace TroydonFitnessWebsite.Pages.CustomisedModel
             TrainingRoutineIDSL = new SelectList(trainQuery.AsNoTracking(),
                 "TrainingRoutineID", "TrainingRoutineID", selectedTrainingSession);
             TrainingRoutineNameSL = new SelectList(trainQuery.AsNoTracking(),
-               "TrainingRoutineID", "RoutineName", selectedTrainingSession); 
+               "TrainingRoutineID", "RoutineName", selectedTrainingSession);
+
+            // supplements order
+            SupplementIDSL = new SelectList(suppQuery.AsNoTracking(),
+                "SupplementID", "SupplementID", selectedTrainingSession);
+            SupplementNameSL = new SelectList(suppQuery.AsNoTracking(),
+               "SupplementID", "SupplementName", selectedTrainingSession);
         }
     }
 }

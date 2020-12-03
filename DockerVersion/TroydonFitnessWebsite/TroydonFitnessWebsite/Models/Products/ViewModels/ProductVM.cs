@@ -19,13 +19,10 @@ namespace TroydonFitnessWebsite.Models.Products
         public string ShortDescription { get; set; }
 
         // Below  Details to be passed down to sub classess
-        [Required]
         [DataType(DataType.Currency)]
-        public decimal Price { get; set; }
-        [Required]
-        public int Quantity { get; set; }
-        [Required]
-        public Availability HasStock { get; set; }
+        public decimal? Price { get; set; }
+        public int? Quantity { get; set; }
+        public Availability? HasStock { get; set; }
 
         public enum Availability
         {

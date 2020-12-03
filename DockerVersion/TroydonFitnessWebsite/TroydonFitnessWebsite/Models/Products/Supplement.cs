@@ -27,7 +27,25 @@ namespace TroydonFitnessWebsite.Models.Products
         // Supplement Details
         [Display(Name = "Supplement Name")]
         public string SupplementName { get; set; }
+        public string SupplementDescription { get; set; }
+
+        [Display(Name = "Supplement Picture")]
+        public byte[] SupplementPicture { get; set; }
+        [Display(Name = "Supplement Price")]
+        public decimal? SupplementPrice { get; set; }
+        [Required]
+        [StringLength(2500, MinimumLength = 20, ErrorMessage = "Description needs to be a minimum of 20 characters and a maximum of 250 characters.")]
         public string Description { get; set; }
-        // TODO: Upload Image functionality
+        [Required]
+        public int? SupplementQuantity { get; set; }
+        [Required]
+        public Availability HasStock { get; set; }
+
+        public enum Availability
+        {
+            Available,
+            Unavailable,
+            ComingSoon
+        }
     }
 }

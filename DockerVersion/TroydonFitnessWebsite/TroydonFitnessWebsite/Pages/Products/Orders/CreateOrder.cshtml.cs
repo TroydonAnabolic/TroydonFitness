@@ -114,7 +114,7 @@ namespace TroydonFitnessWebsite.Pages.Products.Orders
                     // if the cart is not empty and training routine is not null then take the training routine branch to extract data
                     if (item.TrainingRoutineID != null)
                     {
-                        OrderVM.Price = item.TrainingRoutine.PersonalTrainingSession.Product.Price;
+                        OrderVM.Price = (decimal)item.TrainingRoutine.PersonalTrainingSession.Product.Price;
                         OrderVM.Quantity = item.Quantity;
                         OrderVM.TrainingRoutine = item.TrainingRoutine;
                         OrderVM.TrainingRoutineID = item.TrainingRoutineID;
@@ -124,7 +124,7 @@ namespace TroydonFitnessWebsite.Pages.Products.Orders
                         OrderVM.Diet = item.Diet;
                         OrderVM.DietID = item.Diet.DietID;
                         OrderVM.ProductName = item.Diet.PersonalTrainingSession.Product.Title;
-                        OrderVM.Price = item.Diet.PersonalTrainingSession.Product.Price;
+                        OrderVM.Price = (decimal)item.Diet.PersonalTrainingSession.Product.Price;
                         OrderVM.Quantity = item.Quantity;
                     }
                 }
@@ -223,8 +223,8 @@ namespace TroydonFitnessWebsite.Pages.Products.Orders
                         OrderDetailVM.ProductID = CartItemsToOrder.FirstOrDefault().TrainingRoutine.PersonalTrainingSession.ProductID;
                         OrderDetailVM.TrainingRoutineID = CartItemsToOrder.FirstOrDefault().TrainingRoutineID;
                         OrderDetailVM.ProductName = CartItemsToOrder.FirstOrDefault().TrainingRoutine.PersonalTrainingSession.Product.Title;
-                        OrderDetailVM.Price = CartItemsToOrder.FirstOrDefault().TrainingRoutine.PersonalTrainingSession.Product.Price;
-                        OrderDetailVM.Quantity = CartItemsToOrder.FirstOrDefault().Quantity;
+                        OrderDetailVM.Price = (decimal)CartItemsToOrder.FirstOrDefault().TrainingRoutine.PersonalTrainingSession.Product.Price;
+                        OrderDetailVM.Quantity = CartItemsToOrder.FirstOrDefault().Quantity; // explicitly cast to decimal from type nullable decimal?
                         OrderDetailVM.PTSessionType = CartItemsToOrder.FirstOrDefault().TrainingRoutine.PersonalTrainingSession.PTSessionType;
                         OrderDetailVM.LengthOfRoutine = CartItemsToOrder.FirstOrDefault().TrainingRoutine.PersonalTrainingSession.LengthOfRoutine;
                         OrderDetailVM.ExperienceLevel = CartItemsToOrder.FirstOrDefault().TrainingRoutine.PersonalTrainingSession.ExperienceLevel;

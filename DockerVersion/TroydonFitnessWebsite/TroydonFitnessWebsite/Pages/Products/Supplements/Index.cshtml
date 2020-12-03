@@ -1,4 +1,8 @@
 ﻿@page
+
+@inject UserManager<TroydonFitnessWebsiteUser> UserManager
+@inject SignInManager<TroydonFitnessWebsiteUser> SignInManager
+
 @model TroydonFitnessWebsite.Pages.Products.Supplements.IndexModel
 
 @{
@@ -6,36 +10,139 @@
 
 }
 
+
+@* Create new training routine order here *@
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <h4>
+        <input type="submit" class="order-button" value="Place Order" />
+    </h4>
+}
+else
+{
+    <form method="post">
+
+        <h4>
+            <input type="submit" class="order-button not-auth" value="Place Order" />
+        </h4>
+    </form>
+}
+
+<hr />
+
+<div class="row create-order hidden">
+    @if (SignInManager.IsSignedIn(User))
+    {
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CartVM.Supplement.Product.Title" class="control-label"></label>
+                        <select asp-for="CartVM.SupplementID" class="form-control"
+                                asp-items="@Model.SupplementNameSL">
+                            <option value="">-- Select Supplement--</option>
+                        </select>
+                        <span asp-validation-for="CartVM.TrainingRoutineID" class="text-danger" />
+                    </div>
+                    @* TODO: Currently only the back end handles inspect element to redirect, will later use JavaScript to make a alert box also tell user max quantity *@
+                    <div class="form-group">
+                        <label asp-for="CartVM.Quantity" class="control-label"></label>
+                        <input asp-for="CartVM.Quantity" class="form-control" value="1" readonly />
+                        <span asp-validation-for="CartVM.Quantity" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Add To Cart" class="btn btn-primary" />
+                    </div>
+                </form>
+                <input type="submit" value="Cancel" class="btn btn-secondary cancel-create" />
+
+            </div>
+    }
+</div>
+
+
+@* Begin Viewing Training Routine *@
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New Training Routine</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    @* By using method type get, we are able to see the query string in the URL and book mark the page with search criteria, also as per W3C guideliness, if we are not inputting data in server use GET *@
+    <div class="form-actions no-color">
+        <p>
+            Find by product title or description:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+@* TODO: Add option to add to cart by clicking on an a plus icon right next to the item instead of using a select list, and do not navigate to the cart *@
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Supplement[0].Product)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.IdSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Supplements[0].Product.ProductID)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Supplement[0].Diet)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.suppIdSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Supplements[0].SupplementID)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Supplement[0].Description)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Supplements[0].Product.Title)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].SupplementPicture)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PriceSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Supplements[0].SupplementPrice)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].Product.HasStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplements[0].Product.ShortDescription)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Supplement)
+        @foreach (var item in Model.Supplements)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.ProductID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Diet.DietID)
+                    @Html.DisplayFor(modelItem => item.SupplementID)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @Html.DisplayFor(modelItem => item.SupplementName) <br /> <em> @Html.DisplayFor(modelItem => item.Product.Title) </em>
+                </td>
+                <td>
+                    <img style="width:7rem;height:7rem; object-fit:cover;" src="data:image/*;base64,@(Convert.ToBase64String(item.SupplementPicture))">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplementPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.HasStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ShortDescription)
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.SupplementID">Edit</a> |
@@ -45,4 +152,27 @@
             </tr>
         }
     </tbody>
+    <thead>
+
+    </thead>
 </table>
+
+@{
+    var prevDisabled = !Model.Supplements.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Supplements.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Supplements.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Supplements.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

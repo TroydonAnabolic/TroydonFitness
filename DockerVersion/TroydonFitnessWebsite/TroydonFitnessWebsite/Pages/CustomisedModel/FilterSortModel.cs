@@ -9,12 +9,13 @@ namespace TroydonFitnessWebsite.Pages.CustomisedModel
     public class FilterSortModel : ProductPageModel
     {
         public FilterSortModel(
-            UserManager<TroydonFitnessWebsiteUser> userManager) : base(userManager)
+            UserManager<TroydonFitnessWebsiteUser> userManager) : base(userManager) 
         {
         }
 
         public string IdSort { get; set; }
         public string ptIdSort { get; set; }
+        public string suppIdSort { get; set; }
         public string DietIdSort { get; set; }
         public string TrainingIdSort { get; set; }
         public string OrderIdSort { get; set; }
@@ -33,6 +34,7 @@ namespace TroydonFitnessWebsite.Pages.CustomisedModel
         {
             IdSort = sortOrder == "id_sort" ? "id_sort_desc" : "id_sort";
             ptIdSort = sortOrder == "ptID" ? "ptID_desc" : "ptID";
+            suppIdSort = sortOrder == "suppID" ? "suppID_desc" : "suppID";
             TrainingIdSort = sortOrder == "trainID" ? "trainID_desc" : "trainID";
             DietIdSort = sortOrder == "dietID" ? "dietID_desc" : "dietID";
             OrderIdSort = sortOrder == "orderID" ? "orderID_desc" : "orderID";

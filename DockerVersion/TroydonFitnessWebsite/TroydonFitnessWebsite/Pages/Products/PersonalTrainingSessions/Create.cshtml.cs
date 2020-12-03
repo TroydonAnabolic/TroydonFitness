@@ -37,13 +37,22 @@ namespace TroydonFitnessWebsite.Pages.Products.PersonalTrainingSessions
         [BindProperty]
         public PersonalTrainingVM PersonalTrainingVM { get; set; }
 
-
         public async Task<IActionResult> OnGet()
         {
+            // gets the logged in user
+            var user = await _userManager.GetUserAsync(HttpContext.User);
 
-            PopulateProductDropDownList(_context);
+            if (user == null)
+            {
+                return RedirectToPage("/Account/Manage/Login");
+            }
 
-            displayProductTitles = await _context.Products.ToListAsync();
+            if (user.IsMasterAdmin)
+            {
+                PopulateProductDropDownList(_context);
+
+                displayProductTitles = await _context.Products.ToListAsync();
+            }
             return Page();
         }
 

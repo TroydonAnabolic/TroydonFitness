@@ -144,9 +144,12 @@ span.dot.active {
 
 /* Payment styling */
 .review-cart {
-    position: absolute;
     bottom: 0;
     font-size: 5rem;
+}
+
+.payment-margin {
+    margin: 0 10rem;
 }
 
 .cart-large {

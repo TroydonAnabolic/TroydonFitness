@@ -598,9 +598,7 @@ section:nth-of-type(5) form {
     margin: 3rem;
 }
 
-.payment-margin {
-    margin: 0 5rem;
-}
+
 
 body > main > div.container2 > form > div > div.col-md-4.mb-4.payment-margin > div > a, body > main > div.container2 > form > div > div.col-md-6.order-md-4.payment-margin > div.form-group > input {
     font-size: 2rem;

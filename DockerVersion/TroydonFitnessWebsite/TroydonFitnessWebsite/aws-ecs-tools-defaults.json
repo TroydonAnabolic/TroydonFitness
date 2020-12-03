@@ -1,0 +1,25 @@
+
+{
+    "region" : "ap-southeast-2",
+    "profile" : "Troydon_MC",
+    "configuration" : "Release",
+    "tag"           : "troydonfitnesswebsite:latest",
+    "docker-build-working-dir" : "",
+    "cluster"                  : "TroydonFitnessWebsiteLinux",
+    "launch-type"              : "EC2",
+    "task-definition-name"     : "TroydonFitnessWebsite",
+    "task-definition-network-mode" : "bridge",
+    "container-name"               : "TroydonFitnessWebsite",
+    "container-memory-hard-limit"  : 500,
+    "container-port-mapping"       : "8080:80",
+    "container-environment-variables" : "\"ASPNETCORE_ENVIRONMENT\"=\"Production\"",
+    "skip-image-push"                 : false,
+    "cluster-service"                 : "TroydonFitnessWebsite",
+    "desired-count"                   : 1,
+    "deployment-minimum-healthy-percent" : 50,
+    "deployment-maximum-percent"         : 200,
+    "elb-target-group"                   : "arn:aws:elasticloadbalancing:ap-southeast-2:072343912040:targetgroup/TroydonFitnessWebsite/b6ddb8202bea9f98",
+    "elb-container-port"                 : 80,
+    "placement-strategy"                 : "spread=attribute:ecs.availability-zone,spread=instanceId",
+    "vstoolkit-deployment-mode"          : "DeployService"
+}

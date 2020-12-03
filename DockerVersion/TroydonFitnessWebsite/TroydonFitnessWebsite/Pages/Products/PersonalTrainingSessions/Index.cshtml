@@ -1,0 +1,147 @@
+﻿@page
+@model TroydonFitnessWebsite.Pages.Products.PersonalTrainingSessions.IndexModel
+
+@{
+    Layout = "~/Pages/Shared/_ProductsLayout.cshtml";
+}
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by product title or description:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.IdSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].Product.ProductID)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ptIdSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].PersonalTrainingID)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.ProductTitleSL"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].PersonalTrainingName)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].PtProductPicture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].Description)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.LenghtOfRoutineSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].LengthOfRoutine)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].PTSessionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonalTrainingSessions[0].ExperienceLevel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PersonalTrainingSessions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonalTrainingID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonalTrainingName)
+                </td>
+                <td>
+                    <img style="width:7rem;height:7rem; object-fit:cover;" src="data:image/*;base64,@(Convert.ToBase64String(item.PtProductPicture))">
+                </td>
+                <td>
+                    @*  Begin Original Product Description *@
+
+                    <!--Table-->
+                    <table id="tablePreview" class="table">
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th> @Html.DisplayNameFor(modelItem => item.Product.Price)</th>
+                                <th> @Html.DisplayNameFor(modelItem => item.Product.LastUpdated)</th>
+                            </tr>
+                        </thead>
+                        <!--Table head-->
+                        <!--Table body-->
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Product.Price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Product.LastUpdated)
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!--Table body-->
+                    </table>
+                    <!--Table-->
+                    @* End main product details *@
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LengthOfRoutine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PTSessionType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExperienceLevel)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.PersonalTrainingID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.PersonalTrainingID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.PersonalTrainingID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@{
+    var prevDisabled = !Model.PersonalTrainingSessions.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.PersonalTrainingSessions.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PersonalTrainingSessions.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.PersonalTrainingSessions.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

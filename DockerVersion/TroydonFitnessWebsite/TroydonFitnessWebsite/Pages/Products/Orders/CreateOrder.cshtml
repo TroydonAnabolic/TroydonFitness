@@ -1,0 +1,254 @@
+﻿@page
+@model TroydonFitnessWebsite.Pages.Products.Orders.CreateOrderModel
+@inject UserManager<TroydonFitnessWebsiteUser> UserManager
+
+@{
+    ViewData["Title"] = "CreateOrder";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<div class="container2">
+    <h4>Confirm Order</h4>
+    <hr />
+
+    @* Cart Summary should be column on the right side, ensure we change these from input, to HTML Display for tomorrow *@
+    <form method="post">
+        <div class="row">
+
+            <div class="col-md-4 mb-4 payment-margin">
+                <h4 class="class=" mb-3">Order Summary</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            @* Display cart items to display depending on the type using the below *@
+                            @{ if (UserManager.GetUserAsync(User).Result.IsMasterAdmin)
+                                {
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CartItemsToOrder[0].Product)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CartItemsToOrder[0].PurchaserID)
+                                    </th>
+                                }
+                            }
+                            <th>
+                                @Html.DisplayNameFor(model => model.CartItemsToOrder[0].Product.Title)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CartItemsToOrder[0].Product.Price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CartItemsToOrder[0].Quantity)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CartItemsToOrder)
+                        {
+                            <tr>
+                                @{ if (UserManager.GetUserAsync(User).Result.IsMasterAdmin)
+                                    {
+                                        <td>
+                                            @* Determine which ID to display based on the type of order *@
+                                            @if (Model.CartItemsToOrder[0].TrainingRoutine != null)
+                                            {
+                                                @Html.DisplayNameFor(model => model.CartItemsToOrder[0].TrainingRoutineID)
+                                                <span> : </span>
+                                                @Html.DisplayFor(modelItem => item.TrainingRoutineID)
+                                            }
+                                            else if (Model.CartItemsToOrder[0].Diet != null)
+                                            {
+                                                @Html.DisplayNameFor(model => model.CartItemsToOrder[0].DietID)
+                                                <span> : </span>
+                                                @Html.DisplayFor(modelItem => item.DietID)
+                                            }
+                                            else if (Model.CartItemsToOrder[0].Supplement != null)
+                                            {
+                                                @Html.DisplayNameFor(model => model.CartItemsToOrder[0].SupplementID)
+                                                <span> : </span>
+                                                @Html.DisplayFor(modelItem => item.SupplementID)
+                                            }
+                                            else if (Model.CartItemsToOrder[0].TrainingEquipment != null)
+                                            {
+                                                @Html.DisplayNameFor(model => model.CartItemsToOrder[0].TrainingEquipmentID)
+                                                <span> : </span>
+                                                @Html.DisplayFor(modelItem => item.TrainingEquipmentID)
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PurchaserID)
+                                        </td>
+                                    }
+                                }
+                                <td>
+                                    @* Display data depending on the typ eof oder, e.g if training routine is not null, then display it's data *@
+                                    @if (Model.CartItemsToOrder[0].TrainingRoutine != null)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.TrainingRoutine.RoutineName)
+                                    }
+                                    else if (Model.CartItemsToOrder[0].Diet != null)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Diet.PersonalTrainingSession.PersonalTrainingName)
+                                    }
+                                    else if (Model.CartItemsToOrder[0].Supplement != null)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.Supplement.SupplementName)
+                                    }
+                                    else if (Model.CartItemsToOrder[0].TrainingEquipment != null)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.TrainingEquipment.EquipmentName)
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TrainingRoutine.PersonalTrainingSession.Product.Price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @* Go to review cart *@
+                <div>
+                    <a asp-area="" asp-page="/Products/Orders/ManageCart/ViewCart" class="btn btn-primary review-cart text-lg-center">Review Cart</a>
+                </div>
+            </div>
+            @* End cart items*@
+            @* Begin with billing address, and payment options *@
+            <div class="col-md-6 order-md-4 payment-margin">
+                <h4 class="class=" mb-3">Billing Address</h4>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3 form-group">
+                        <label for="first-name" class="control-label">
+                            @Html.DisplayNameFor(model => model.OrderVM.FirstName)
+                        </label>
+                        <input type="text" class="form-control" id="first-name" readonly
+                               asp-for="OrderVM.FirstName"
+                               value="@UserManager.GetUserAsync(User).Result.FirstName">
+
+                        <span asp-validation-for="@UserManager.GetUserAsync(User).Result.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="last-name">
+                            @Html.DisplayNameFor(model => model.OrderVM.LastName)
+                        </label>
+                        <input type="text" class="form-control" id="last-name" readonly
+                               value="@UserManager.GetUserAsync(User).Result.LastName">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email">
+                        @Html.DisplayNameFor(model => model.OrderVM.Email)
+                    </label>
+                    <input type="text" class="form-control" id="email" readonly
+                           value="@UserManager.GetUserAsync(User).Result.Email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="address-1">
+                        @Html.DisplayNameFor(model => model.OrderVM.AddressLine1)
+                    </label>
+                    <input type="text" class="form-control" id="address-1" readonly
+                           value="@UserManager.GetUserAsync(User).Result.AddressLine1">
+                </div>
+                <div class="mb-3">
+                    <label for="address-2">
+                        @Html.DisplayNameFor(model => model.OrderVM.AddressLine2)
+                    </label>
+                    <input type="text" class="form-control" id="address-1" readonly
+                           value="@UserManager.GetUserAsync(User).Result.AddressLine2">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="city">
+                            @Html.DisplayNameFor(model => model.OrderVM.City)
+                        </label>
+                        <input type="text" class="form-control" id="city" readonly
+                               value="@UserManager.GetUserAsync(User).Result.City">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="state">
+                            @Html.DisplayNameFor(model => model.OrderVM.State)
+                        </label>
+                        <input type="text" class="form-control" id="state" readonly
+                               value="@UserManager.GetUserAsync(User).Result.State">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="zip">
+                            @Html.DisplayNameFor(model => model.OrderVM.Zip)
+                        </label>
+                        <input type="text" class="form-control" id="zip" readonly
+                               value="@UserManager.GetUserAsync(User).Result.Zip">
+                    </div>
+                </div>
+                @* Edit personal details or address *@
+                <div class="col-md-6 mb-3">
+                    <a id="manage" class="btn btn-primary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Edit Details</a>
+                </div>
+                <h4 class="mb-3">Payment</h4>
+                @*TODO: Edit these for a custom personalised layout, just use current for demonstration*@
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="credit">Credit card</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="debit">Debit card</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="paypal">Paypal</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-name">Name on card</label>
+                        <input type="text" class="form-control" id="cc-name" placeholder="" value="Troydon Luicien" required>
+                        <small class="text-muted">Full name as displayed on card</small>
+                        <div class="invalid-feedback">
+                            Name on card is required
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-number">Credit card number</label>
+                        <input type="text" class="form-control" id="cc-number" placeholder="" value="0000000000000000" required>
+                        <div class="invalid-feedback">
+                            Credit card number is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-expiration">Expiration</label>
+                        <input type="text" class="form-control" id="cc-expiration" placeholder="" value="02/2023" required>
+                        <div class="invalid-feedback">
+                            Expiration date required
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-expiration">CVV</label>
+                        <input type="text" class="form-control" id="cc-cvv" placeholder="" value="123" required>
+                        <div class="invalid-feedback">
+                            Security code required
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <div class="form-group">
+                    <input type="submit" value="Complete Order" class="btn btn-primary btn-lg btn-block" />
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

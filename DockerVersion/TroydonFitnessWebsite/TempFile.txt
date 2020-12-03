@@ -1,0 +1,19 @@
+TempFile\
+
+docker system prune -a
+
+docker build -t troydon-fitness-website .
+
+docker run -d -p 8080:80 --name troydon-fitness-website-container1 troydon-fitness-website
+
+try changing Visual studio to use docker for linux instead of windows as we cannot change docker host to windows without windows pro
+
+Output:
+
+Challenge 1:
+
+This is going to be tricky ;)
+
+2 ** 3 = 8
+
+Challenge complete

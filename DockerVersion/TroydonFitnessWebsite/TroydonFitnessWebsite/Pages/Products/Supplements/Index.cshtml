@@ -1,0 +1,48 @@
+﻿@page
+@model TroydonFitnessWebsite.Pages.Products.Supplements.IndexModel
+
+@{
+    Layout = "~/Pages/Shared/_ProductsLayout.cshtml";
+
+}
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplement[0].Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplement[0].Diet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplement[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Supplement)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diet.DietID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.SupplementID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.SupplementID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.SupplementID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

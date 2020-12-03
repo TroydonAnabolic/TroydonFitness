@@ -1,9 +1,0 @@
-﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
-
-
-var tokens = new InitialApplicationState
-{
-    
-
-    XsrfToken = Xsrf.GetAndStoreTokens(HttpContext).RequestToken
-};

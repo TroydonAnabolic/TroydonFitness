@@ -108,7 +108,7 @@ namespace TroydonFitnessWebsite
                .AddCertificate();
 
             // confirm email settings
-            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings")); 
             services.AddTransient<IMailService, MailService>();
 
             // add pages

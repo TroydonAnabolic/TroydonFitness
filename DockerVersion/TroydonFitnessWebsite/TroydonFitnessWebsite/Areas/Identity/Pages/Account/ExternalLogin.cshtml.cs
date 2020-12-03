@@ -204,7 +204,7 @@ namespace TroydonFitnessWebsite.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        // SEND WELCOME CONFIRMATION EMAIL
+                        // SEND WELCOME CONFIRMATION EMAIL --- it is not getting the secret values?
                         await _mailService.SendWelcomeEmailAsync(request,
                            HtmlEncoder.Default.Encode(callbackUrl), Input.Email, Input.FirstName);
 

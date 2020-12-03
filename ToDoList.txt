@@ -1,0 +1,7 @@
+﻿1. Add safety by using Lambda expressions on all pages classes.
+2. Add Error message to all pages classes using Product.cshtml.cs
+3. Create all pages for remaining Entities.
+4. Use same methodology for search bar in main home page to return search results.
+5. Add a section to show client results in the about page using the data from client user profiles if possible?
+6. Add Option for user to upload images.
+

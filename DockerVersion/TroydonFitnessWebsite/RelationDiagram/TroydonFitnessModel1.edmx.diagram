@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33f75b86e0b649818cf7def123c60ecf" Name="Diagram1">
+        <EntityTypeShape EntityType="ProductContextDBModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.AspNetRole" Width="1.5" PointX="2.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.AspNetUser" Width="1.5" PointX="5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.Cart" Width="1.5" PointX="7.5" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.Diet" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.Order" Width="1.5" PointX="10.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.OrderDetail" Width="1.5" PointX="12.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.PersonalTraining" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.Product" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.Supplement" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TFRoleClaim" Width="1.5" PointX="5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TFRole" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TFUserClaim" Width="1.5" PointX="7.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TFUserLogin" Width="1.5" PointX="7.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TFUser" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TFUserToken" Width="1.5" PointX="7.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TrainingEquipment" Width="1.5" PointX="3" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProductContextDBModel.TrainingRoutine" Width="1.5" PointX="5.25" PointY="26.125" IsExpanded="true" />
+        <AssociationConnector Association="ProductContextDBModel.FK_TFRoleClaims_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_TFUserClaims_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_TFUserLogins_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_TFUserTokens_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_Diet_DietID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_Order_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_OrderDetails_OrderDetailID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_Supplement_SupplementID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_TrainingEquipment_TrainingEquipmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Cart_TrainingRoutine_TrainingRoutineID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Diet_PersonalTraining_PersonalTrainingID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Order_Diet_DietID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_OrderDetails_Diet_DietID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Supplement_Diet_DietID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Order_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Order_Supplement_SupplementID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Order_TrainingEquipment_TrainingEquipmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Order_TrainingRoutine_TrainingRoutineID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_OrderDetails_Order_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_OrderDetails_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_OrderDetails_Supplement_SupplementID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_OrderDetails_TrainingEquipment_TrainingEquipmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_OrderDetails_TrainingRoutine_TrainingRoutineID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_PersonalTraining_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_TrainingRoutine_PersonalTraining_PersonalTrainingID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_Supplement_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.FK_TrainingEquipment_Product_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProductContextDBModel.TFUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

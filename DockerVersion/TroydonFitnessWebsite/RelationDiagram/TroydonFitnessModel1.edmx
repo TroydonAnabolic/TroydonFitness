@@ -1,0 +1,1985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProductContextDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedName" Type="nvarchar" MaxLength="256" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedUserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnd" Type="datetimeoffset" Precision="7" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="IsMasterAdmin" Type="bit" Nullable="false" />
+          <Property Name="CoolOffDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="TimeLeft" Type="time" Precision="7" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="20" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" />
+          <Property Name="State" Type="nchar" MaxLength="3" />
+          <Property Name="Zip" Type="nchar" MaxLength="4" />
+          <Property Name="DateOfBirth" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Height" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="ActivityType" Type="int" Nullable="false" />
+          <Property Name="Bodyfat" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainingRoutineID" Type="int" />
+          <Property Name="DietID" Type="int" />
+          <Property Name="SupplementID" Type="int" />
+          <Property Name="TrainingEquipmentID" Type="int" />
+          <Property Name="PurchaserID" Type="nvarchar(max)" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="PersonalTrainingSessionPersonalTrainingID" Type="int" />
+          <Property Name="OrderDetailID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Diet">
+          <Key>
+            <PropertyRef Name="DietID" />
+          </Key>
+          <Property Name="DietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonalTrainingID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="DietName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Allergies" Type="nvarchar(max)" />
+          <Property Name="PreferredFood" Type="nvarchar(max)" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainingRoutineID" Type="int" />
+          <Property Name="DietID" Type="int" />
+          <Property Name="SupplementID" Type="int" />
+          <Property Name="TrainingEquipmentID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="NumberOfItemsOrdered" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="uniqueidentifier" />
+          <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="OrderUpdated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="PurchaserID" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="AddressLine1" Type="nvarchar(max)" />
+          <Property Name="AddressLine2" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="Zip" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TrainingRoutineID" Type="int" />
+          <Property Name="DietID" Type="int" />
+          <Property Name="SupplementID" Type="int" />
+          <Property Name="TrainingEquipmentID" Type="int" />
+          <Property Name="PurchaserID" Type="nvarchar(max)" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="OrderNumber" Type="uniqueidentifier" />
+          <Property Name="OrderDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="OrderUpdated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CurrentOrderItemNumber" Type="int" Nullable="false" />
+          <Property Name="PTSessionType" Type="int" Nullable="false" />
+          <Property Name="LengthOfRoutine" Type="int" Nullable="false" />
+          <Property Name="ExperienceLevel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonalTraining">
+          <Key>
+            <PropertyRef Name="PersonalTrainingID" />
+          </Key>
+          <Property Name="PersonalTrainingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PersonalTrainingName" Type="nvarchar(max)" />
+          <Property Name="LengthOfRoutine" Type="int" Nullable="false" />
+          <Property Name="PTSessionType" Type="int" Nullable="false" />
+          <Property Name="ExperienceLevel" Type="int" Nullable="false" />
+          <Property Name="PtProductPicture" Type="varbinary(max)" />
+          <Property Name="IsFeatured" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="ShortDescription" Type="nvarchar(max)" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="HasStock" Type="int" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="IsChecked" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supplement">
+          <Key>
+            <PropertyRef Name="SupplementID" />
+          </Key>
+          <Property Name="SupplementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="DietID" Type="int" />
+          <Property Name="SupplementName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TFRoleClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TFRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="NormalizedName" Type="nvarchar(max)" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TFUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="CType" Type="nvarchar(max)" />
+          <Property Name="CValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TFUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TFUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="450" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TFUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="NormalizedUserName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="NormalizedEmail" Type="nvarchar(max)" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnd" Type="datetimeoffset" Precision="7" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TFUserTokens">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TrainingEquipment">
+          <Key>
+            <PropertyRef Name="TrainingEquipmentID" />
+          </Key>
+          <Property Name="TrainingEquipmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="EquipmentName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TrainingRoutine">
+          <Key>
+            <PropertyRef Name="TrainingRoutineID" />
+          </Key>
+          <Property Name="TrainingRoutineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonalTrainingID" Type="int" Nullable="false" />
+          <Property Name="RoutineName" Type="nvarchar(max)" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+          <Property Name="DailyAvailability" Type="nvarchar(max)" />
+          <Property Name="Monday" Type="nvarchar(max)" />
+          <Property Name="Tuesday" Type="nvarchar(max)" />
+          <Property Name="Wednesday" Type="nvarchar(max)" />
+          <Property Name="Thursday" Type="nvarchar(max)" />
+          <Property Name="Friday" Type="nvarchar(max)" />
+          <Property Name="Saturday" Type="nvarchar(max)" />
+          <Property Name="Sunday" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Cart_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Order_OrderID">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_OrderDetails_OrderDetailID">
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetails">
+              <PropertyRef Name="OrderDetailID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="OrderDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID">
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalTraining">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="PersonalTrainingSessionPersonalTrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Supplement_SupplementID">
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplement">
+              <PropertyRef Name="SupplementID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="SupplementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_TrainingEquipment_TrainingEquipmentID">
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingEquipment">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_TrainingRoutine_TrainingRoutineID">
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingRoutine">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diet_PersonalTraining_PersonalTrainingID">
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Diet" Type="Self.Diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalTraining">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Principal>
+            <Dependent Role="Diet">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Supplement_SupplementID">
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplement">
+              <PropertyRef Name="SupplementID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="SupplementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TrainingEquipment_TrainingEquipmentID">
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingEquipment">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TrainingRoutine_TrainingRoutineID">
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingRoutine">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Order_OrderID">
+          <End Role="Order" Type="Self.Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Supplement_SupplementID">
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplement">
+              <PropertyRef Name="SupplementID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="SupplementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_TrainingEquipment_TrainingEquipmentID">
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingEquipment">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_TrainingRoutine_TrainingRoutineID">
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingRoutine">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonalTraining_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="PersonalTraining">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplement_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="Supplement">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplement_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Supplement">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFRoleClaims_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFRoleClaims" Type="Self.TFRoleClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFRoleClaims">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserClaims" Type="Self.TFUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserLogins" Type="Self.TFUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserRoles_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserRoles" Type="Self.TFUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserRoles_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserRoles" Type="Self.TFUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserTokens_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserTokens" Type="Self.TFUserTokens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserTokens">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrainingEquipment_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="TrainingEquipment">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrainingRoutine_PersonalTraining_PersonalTrainingID">
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalTraining">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Principal>
+            <Dependent Role="TrainingRoutine">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProductContextDBModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Diet" EntityType="Self.Diet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonalTraining" EntityType="Self.PersonalTraining" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplement" EntityType="Self.Supplement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFRoleClaims" EntityType="Self.TFRoleClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFRoles" EntityType="Self.TFRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFUserClaims" EntityType="Self.TFUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFUserLogins" EntityType="Self.TFUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFUserRoles" EntityType="Self.TFUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFUsers" EntityType="Self.TFUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TFUserTokens" EntityType="Self.TFUserTokens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainingEquipment" EntityType="Self.TrainingEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainingRoutine" EntityType="Self.TrainingRoutine" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cart_Diet_DietID" Association="Self.FK_Cart_Diet_DietID">
+            <End Role="Diet" EntitySet="Diet" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Order_OrderID" Association="Self.FK_Cart_Order_OrderID">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_OrderDetails_OrderDetailID" Association="Self.FK_Cart_OrderDetails_OrderDetailID">
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID" Association="Self.FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID">
+            <End Role="PersonalTraining" EntitySet="PersonalTraining" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Product_ProductID" Association="Self.FK_Cart_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Supplement_SupplementID" Association="Self.FK_Cart_Supplement_SupplementID">
+            <End Role="Supplement" EntitySet="Supplement" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_TrainingEquipment_TrainingEquipmentID" Association="Self.FK_Cart_TrainingEquipment_TrainingEquipmentID">
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipment" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_TrainingRoutine_TrainingRoutineID" Association="Self.FK_Cart_TrainingRoutine_TrainingRoutineID">
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutine" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diet_PersonalTraining_PersonalTrainingID" Association="Self.FK_Diet_PersonalTraining_PersonalTrainingID">
+            <End Role="PersonalTraining" EntitySet="PersonalTraining" />
+            <End Role="Diet" EntitySet="Diet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Diet_DietID" Association="Self.FK_Order_Diet_DietID">
+            <End Role="Diet" EntitySet="Diet" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product_ProductID" Association="Self.FK_Order_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Supplement_SupplementID" Association="Self.FK_Order_Supplement_SupplementID">
+            <End Role="Supplement" EntitySet="Supplement" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TrainingEquipment_TrainingEquipmentID" Association="Self.FK_Order_TrainingEquipment_TrainingEquipmentID">
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipment" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TrainingRoutine_TrainingRoutineID" Association="Self.FK_Order_TrainingRoutine_TrainingRoutineID">
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutine" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Diet_DietID" Association="Self.FK_OrderDetails_Diet_DietID">
+            <End Role="Diet" EntitySet="Diet" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Order_OrderID" Association="Self.FK_OrderDetails_Order_OrderID">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Product_ProductID" Association="Self.FK_OrderDetails_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Supplement_SupplementID" Association="Self.FK_OrderDetails_Supplement_SupplementID">
+            <End Role="Supplement" EntitySet="Supplement" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_TrainingEquipment_TrainingEquipmentID" Association="Self.FK_OrderDetails_TrainingEquipment_TrainingEquipmentID">
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipment" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_TrainingRoutine_TrainingRoutineID" Association="Self.FK_OrderDetails_TrainingRoutine_TrainingRoutineID">
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutine" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonalTraining_Product_ProductID" Association="Self.FK_PersonalTraining_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="PersonalTraining" EntitySet="PersonalTraining" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplement_Diet_DietID" Association="Self.FK_Supplement_Diet_DietID">
+            <End Role="Diet" EntitySet="Diet" />
+            <End Role="Supplement" EntitySet="Supplement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplement_Product_ProductID" Association="Self.FK_Supplement_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Supplement" EntitySet="Supplement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFRoleClaims_AspNetRoles_RoleId" Association="Self.FK_TFRoleClaims_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="TFRoleClaims" EntitySet="TFRoleClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserClaims_AspNetUsers_UserId" Association="Self.FK_TFUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TFUserClaims" EntitySet="TFUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserLogins_AspNetUsers_UserId" Association="Self.FK_TFUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TFUserLogins" EntitySet="TFUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserRoles_AspNetRoles_RoleId" Association="Self.FK_TFUserRoles_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="TFUserRoles" EntitySet="TFUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserRoles_AspNetUsers_UserId" Association="Self.FK_TFUserRoles_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TFUserRoles" EntitySet="TFUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserTokens_AspNetUsers_UserId" Association="Self.FK_TFUserTokens_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TFUserTokens" EntitySet="TFUserTokens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrainingEquipment_Product_ProductID" Association="Self.FK_TrainingEquipment_Product_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrainingRoutine_PersonalTraining_PersonalTrainingID" Association="Self.FK_TrainingRoutine_PersonalTraining_PersonalTrainingID">
+            <End Role="PersonalTraining" EntitySet="PersonalTraining" />
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutine" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductContextDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TFRoleClaims" Relationship="Self.FK_TFRoleClaims_AspNetRoles_RoleId" FromRole="AspNetRoles" ToRole="TFRoleClaims" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.TFUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="7" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="IsMasterAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="CoolOffDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="TimeLeft" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="AddressLine1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Height" Type="Double" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="ActivityType" Type="Int32" Nullable="false" />
+          <Property Name="Bodyfat" Type="Double" Nullable="false" />
+          <NavigationProperty Name="TFUserClaims" Relationship="Self.FK_TFUserClaims_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="TFUserClaims" />
+          <NavigationProperty Name="TFUserLogins" Relationship="Self.FK_TFUserLogins_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="TFUserLogins" />
+          <NavigationProperty Name="TFUserTokens" Relationship="Self.FK_TFUserTokens_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="TFUserTokens" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.TFUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainingRoutineID" Type="Int32" />
+          <Property Name="DietID" Type="Int32" />
+          <Property Name="SupplementID" Type="Int32" />
+          <Property Name="TrainingEquipmentID" Type="Int32" />
+          <Property Name="PurchaserID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="PersonalTrainingSessionPersonalTrainingID" Type="Int32" />
+          <Property Name="OrderDetailID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Diet" Relationship="Self.FK_Cart_Diet_DietID" FromRole="Cart" ToRole="Diet" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Cart_Order_OrderID" FromRole="Cart" ToRole="Order" />
+          <NavigationProperty Name="OrderDetail" Relationship="Self.FK_Cart_OrderDetails_OrderDetailID" FromRole="Cart" ToRole="OrderDetails" />
+          <NavigationProperty Name="PersonalTraining" Relationship="Self.FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID" FromRole="Cart" ToRole="PersonalTraining" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Cart_Product_ProductID" FromRole="Cart" ToRole="Product" />
+          <NavigationProperty Name="Supplement" Relationship="Self.FK_Cart_Supplement_SupplementID" FromRole="Cart" ToRole="Supplement" />
+          <NavigationProperty Name="TrainingEquipment" Relationship="Self.FK_Cart_TrainingEquipment_TrainingEquipmentID" FromRole="Cart" ToRole="TrainingEquipment" />
+          <NavigationProperty Name="TrainingRoutine" Relationship="Self.FK_Cart_TrainingRoutine_TrainingRoutineID" FromRole="Cart" ToRole="TrainingRoutine" />
+        </EntityType>
+        <EntityType Name="Diet">
+          <Key>
+            <PropertyRef Name="DietID" />
+          </Key>
+          <Property Name="DietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalTrainingID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="DietName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Allergies" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreferredFood" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Diet_DietID" FromRole="Diet" ToRole="Cart" />
+          <NavigationProperty Name="PersonalTraining" Relationship="Self.FK_Diet_PersonalTraining_PersonalTrainingID" FromRole="Diet" ToRole="PersonalTraining" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Diet_DietID" FromRole="Diet" ToRole="Order" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Diet_DietID" FromRole="Diet" ToRole="OrderDetails" />
+          <NavigationProperty Name="Supplements" Relationship="Self.FK_Supplement_Diet_DietID" FromRole="Diet" ToRole="Supplement" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainingRoutineID" Type="Int32" />
+          <Property Name="DietID" Type="Int32" />
+          <Property Name="SupplementID" Type="Int32" />
+          <Property Name="TrainingEquipmentID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfItemsOrdered" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="Guid" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="OrderUpdated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="PurchaserID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Order_OrderID" FromRole="Order" ToRole="Cart" />
+          <NavigationProperty Name="Diet" Relationship="Self.FK_Order_Diet_DietID" FromRole="Order" ToRole="Diet" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product_ProductID" FromRole="Order" ToRole="Product" />
+          <NavigationProperty Name="Supplement" Relationship="Self.FK_Order_Supplement_SupplementID" FromRole="Order" ToRole="Supplement" />
+          <NavigationProperty Name="TrainingEquipment" Relationship="Self.FK_Order_TrainingEquipment_TrainingEquipmentID" FromRole="Order" ToRole="TrainingEquipment" />
+          <NavigationProperty Name="TrainingRoutine" Relationship="Self.FK_Order_TrainingRoutine_TrainingRoutineID" FromRole="Order" ToRole="TrainingRoutine" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Order_OrderID" FromRole="Order" ToRole="OrderDetails" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TrainingRoutineID" Type="Int32" />
+          <Property Name="DietID" Type="Int32" />
+          <Property Name="SupplementID" Type="Int32" />
+          <Property Name="TrainingEquipmentID" Type="Int32" />
+          <Property Name="PurchaserID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Guid" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="OrderUpdated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CurrentOrderItemNumber" Type="Int32" Nullable="false" />
+          <Property Name="PTSessionType" Type="Int32" Nullable="false" />
+          <Property Name="LengthOfRoutine" Type="Int32" Nullable="false" />
+          <Property Name="ExperienceLevel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_OrderDetails_OrderDetailID" FromRole="OrderDetails" ToRole="Cart" />
+          <NavigationProperty Name="Diet" Relationship="Self.FK_OrderDetails_Diet_DietID" FromRole="OrderDetails" ToRole="Diet" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetails_Order_OrderID" FromRole="OrderDetails" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Product_ProductID" FromRole="OrderDetails" ToRole="Product" />
+          <NavigationProperty Name="Supplement" Relationship="Self.FK_OrderDetails_Supplement_SupplementID" FromRole="OrderDetails" ToRole="Supplement" />
+          <NavigationProperty Name="TrainingEquipment" Relationship="Self.FK_OrderDetails_TrainingEquipment_TrainingEquipmentID" FromRole="OrderDetails" ToRole="TrainingEquipment" />
+          <NavigationProperty Name="TrainingRoutine" Relationship="Self.FK_OrderDetails_TrainingRoutine_TrainingRoutineID" FromRole="OrderDetails" ToRole="TrainingRoutine" />
+        </EntityType>
+        <EntityType Name="PersonalTraining">
+          <Key>
+            <PropertyRef Name="PersonalTrainingID" />
+          </Key>
+          <Property Name="PersonalTrainingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonalTrainingName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LengthOfRoutine" Type="Int32" Nullable="false" />
+          <Property Name="PTSessionType" Type="Int32" Nullable="false" />
+          <Property Name="ExperienceLevel" Type="Int32" Nullable="false" />
+          <Property Name="PtProductPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID" FromRole="PersonalTraining" ToRole="Cart" />
+          <NavigationProperty Name="Diets" Relationship="Self.FK_Diet_PersonalTraining_PersonalTrainingID" FromRole="PersonalTraining" ToRole="Diet" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_PersonalTraining_Product_ProductID" FromRole="PersonalTraining" ToRole="Product" />
+          <NavigationProperty Name="TrainingRoutines" Relationship="Self.FK_TrainingRoutine_PersonalTraining_PersonalTrainingID" FromRole="PersonalTraining" ToRole="TrainingRoutine" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="HasStock" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="IsChecked" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Product_ProductID" FromRole="Product" ToRole="Cart" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Product_ProductID" FromRole="Product" ToRole="Order" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Product_ProductID" FromRole="Product" ToRole="OrderDetails" />
+          <NavigationProperty Name="PersonalTrainings" Relationship="Self.FK_PersonalTraining_Product_ProductID" FromRole="Product" ToRole="PersonalTraining" />
+          <NavigationProperty Name="Supplements" Relationship="Self.FK_Supplement_Product_ProductID" FromRole="Product" ToRole="Supplement" />
+          <NavigationProperty Name="TrainingEquipments" Relationship="Self.FK_TrainingEquipment_Product_ProductID" FromRole="Product" ToRole="TrainingEquipment" />
+        </EntityType>
+        <EntityType Name="Supplement">
+          <Key>
+            <PropertyRef Name="SupplementID" />
+          </Key>
+          <Property Name="SupplementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="DietID" Type="Int32" />
+          <Property Name="SupplementName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Supplement_SupplementID" FromRole="Supplement" ToRole="Cart" />
+          <NavigationProperty Name="Diet" Relationship="Self.FK_Supplement_Diet_DietID" FromRole="Supplement" ToRole="Diet" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Supplement_SupplementID" FromRole="Supplement" ToRole="Order" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Supplement_SupplementID" FromRole="Supplement" ToRole="OrderDetails" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Supplement_Product_ProductID" FromRole="Supplement" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="TFRoleClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetRole" Relationship="Self.FK_TFRoleClaims_AspNetRoles_RoleId" FromRole="TFRoleClaims" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="TFRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TFUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_TFUserClaims_AspNetUsers_UserId" FromRole="TFUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="TFUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderDisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_TFUserLogins_AspNetUsers_UserId" FromRole="TFUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="TFUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedUserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="7" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TFUserToken">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_TFUserTokens_AspNetUsers_UserId" FromRole="TFUserTokens" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="TrainingEquipment">
+          <Key>
+            <PropertyRef Name="TrainingEquipmentID" />
+          </Key>
+          <Property Name="TrainingEquipmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="EquipmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_TrainingEquipment_TrainingEquipmentID" FromRole="TrainingEquipment" ToRole="Cart" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_TrainingEquipment_TrainingEquipmentID" FromRole="TrainingEquipment" ToRole="Order" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_TrainingEquipment_TrainingEquipmentID" FromRole="TrainingEquipment" ToRole="OrderDetails" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_TrainingEquipment_Product_ProductID" FromRole="TrainingEquipment" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="TrainingRoutine">
+          <Key>
+            <PropertyRef Name="TrainingRoutineID" />
+          </Key>
+          <Property Name="TrainingRoutineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonalTrainingID" Type="Int32" Nullable="false" />
+          <Property Name="RoutineName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DailyAvailability" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Monday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tuesday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Wednesday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Thursday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Friday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Saturday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sunday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_TrainingRoutine_TrainingRoutineID" FromRole="TrainingRoutine" ToRole="Cart" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_TrainingRoutine_TrainingRoutineID" FromRole="TrainingRoutine" ToRole="Order" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_TrainingRoutine_TrainingRoutineID" FromRole="TrainingRoutine" ToRole="OrderDetails" />
+          <NavigationProperty Name="PersonalTraining" Relationship="Self.FK_TrainingRoutine_PersonalTraining_PersonalTrainingID" FromRole="TrainingRoutine" ToRole="PersonalTraining" />
+        </EntityType>
+        <Association Name="FK_TFRoleClaims_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFRoleClaims" Type="Self.TFRoleClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFRoleClaims">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserClaims_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserClaims" Type="Self.TFUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserLogins_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserLogins" Type="Self.TFUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TFUserTokens_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TFUserTokens" Type="Self.TFUserToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TFUserTokens">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Order_OrderID">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_OrderDetails_OrderDetailID">
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetails">
+              <PropertyRef Name="OrderDetailID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="OrderDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID">
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalTraining">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="PersonalTrainingSessionPersonalTrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_Supplement_SupplementID">
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplement">
+              <PropertyRef Name="SupplementID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="SupplementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_TrainingEquipment_TrainingEquipmentID">
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingEquipment">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cart_TrainingRoutine_TrainingRoutineID">
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="0..1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingRoutine">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diet_PersonalTraining_PersonalTrainingID">
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Diet" Type="Self.Diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalTraining">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Principal>
+            <Dependent Role="Diet">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplement_Diet_DietID">
+          <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Diet">
+              <PropertyRef Name="DietID" />
+            </Principal>
+            <Dependent Role="Supplement">
+              <PropertyRef Name="DietID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Supplement_SupplementID">
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplement">
+              <PropertyRef Name="SupplementID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="SupplementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TrainingEquipment_TrainingEquipmentID">
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingEquipment">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_TrainingRoutine_TrainingRoutineID">
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingRoutine">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Order_OrderID">
+          <End Role="Order" Type="Self.Order" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Supplement_SupplementID">
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplement">
+              <PropertyRef Name="SupplementID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="SupplementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_TrainingEquipment_TrainingEquipmentID">
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingEquipment">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="TrainingEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_TrainingRoutine_TrainingRoutineID">
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingRoutine">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="TrainingRoutineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonalTraining_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="PersonalTraining">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrainingRoutine_PersonalTraining_PersonalTrainingID">
+          <End Role="PersonalTraining" Type="Self.PersonalTraining" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrainingRoutine" Type="Self.TrainingRoutine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalTraining">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Principal>
+            <Dependent Role="TrainingRoutine">
+              <PropertyRef Name="PersonalTrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplement_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supplement" Type="Self.Supplement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Supplement">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrainingEquipment_Product_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrainingEquipment" Type="Self.TrainingEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="TrainingEquipment">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TFUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ProductContextDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Carts" EntityType="Self.Cart" />
+          <EntitySet Name="Diets" EntityType="Self.Diet" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="PersonalTrainings" EntityType="Self.PersonalTraining" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Supplements" EntityType="Self.Supplement" />
+          <EntitySet Name="TFRoleClaims" EntityType="Self.TFRoleClaim" />
+          <EntitySet Name="TFRoles" EntityType="Self.TFRole" />
+          <EntitySet Name="TFUserClaims" EntityType="Self.TFUserClaim" />
+          <EntitySet Name="TFUserLogins" EntityType="Self.TFUserLogin" />
+          <EntitySet Name="TFUsers" EntityType="Self.TFUser" />
+          <EntitySet Name="TFUserTokens" EntityType="Self.TFUserToken" />
+          <EntitySet Name="TrainingEquipments" EntityType="Self.TrainingEquipment" />
+          <EntitySet Name="TrainingRoutines" EntityType="Self.TrainingRoutine" />
+          <AssociationSet Name="FK_TFRoleClaims_AspNetRoles_RoleId" Association="Self.FK_TFRoleClaims_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="TFRoleClaims" EntitySet="TFRoleClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserClaims_AspNetUsers_UserId" Association="Self.FK_TFUserClaims_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TFUserClaims" EntitySet="TFUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserLogins_AspNetUsers_UserId" Association="Self.FK_TFUserLogins_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TFUserLogins" EntitySet="TFUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TFUserTokens_AspNetUsers_UserId" Association="Self.FK_TFUserTokens_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TFUserTokens" EntitySet="TFUserTokens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Diet_DietID" Association="Self.FK_Cart_Diet_DietID">
+            <End Role="Diet" EntitySet="Diets" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Order_OrderID" Association="Self.FK_Cart_Order_OrderID">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_OrderDetails_OrderDetailID" Association="Self.FK_Cart_OrderDetails_OrderDetailID">
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID" Association="Self.FK_Cart_PersonalTraining_PersonalTrainingSessionPersonalTrainingID">
+            <End Role="PersonalTraining" EntitySet="PersonalTrainings" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Product_ProductID" Association="Self.FK_Cart_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_Supplement_SupplementID" Association="Self.FK_Cart_Supplement_SupplementID">
+            <End Role="Supplement" EntitySet="Supplements" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_TrainingEquipment_TrainingEquipmentID" Association="Self.FK_Cart_TrainingEquipment_TrainingEquipmentID">
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipments" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cart_TrainingRoutine_TrainingRoutineID" Association="Self.FK_Cart_TrainingRoutine_TrainingRoutineID">
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutines" />
+            <End Role="Cart" EntitySet="Carts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diet_PersonalTraining_PersonalTrainingID" Association="Self.FK_Diet_PersonalTraining_PersonalTrainingID">
+            <End Role="PersonalTraining" EntitySet="PersonalTrainings" />
+            <End Role="Diet" EntitySet="Diets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Diet_DietID" Association="Self.FK_Order_Diet_DietID">
+            <End Role="Diet" EntitySet="Diets" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Diet_DietID" Association="Self.FK_OrderDetails_Diet_DietID">
+            <End Role="Diet" EntitySet="Diets" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplement_Diet_DietID" Association="Self.FK_Supplement_Diet_DietID">
+            <End Role="Diet" EntitySet="Diets" />
+            <End Role="Supplement" EntitySet="Supplements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Product_ProductID" Association="Self.FK_Order_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Supplement_SupplementID" Association="Self.FK_Order_Supplement_SupplementID">
+            <End Role="Supplement" EntitySet="Supplements" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TrainingEquipment_TrainingEquipmentID" Association="Self.FK_Order_TrainingEquipment_TrainingEquipmentID">
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipments" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_TrainingRoutine_TrainingRoutineID" Association="Self.FK_Order_TrainingRoutine_TrainingRoutineID">
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutines" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Order_OrderID" Association="Self.FK_OrderDetails_Order_OrderID">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Product_ProductID" Association="Self.FK_OrderDetails_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Supplement_SupplementID" Association="Self.FK_OrderDetails_Supplement_SupplementID">
+            <End Role="Supplement" EntitySet="Supplements" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_TrainingEquipment_TrainingEquipmentID" Association="Self.FK_OrderDetails_TrainingEquipment_TrainingEquipmentID">
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipments" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_TrainingRoutine_TrainingRoutineID" Association="Self.FK_OrderDetails_TrainingRoutine_TrainingRoutineID">
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutines" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonalTraining_Product_ProductID" Association="Self.FK_PersonalTraining_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PersonalTraining" EntitySet="PersonalTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrainingRoutine_PersonalTraining_PersonalTrainingID" Association="Self.FK_TrainingRoutine_PersonalTraining_PersonalTrainingID">
+            <End Role="PersonalTraining" EntitySet="PersonalTrainings" />
+            <End Role="TrainingRoutine" EntitySet="TrainingRoutines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplement_Product_ProductID" Association="Self.FK_Supplement_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Supplement" EntitySet="Supplements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrainingEquipment_Product_ProductID" Association="Self.FK_TrainingEquipment_Product_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="TrainingEquipment" EntitySet="TrainingEquipments" />
+          </AssociationSet>
+          <AssociationSet Name="TFUserRoles" Association="Self.TFUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductContextDBModelStoreContainer" CdmEntityContainer="ProductContextDBEntities">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="ProductContextDBModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="ProductContextDBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NormalizedName" ColumnName="NormalizedName" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ProductContextDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="NormalizedUserName" ColumnName="NormalizedUserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NormalizedEmail" ColumnName="NormalizedEmail" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsMasterAdmin" ColumnName="IsMasterAdmin" />
+                <ScalarProperty Name="CoolOffDate" ColumnName="CoolOffDate" />
+                <ScalarProperty Name="TimeLeft" ColumnName="TimeLeft" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+                <ScalarProperty Name="Bodyfat" ColumnName="Bodyfat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carts">
+            <EntityTypeMapping TypeName="ProductContextDBModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="CartID" ColumnName="CartID" />
+                <ScalarProperty Name="TrainingRoutineID" ColumnName="TrainingRoutineID" />
+                <ScalarProperty Name="DietID" ColumnName="DietID" />
+                <ScalarProperty Name="SupplementID" ColumnName="SupplementID" />
+                <ScalarProperty Name="TrainingEquipmentID" ColumnName="TrainingEquipmentID" />
+                <ScalarProperty Name="PurchaserID" ColumnName="PurchaserID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="PersonalTrainingSessionPersonalTrainingID" ColumnName="PersonalTrainingSessionPersonalTrainingID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Diets">
+            <EntityTypeMapping TypeName="ProductContextDBModel.Diet">
+              <MappingFragment StoreEntitySet="Diet">
+                <ScalarProperty Name="DietID" ColumnName="DietID" />
+                <ScalarProperty Name="PersonalTrainingID" ColumnName="PersonalTrainingID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="DietName" ColumnName="DietName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Allergies" ColumnName="Allergies" />
+                <ScalarProperty Name="PreferredFood" ColumnName="PreferredFood" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ProductContextDBModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="TrainingRoutineID" ColumnName="TrainingRoutineID" />
+                <ScalarProperty Name="DietID" ColumnName="DietID" />
+                <ScalarProperty Name="SupplementID" ColumnName="SupplementID" />
+                <ScalarProperty Name="TrainingEquipmentID" ColumnName="TrainingEquipmentID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="NumberOfItemsOrdered" ColumnName="NumberOfItemsOrdered" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderUpdated" ColumnName="OrderUpdated" />
+                <ScalarProperty Name="PurchaserID" ColumnName="PurchaserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="ProductContextDBModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="TrainingRoutineID" ColumnName="TrainingRoutineID" />
+                <ScalarProperty Name="DietID" ColumnName="DietID" />
+                <ScalarProperty Name="SupplementID" ColumnName="SupplementID" />
+                <ScalarProperty Name="TrainingEquipmentID" ColumnName="TrainingEquipmentID" />
+                <ScalarProperty Name="PurchaserID" ColumnName="PurchaserID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderUpdated" ColumnName="OrderUpdated" />
+                <ScalarProperty Name="CurrentOrderItemNumber" ColumnName="CurrentOrderItemNumber" />
+                <ScalarProperty Name="PTSessionType" ColumnName="PTSessionType" />
+                <ScalarProperty Name="LengthOfRoutine" ColumnName="LengthOfRoutine" />
+                <ScalarProperty Name="ExperienceLevel" ColumnName="ExperienceLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonalTrainings">
+            <EntityTypeMapping TypeName="ProductContextDBModel.PersonalTraining">
+              <MappingFragment StoreEntitySet="PersonalTraining">
+                <ScalarProperty Name="PersonalTrainingID" ColumnName="PersonalTrainingID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PersonalTrainingName" ColumnName="PersonalTrainingName" />
+                <ScalarProperty Name="LengthOfRoutine" ColumnName="LengthOfRoutine" />
+                <ScalarProperty Name="PTSessionType" ColumnName="PTSessionType" />
+                <ScalarProperty Name="ExperienceLevel" ColumnName="ExperienceLevel" />
+                <ScalarProperty Name="PtProductPicture" ColumnName="PtProductPicture" />
+                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ProductContextDBModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="HasStock" ColumnName="HasStock" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplements">
+            <EntityTypeMapping TypeName="ProductContextDBModel.Supplement">
+              <MappingFragment StoreEntitySet="Supplement">
+                <ScalarProperty Name="SupplementID" ColumnName="SupplementID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="DietID" ColumnName="DietID" />
+                <ScalarProperty Name="SupplementName" ColumnName="SupplementName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFRoleClaims">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TFRoleClaim">
+              <MappingFragment StoreEntitySet="TFRoleClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFRoles">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TFRole">
+              <MappingFragment StoreEntitySet="TFRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NormalizedName" ColumnName="NormalizedName" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFUserClaims">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TFUserClaim">
+              <MappingFragment StoreEntitySet="TFUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CType" ColumnName="CType" />
+                <ScalarProperty Name="CValue" ColumnName="CValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFUserLogins">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TFUserLogin">
+              <MappingFragment StoreEntitySet="TFUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="ProviderDisplayName" ColumnName="ProviderDisplayName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFUsers">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TFUser">
+              <MappingFragment StoreEntitySet="TFUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="NormalizedUserName" ColumnName="NormalizedUserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NormalizedEmail" ColumnName="NormalizedEmail" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFUserTokens">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TFUserToken">
+              <MappingFragment StoreEntitySet="TFUserTokens">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainingEquipments">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TrainingEquipment">
+              <MappingFragment StoreEntitySet="TrainingEquipment">
+                <ScalarProperty Name="TrainingEquipmentID" ColumnName="TrainingEquipmentID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="EquipmentName" ColumnName="EquipmentName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainingRoutines">
+            <EntityTypeMapping TypeName="ProductContextDBModel.TrainingRoutine">
+              <MappingFragment StoreEntitySet="TrainingRoutine">
+                <ScalarProperty Name="TrainingRoutineID" ColumnName="TrainingRoutineID" />
+                <ScalarProperty Name="PersonalTrainingID" ColumnName="PersonalTrainingID" />
+                <ScalarProperty Name="RoutineName" ColumnName="RoutineName" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="DailyAvailability" ColumnName="DailyAvailability" />
+                <ScalarProperty Name="Monday" ColumnName="Monday" />
+                <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+                <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+                <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+                <ScalarProperty Name="Friday" ColumnName="Friday" />
+                <ScalarProperty Name="Saturday" ColumnName="Saturday" />
+                <ScalarProperty Name="Sunday" ColumnName="Sunday" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TFUserRoles" TypeName="ProductContextDBModel.TFUserRoles" StoreEntitySet="TFUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
